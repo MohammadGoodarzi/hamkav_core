@@ -1,0 +1,96 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailuserbar %}
+{% load static %}
+
+<section class="grey-bg">
+    <div class="container">
+
+      <div class="row mt-5">
+        <div class="col-lg-12 col-md-12">
+          <div class="tab style-2 text-center">
+            <!-- Nav tabs -->
+
+
+            <div class="section-title">
+              <h2 class="title">محصولات<span>   آهن آلات </span></h2>
+               <p class="mb-0">لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است.</p>
+            </div>
+
+
+
+
+            <div class="col-lg-12 col-md-12">
+                <div class="masonry row columns-4 popup-gallery">
+                  <div class="grid-sizer"></div>
+
+
+
+                  {% for product in productpage %} 
+                  {% with product=product.specific %}
+                  {% with product.main_image as main_image %}
+
+
+                  <div class="masonry-brick cat3">
+                    <div class="portfolio-item price-table">
+                     
+                    {% if main_image %}{% image main_image fill-300x200 %}{% endif %}
+
+                      {% comment %} <img src="{%  static 'images/portfolio/masonry/01.jpg' %}" alt=""> {% endcomment %}
+
+
+
+                      <div class="portfolio-hover" onclick="location.href='{% pageurl product %}';" style="cursor: pointer;">
+
+                        
+                       <div class="portfolio-title">
+                        {% comment %} <span>cat3</span> {% endcomment %}
+                          <h2 style="color:white">{{ product.title }}</h2>
+                        </div>
+
+                     
+                      </div>
+
+
+
+
+
+
+                      <div class="service-description">
+                        <h4>{{product.product_title}} </h4>
+                      <p>{{ product.product_description_brife|richtext }}</p>
+                     </div>
+                   
+                    </div>
+                  </div>
+
+
+
+
+
+                  {% endwith %}
+                  {% endwith %}
+
+                  {% endfor %}   
+
+
+
+
+                </div>
+            </div>
+
+
+                      
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--about end-->
+
+
+</div>

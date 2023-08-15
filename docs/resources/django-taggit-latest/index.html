@@ -1,0 +1,1539 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>django-taggit 1.3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html#document-index" class="icon icon-home"> django-taggit
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-getting_started">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-forms">Tags in forms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#commit-false"><code class="docutils literal notranslate"><span class="pre">commit=False</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-admin">Using tags in the admin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#including-tags-in-modeladmin-list-display">Including tags in <code class="docutils literal notranslate"><span class="pre">ModelAdmin.list_display</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-serializers">Usage With Django Rest Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-api">The API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#filtering">Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-faq">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-custom_tagging">Customizing taggit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-a-custom-tag-or-through-model">Using a Custom Tag or Through Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-a-custom-tag-string-parser">Using a custom tag string parser</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-contributing">Contributing to django-taggit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#reach-out-before-you-start">Reach out before you start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#fork-the-repository">Fork the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#running-tests">Running tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#follow-style-conventions-black-flake8-isort">Follow style conventions (black, flake8, isort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#update-the-documentation">Update the documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#add-a-changelog-line">Add a changelog line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#send-pull-request">Send pull request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#release-checklist">Release Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-external_apps">External Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-changelog">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#unreleased">(Unreleased)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id1">4.0.0 (2023-05-04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id2">3.1.0 (2022-11-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id3">3.0.0 (2022-05-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id4">2.1.0 (2022-01-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id5">2.0.0 (2021-11-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id6">1.5.1 (2021-07-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id7">1.5.0 (2021-06-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id8">1.4.0 (2021-04-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id9">1.3.0 (2020-05-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id10">1.2.0 (2019-12-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id11">1.1.0 (2019-03-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id12">1.0.0 (2019-03-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id13">0.24.0 (2019-02-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id14">0.23.0 (2018-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id15">0.22.2 (2017-12-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id16">0.22.1 (2017-04-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id17">0.22.0 (2017-01-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id18">0.21.6 (2017-01-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id19">0.21.5 (2017-01-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id20">0.21.4 (2017-01-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id21">0.21.3 (2016-10-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id22">0.21.2 (2016-08-31)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id23">0.21.1 (2016-08-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id24">0.21.0 (2016-08-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id25">0.20.2 (2016-07-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id26">0.20.1 (2016-06-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id27">0.20.0 (2016-06-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id28">0.19.1 (2016-05-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id29">0.19.0 (2016-05-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id30">0.18.3 (2016-05-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id31">0.18.2 (2016-05-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id32">0.18.1 (2016-03-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id33">0.18.0 (2016-01-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id34">0.17.6 (2015-12-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id35">0.17.5 (2015-11-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id36">0.17.4 (2015-11-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id37">0.17.3 (2015-10-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id38">0.17.2 (2015-10-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id39">0.17.1 (2015-09-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id40">0.17.0 (2015-08-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id41">0.16.4 (2015-08-13)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id42">0.16.3 (2015-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id43">0.16.2 (2015-07-13)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id44">0.16.1 (2015-07-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id45">0.16.0 (2015-07-04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id46">0.15.0 (2015-06-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id47">0.14.0 (2015-04-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id48">0.13.0 (2015-04-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id49">0.12.3 (2015-03-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id50">0.12.2 (2014-21-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id51">0.12.1 (2014-10-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id52">0.12.0 (2014-20-04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id53">0.11.2 (2013-13-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id54">0.11.1 (2013-25-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id55">0.11.0 (2013-25-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id56">0.10.0 (2013-17-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id57">0.9.2 (2011-01-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id58">0.9.0 (2010-09-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id59">0.8.0 (2010-06-22)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#document-index">django-taggit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html#document-index">Docs</a> &raquo;</li>
+        
+      <li>django-taggit 1.3.0 documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/jazzband/django-taggit/blob/master/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-django-taggit-s-documentation">
+<h1>Welcome to django-taggit’s documentation!<a class="headerlink" href="#welcome-to-django-taggit-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> is a reusable Django application designed to make adding
+tagging to your project easy and fun.</p>
+<p><code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> works with Django 2.2+ and Python 3.6+.</p>
+<div class="toctree-wrapper compound">
+<span id="document-getting_started"></span><div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>To get started using <code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> simply install it with
+<code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install django-taggit
+</pre></div>
+</div>
+<p>Add <code class="docutils literal notranslate"><span class="pre">&quot;taggit&quot;</span></code> to your project’s <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> setting.</p>
+<p>Run <cite>./manage.py migrate</cite>.</p>
+<p>And then to any model you want tagging on do the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="kn">from</span> <span class="nn">taggit.managers</span> <span class="kn">import</span> <span class="n">TaggableManager</span>
+
+<span class="k">class</span> <span class="nc">Food</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># ... fields here</span>
+
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">TaggableManager</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you want <code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> to be <strong>CASE-INSENSITIVE</strong> when looking up existing tags, you’ll have to set <code class="docutils literal notranslate"><span class="pre">TAGGIT_CASE_INSENSITIVE</span></code> (in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> or wherever you have your Django settings) to <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">False</span></code> by default):</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TAGGIT_CASE_INSENSITIVE</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="settings">
+<h3>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h3>
+<p>The following Django-level settings affect the behavior of the library</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">TAGGIT_CASE_INSENSITIVE</span></code></p>
+<p>When set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, tag lookups will be case insensitive. This defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">TAGGIT_STRIP_UNICODE_WHEN_SLUGIFYING</span></code>
+When this is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, tag slugs will be limited to ASCII characters. In this case, if you also have <code class="docutils literal notranslate"><span class="pre">unidecode</span></code> installed,
+then tag sluggification will transform a tag like <code class="docutils literal notranslate"><span class="pre">あい　うえお</span></code> to <code class="docutils literal notranslate"><span class="pre">ai-ueo</span></code>.
+If you do not have <code class="docutils literal notranslate"><span class="pre">unidecode</span></code> installed, then you will usually be outright stripping unicode, meaning that something like <code class="docutils literal notranslate"><span class="pre">helloあい</span></code> will be slugified as <code class="docutils literal notranslate"><span class="pre">hello</span></code>.</p>
+<p>This value defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>, meaning that unicode is preserved in slugification.</p>
+<p>Because the behavior when <code class="docutils literal notranslate"><span class="pre">True</span></code> is set leads to situations where
+slugs can be entirely stripped to an empty string, we recommend not activating this.</p>
+</li>
+</ul>
+</div>
+</div>
+<span id="document-forms"></span><div class="section" id="tags-in-forms">
+<span id="id1"></span><h2>Tags in forms<a class="headerlink" href="#tags-in-forms" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">TaggableManager</span></code> will show up automatically as a field in a
+<code class="docutils literal notranslate"><span class="pre">ModelForm</span></code> or in the admin. Tags input via the form field are parsed
+as follows:</p>
+<ul class="simple">
+<li>If the input doesn’t contain any commas or double quotes, it is simply
+treated as a space-delimited list of tag names.</li>
+<li>If the input does contain either of these characters:<ul>
+<li>Groups of characters which appear between double quotes take
+precedence as multi-word tags (so double quoted tag names may
+contain commas). An unclosed double quote will be ignored.</li>
+<li>Otherwise, if there are any unquoted commas in the input, it will
+be treated as comma-delimited. If not, it will be treated as
+space-delimited.</li>
+</ul>
+</li>
+</ul>
+<p>Examples:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="32%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Tag input string</th>
+<th class="head">Resulting tags</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>apple ball cat</td>
+<td><code class="docutils literal notranslate"><span class="pre">[&quot;apple&quot;,</span> <span class="pre">&quot;ball&quot;,</span> <span class="pre">&quot;cat&quot;]</span></code></td>
+<td>No commas, so space delimited</td>
+</tr>
+<tr class="row-odd"><td>apple, ball cat</td>
+<td><code class="docutils literal notranslate"><span class="pre">[&quot;apple&quot;,</span> <span class="pre">&quot;ball</span> <span class="pre">cat&quot;]</span></code></td>
+<td>Comma present, so comma delimited</td>
+</tr>
+<tr class="row-even"><td>“apple, ball” cat dog</td>
+<td><code class="docutils literal notranslate"><span class="pre">[&quot;apple,</span> <span class="pre">ball&quot;,</span> <span class="pre">&quot;cat&quot;,</span> <span class="pre">&quot;dog&quot;]</span></code></td>
+<td>All commas are quoted, so space delimited</td>
+</tr>
+<tr class="row-odd"><td>“apple, ball”, cat dog</td>
+<td><code class="docutils literal notranslate"><span class="pre">[&quot;apple,</span> <span class="pre">ball&quot;,</span> <span class="pre">&quot;cat</span> <span class="pre">dog&quot;]</span></code></td>
+<td>Contains an unquoted comma, so comma delimited</td>
+</tr>
+<tr class="row-even"><td>apple “ball cat” dog</td>
+<td><code class="docutils literal notranslate"><span class="pre">[&quot;apple&quot;,</span> <span class="pre">&quot;ball</span> <span class="pre">cat&quot;,</span> <span class="pre">&quot;dog&quot;]</span></code></td>
+<td>No commas, so space delimited</td>
+</tr>
+<tr class="row-odd"><td>“apple” “ball dog</td>
+<td><code class="docutils literal notranslate"><span class="pre">[&quot;apple&quot;,</span> <span class="pre">&quot;ball&quot;,</span> <span class="pre">&quot;dog&quot;]</span></code></td>
+<td>Unclosed double quote is ignored</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="commit-false">
+<h3><code class="docutils literal notranslate"><span class="pre">commit=False</span></code><a class="headerlink" href="#commit-false" title="Permalink to this headline">¶</a></h3>
+<p>If, when saving a form, you use the <code class="docutils literal notranslate"><span class="pre">commit=False</span></code> option you’ll need to call
+<code class="docutils literal notranslate"><span class="pre">save_m2m()</span></code> on the form after you save the object, just as you would for a
+form with normal many to many fields on it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">MyFormClass</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="c1"># Without this next line the tags won&#39;t be saved.</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">save_m2m</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You can check the details over in the <a class="reference external" href="https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/#the-save-method">Django documentation on form saving</a>.</p>
+</div>
+</div>
+<span id="document-admin"></span><div class="section" id="using-tags-in-the-admin">
+<h2>Using tags in the admin<a class="headerlink" href="#using-tags-in-the-admin" title="Permalink to this headline">¶</a></h2>
+<p>By default if you have a <a class="reference internal" href="index.html#TaggableManager" title="TaggableManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaggableManager</span></code></a> on your model it will show up
+in the admin, just as it will in any other form.</p>
+<p>If you are specifying <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/contrib/admin/#django.contrib.admin.ModelAdmin.fieldsets" title="(in Django v4.2)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ModelAdmin.fieldsets</span></code></a>, include the name of the
+<a class="reference internal" href="index.html#TaggableManager" title="TaggableManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaggableManager</span></code></a> as a field:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fieldsets</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,)}),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="including-tags-in-modeladmin-list-display">
+<h3>Including tags in <code class="docutils literal notranslate"><span class="pre">ModelAdmin.list_display</span></code><a class="headerlink" href="#including-tags-in-modeladmin-list-display" title="Permalink to this headline">¶</a></h3>
+<p>One important thing to note is that you <em>cannot</em> include a
+<a class="reference internal" href="index.html#TaggableManager" title="TaggableManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaggableManager</span></code></a> in <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display" title="(in Django v4.2)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ModelAdmin.list_display</span></code></a>. If you do you’ll see an
+exception that looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;_TaggableManager&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;name&#39;</span>
+</pre></div>
+</div>
+<p>This is for the same reason that you cannot include a
+<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ManyToManyField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManyToManyField</span></code></a>: it would result in an unreasonable
+number of queries being executed.</p>
+<p>If you want to show tags in <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display" title="(in Django v4.2)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ModelAdmin.list_display</span></code></a>, you can add a custom display
+method to the <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/contrib/admin/#django.contrib.admin.ModelAdmin" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></a>, using
+<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/querysets/#django.db.models.query.QuerySet.prefetch_related" title="(in Django v4.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prefetch_related()</span></code></a> to minimize queries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyModelAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tag_list&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">(</span><span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch_related</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tag_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">u</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<span id="document-serializers"></span><div class="section" id="usage-with-django-rest-framework">
+<h2>Usage With Django Rest Framework<a class="headerlink" href="#usage-with-django-rest-framework" title="Permalink to this headline">¶</a></h2>
+<p>Because the tags in <cite>django-taggit</cite> need to be added into a <cite>TaggableManager()</cite> we cannot use the usual <cite>Serializer</cite> that we get from Django REST Framework. Because this is trying to save the tags into a <cite>list</cite>, which will throw an exception.</p>
+<p>To accept tags through a <cite>REST</cite> API call we need to add the following to our <cite>Serializer</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">taggit.serializers</span> <span class="kn">import</span> <span class="p">(</span><span class="n">TagListSerializerField</span><span class="p">,</span>
+                                <span class="n">TaggitSerializer</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">YourSerializer</span><span class="p">(</span><span class="n">TaggitSerializer</span><span class="p">,</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">TagListSerializerField</span><span class="p">()</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">YourModel</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="s1">&#39;__all__&#39;</span>
+</pre></div>
+</div>
+<p>And you’re done, so now you can add tags to your model.</p>
+</div>
+<span id="document-api"></span><div class="section" id="the-api">
+<h2>The API<a class="headerlink" href="#the-api" title="Permalink to this headline">¶</a></h2>
+<p>After you’ve got your <code class="docutils literal notranslate"><span class="pre">TaggableManager</span></code> added to your model you can start
+playing around with the API.</p>
+<dl class="class">
+<dt id="TaggableManager">
+<em class="property">class </em><code class="descname">TaggableManager</code><span class="sig-paren">(</span><span class="optional">[</span><em>verbose_name=&quot;Tags&quot;</em>, <em>help_text=&quot;A comma-separated list of tags.&quot;</em>, <em>through=None</em>, <em>blank=False</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#TaggableManager" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>verbose_name</strong> – The verbose_name for this field.</li>
+<li><strong>help_text</strong> – The help_text to be used in forms (including the admin).</li>
+<li><strong>through</strong> – The through model, see <a class="reference internal" href="index.html#document-custom_tagging"><span class="doc">Customizing taggit</span></a> for more
+information.</li>
+<li><strong>blank</strong> – Controls whether this field is required.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="TaggableManager.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>*tags</em>, <em>through_defaults=None</em>, <em>tag_kwargs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#TaggableManager.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>This adds tags to an object. The tags can be either <code class="docutils literal notranslate"><span class="pre">Tag</span></code> instances, or
+strings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">apple</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">apple</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">through_defaults</span></code> argument to specify values for your custom
+<code class="docutils literal notranslate"><span class="pre">through</span></code> model, if needed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">tag_kwargs</span></code> argument allows one to specify parameters for the tags
+themselves.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TaggableManager.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>*tags</em><span class="sig-paren">)</span><a class="headerlink" href="#TaggableManager.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a tag from an object. No exception is raised if the object
+doesn’t have that tag.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TaggableManager.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TaggableManager.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all tags from an object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TaggableManager.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>tags</em>, <em>*</em>, <em>through_defaults=None</em>, <em>clear=False</em><span class="sig-paren">)</span><a class="headerlink" href="#TaggableManager.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>If <code class="docutils literal notranslate"><span class="pre">clear</span> <span class="pre">=</span> <span class="pre">True</span></code> removes all the current tags and then adds the
+specified tags to the object. Otherwise sets the object’s tags to those
+specified, removing only the missing tags and adding only the new tags.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">through_defaults</span></code> argument to specify values for your custom
+<code class="docutils literal notranslate"><span class="pre">through</span></code> model, if needed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TaggableManager.similar_objects">
+<code class="descname">similar_objects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TaggableManager.similar_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list (not a lazy <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code>) of other objects tagged
+similarly to this one, ordered with most similar first. Each object in
+the list is decorated with a <code class="docutils literal notranslate"><span class="pre">similar_tags</span></code> attribute, the number of
+tags it shares with this object.</p>
+<p>If the model is using generic tagging (the default), this method
+searches tagged objects from all classes. If you are querying on a
+model with its own tagging through table, only other instances of the
+same model will be returned.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="TaggableManager.names">
+<code class="descname">names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TaggableManager.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience method, returning a <code class="docutils literal notranslate"><span class="pre">ValuesListQuerySet</span></code> (basically
+just an iterable) containing the name of each tag as a string:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">apple</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="go">[&quot;green and juicy&quot;, &quot;red&quot;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="TaggableManager.slugs">
+<code class="descname">slugs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TaggableManager.slugs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience method, returning a <code class="docutils literal notranslate"><span class="pre">ValuesListQuerySet</span></code> (basically
+just an iterable) containing the slug of each tag as a string:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">apple</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">slugs</span><span class="p">()</span>
+<span class="go">[&quot;green-and-juicy&quot;, &quot;red&quot;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p>You can subclass <code class="docutils literal notranslate"><span class="pre">_TaggableManager</span></code> (note the underscore) to add
+methods or functionality. <code class="docutils literal notranslate"><span class="pre">TaggableManager</span></code> takes an optional
+manager keyword argument for your custom class, like this:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Food</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># ... fields here</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">TaggableManager</span><span class="p">(</span><span class="n">manager</span><span class="o">=</span><span class="n">_CustomTaggableManager</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<div class="section" id="filtering">
+<h3>Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h3>
+<p>To find all of a model with a specific tags you can filter, using the normal
+Django ORM API.  For example if you had a <code class="docutils literal notranslate"><span class="pre">Food</span></code> model, whose
+<code class="docutils literal notranslate"><span class="pre">TaggableManager</span></code> was named <code class="docutils literal notranslate"><span class="pre">tags</span></code>, you could find all the delicious fruit
+like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Food</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__name__in</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;delicious&quot;</span><span class="p">])</span>
+<span class="go">[&lt;Food: apple&gt;, &lt;Food: pear&gt;, &lt;Food: plum&gt;]</span>
+</pre></div>
+</div>
+<p>If you’re filtering on multiple tags, it’s very common to get duplicate
+results, because of the way relational databases work.  Often you’ll want to
+make use of the <code class="docutils literal notranslate"><span class="pre">distinct()</span></code> method on <code class="docutils literal notranslate"><span class="pre">QuerySets</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Food</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__name__in</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;delicious&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">])</span>
+<span class="go">[&lt;Food: apple&gt;, &lt;Food: apple&gt;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Food</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__name__in</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;delicious&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span>
+<span class="go">[&lt;Food: apple&gt;]</span>
+</pre></div>
+</div>
+<p>You can also filter by the slug on tags.  If you’re using a custom <code class="docutils literal notranslate"><span class="pre">Tag</span></code>
+model you can use this API to filter on any fields it has.</p>
+</div>
+</div>
+<span id="document-faq"></span><div class="section" id="frequently-asked-questions">
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>How can I get all my tags?</li>
+</ul>
+<blockquote>
+<div><p>If you are using just an out-of-the-box setup, your tags are stored in the <cite>Tag</cite> model (found in <cite>taggit.models</cite>). If this is a custom model (for example you have your own models derived from <cite>ItemBase</cite>), then you’ll need to query that one instead.</p>
+<p>So if you are using the standard setup, <code class="docutils literal notranslate"><span class="pre">Tag.objects.all()</span></code> will give you the tags.</p>
+</div></blockquote>
+<ul class="simple">
+<li>How can I use this with factory_boy?</li>
+</ul>
+<blockquote>
+<div><p>Since these are all built off of many-to-many relationships, you can check out <a class="reference external" href="https://factoryboy.readthedocs.io/en/stable/recipes.html#simple-many-to-many-relationship">factory_boy’s documentation on this topic</a> and get some ideas on how to deal with tags.</p>
+<p>One way to handle this is with post-generation hooks:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ProductFactory</span><span class="p">(</span><span class="n">DjangoModelFactory</span><span class="p">):</span>
+     <span class="c1"># Rest of the stuff</span>
+
+     <span class="nd">@post_generation</span>
+     <span class="k">def</span> <span class="nf">tags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">create</span><span class="p">,</span> <span class="n">extracted</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+         <span class="k">if</span> <span class="ow">not</span> <span class="n">create</span><span class="p">:</span>
+             <span class="k">return</span>
+
+         <span class="k">if</span> <span class="n">extracted</span><span class="p">:</span>
+             <span class="bp">self</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="o">*</span><span class="n">extracted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<span id="document-custom_tagging"></span><div class="section" id="customizing-taggit">
+<h2>Customizing taggit<a class="headerlink" href="#customizing-taggit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-a-custom-tag-or-through-model">
+<h3>Using a Custom Tag or Through Model<a class="headerlink" href="#using-a-custom-tag-or-through-model" title="Permalink to this headline">¶</a></h3>
+<p>By default <code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> uses a “through model” with a
+<code class="docutils literal notranslate"><span class="pre">GenericForeignKey</span></code> on it, that has another <code class="docutils literal notranslate"><span class="pre">ForeignKey</span></code> to an included
+<code class="docutils literal notranslate"><span class="pre">Tag</span></code> model.  However, there are some cases where this isn’t desirable, for
+example if you want the speed and referential guarantees of a real
+<code class="docutils literal notranslate"><span class="pre">ForeignKey</span></code>, if you have a model with a non-integer primary key, or if you
+want to store additional data about a tag, such as whether it is official.  In
+these cases <code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> makes it easy to substitute your own through
+model, or <code class="docutils literal notranslate"><span class="pre">Tag</span></code> model.</p>
+<p>Note: Including ‘taggit’ in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> INSTALLED_APPS list will create the
+default <code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> and “through model” models. If you would like to use
+your own models, you will need to remove ‘taggit’ from <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>’s
+INSTALLED_APPS list.</p>
+<p>To change the behavior there are a number of classes you can subclass to obtain
+different behavior:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Class name</th>
+<th class="head">Behavior</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">TaggedItemBase</span></code></td>
+<td>Allows custom <code class="docutils literal notranslate"><span class="pre">ForeignKeys</span></code> to models.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">GenericTaggedItemBase</span></code></td>
+<td>Allows custom <code class="docutils literal notranslate"><span class="pre">Tag</span></code> models. Tagged models use an integer primary key.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">GenericUUIDTaggedItemBase</span></code></td>
+<td>Allows custom <code class="docutils literal notranslate"><span class="pre">Tag</span></code> models. Tagged models use a UUID primary key.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CommonGenericTaggedItemBase</span></code></td>
+<td>Allows custom <code class="docutils literal notranslate"><span class="pre">Tag</span></code> models and <code class="docutils literal notranslate"><span class="pre">GenericForeignKeys</span></code> to models.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ItemBase</span></code></td>
+<td>Allows custom <code class="docutils literal notranslate"><span class="pre">Tag</span></code> models and <code class="docutils literal notranslate"><span class="pre">ForeignKeys</span></code> to models.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="custom-foreignkeys">
+<h4>Custom ForeignKeys<a class="headerlink" href="#custom-foreignkeys" title="Permalink to this headline">¶</a></h4>
+<p>Your intermediary model must be a subclass of
+<code class="docutils literal notranslate"><span class="pre">taggit.models.TaggedItemBase</span></code> with a foreign key to your content
+model named <code class="docutils literal notranslate"><span class="pre">content_object</span></code>. Pass this intermediary model as the
+<code class="docutils literal notranslate"><span class="pre">through</span></code> argument to <code class="docutils literal notranslate"><span class="pre">TaggableManager</span></code>:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="kn">from</span> <span class="nn">taggit.managers</span> <span class="kn">import</span> <span class="n">TaggableManager</span>
+<span class="kn">from</span> <span class="nn">taggit.models</span> <span class="kn">import</span> <span class="n">TaggedItemBase</span>
+
+
+<span class="k">class</span> <span class="nc">TaggedFood</span><span class="p">(</span><span class="n">TaggedItemBase</span><span class="p">):</span>
+    <span class="n">content_object</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;Food&#39;</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Food</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># ... fields here</span>
+
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">TaggableManager</span><span class="p">(</span><span class="n">through</span><span class="o">=</span><span class="n">TaggedFood</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Once this is done, the API works the same as for GFK-tagged models.</p>
+</div>
+<div class="section" id="custom-genericforeignkeys">
+<h4>Custom GenericForeignKeys<a class="headerlink" href="#custom-genericforeignkeys" title="Permalink to this headline">¶</a></h4>
+<p>The default <code class="docutils literal notranslate"><span class="pre">GenericForeignKey</span></code> used by <code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> assume your
+tagged object use an integer primary key. For non-integer primary key,
+your intermediary model must be a subclass of <code class="docutils literal notranslate"><span class="pre">taggit.models.CommonGenericTaggedItemBase</span></code>
+with a field named <code class="docutils literal notranslate"><span class="pre">&quot;object_id&quot;</span></code> of the type of your primary key.</p>
+<p>For example, if your primary key is a string:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="kn">from</span> <span class="nn">taggit.managers</span> <span class="kn">import</span> <span class="n">TaggableManager</span>
+<span class="kn">from</span> <span class="nn">taggit.models</span> <span class="kn">import</span> <span class="n">CommonGenericTaggedItemBase</span><span class="p">,</span> <span class="n">TaggedItemBase</span>
+
+<span class="k">class</span> <span class="nc">GenericStringTaggedItem</span><span class="p">(</span><span class="n">CommonGenericTaggedItemBase</span><span class="p">,</span> <span class="n">TaggedItemBase</span><span class="p">):</span>
+    <span class="n">object_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Object id&#39;</span><span class="p">),</span> <span class="n">db_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Food</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">food_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># ... fields here</span>
+
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">TaggableManager</span><span class="p">(</span><span class="n">through</span><span class="o">=</span><span class="n">GenericStringTaggedItem</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="genericuuidtaggeditembase">
+<h4>GenericUUIDTaggedItemBase<a class="headerlink" href="#genericuuidtaggeditembase" title="Permalink to this headline">¶</a></h4>
+<p>A common use case of a non-integer primary key, is UUID primary key.
+<code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> provides a base class <code class="docutils literal notranslate"><span class="pre">GenericUUIDTaggedItemBase</span></code> ready
+to use with models using an UUID primary key:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">gettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+
+<span class="kn">from</span> <span class="nn">taggit.managers</span> <span class="kn">import</span> <span class="n">TaggableManager</span>
+<span class="kn">from</span> <span class="nn">taggit.models</span> <span class="kn">import</span> <span class="n">GenericUUIDTaggedItemBase</span><span class="p">,</span> <span class="n">TaggedItemBase</span>
+
+<span class="k">class</span> <span class="nc">UUIDTaggedItem</span><span class="p">(</span><span class="n">GenericUUIDTaggedItemBase</span><span class="p">,</span> <span class="n">TaggedItemBase</span><span class="p">):</span>
+    <span class="c1"># If you only inherit GenericUUIDTaggedItemBase, you need to define</span>
+    <span class="c1"># a tag field. e.g.</span>
+    <span class="c1"># tag = models.ForeignKey(Tag, related_name=&quot;uuid_tagged_items&quot;, on_delete=models.CASCADE)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Tag&quot;</span><span class="p">)</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Tags&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Food</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UUIDField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># ... fields here</span>
+
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">TaggableManager</span><span class="p">(</span><span class="n">through</span><span class="o">=</span><span class="n">UUIDTaggedItem</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="custom-tag">
+<h4>Custom tag<a class="headerlink" href="#custom-tag" title="Permalink to this headline">¶</a></h4>
+<p>When providing a custom <code class="docutils literal notranslate"><span class="pre">Tag</span></code> model it should be a <code class="docutils literal notranslate"><span class="pre">ForeignKey</span></code> to your tag
+model named <code class="docutils literal notranslate"><span class="pre">&quot;tag&quot;</span></code>. If your custom <code class="docutils literal notranslate"><span class="pre">Tag</span></code> model has extra parameters you want to initialize during setup, you can do so by passing it along via the <code class="docutils literal notranslate"><span class="pre">tag_kwargs</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">TaggableManager.add</span></code>. For example <code class="docutils literal notranslate"><span class="pre">my_food.tags.add(&quot;tag_name1&quot;,</span> <span class="pre">&quot;tag_name2&quot;,</span> <span class="pre">tag_kwargs={&quot;my_field&quot;:3})</span></code>:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">gettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+
+<span class="kn">from</span> <span class="nn">taggit.managers</span> <span class="kn">import</span> <span class="n">TaggableManager</span>
+<span class="kn">from</span> <span class="nn">taggit.models</span> <span class="kn">import</span> <span class="n">TagBase</span><span class="p">,</span> <span class="n">GenericTaggedItemBase</span>
+
+
+<span class="k">class</span> <span class="nc">MyCustomTag</span><span class="p">(</span><span class="n">TagBase</span><span class="p">):</span>
+    <span class="c1"># ... fields here</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Tag&quot;</span><span class="p">)</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Tags&quot;</span><span class="p">)</span>
+
+    <span class="c1"># ... methods (if any) here</span>
+
+
+<span class="k">class</span> <span class="nc">TaggedWhatever</span><span class="p">(</span><span class="n">GenericTaggedItemBase</span><span class="p">):</span>
+    <span class="c1"># TaggedWhatever can also extend TaggedItemBase or a combination of</span>
+    <span class="c1"># both TaggedItemBase and GenericTaggedItemBase. GenericTaggedItemBase</span>
+    <span class="c1"># allows using the same tag for different kinds of objects, in this</span>
+    <span class="c1"># example Food and Drink.</span>
+
+    <span class="c1"># Here is where you provide your custom Tag class.</span>
+    <span class="n">tag</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span>
+        <span class="n">MyCustomTag</span><span class="p">,</span>
+        <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span>
+        <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(app_label)s</span><span class="s2">_</span><span class="si">%(class)s</span><span class="s2">_items&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Food</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># ... fields here</span>
+
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">TaggableManager</span><span class="p">(</span><span class="n">through</span><span class="o">=</span><span class="n">TaggedWhatever</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Drink</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># ... fields here</span>
+
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">TaggableManager</span><span class="p">(</span><span class="n">through</span><span class="o">=</span><span class="n">TaggedWhatever</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="class">
+<dt id="TagBase">
+<em class="property">class </em><code class="descname">TagBase</code><a class="headerlink" href="#TagBase" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="TagBase.slugify">
+<code class="descname">slugify</code><span class="sig-paren">(</span><em>tag</em>, <em>i=None</em><span class="sig-paren">)</span><a class="headerlink" href="#TagBase.slugify" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default <code class="docutils literal notranslate"><span class="pre">taggit</span></code> uses <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.text.slugify" title="(in Django v4.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">django.utils.text.slugify()</span></code></a> to
+calculate a slug for a given tag. However, if you want to implement
+your own logic you can override this method, which receives the <code class="docutils literal notranslate"><span class="pre">tag</span></code>
+(a string), and <code class="docutils literal notranslate"><span class="pre">i</span></code>, which is either <code class="docutils literal notranslate"><span class="pre">None</span></code> or an integer, which
+signifies how many times the slug for this tag has been attempted to be
+calculated, it is <code class="docutils literal notranslate"><span class="pre">None</span></code> on the first time, and the counting begins
+at <code class="docutils literal notranslate"><span class="pre">1</span></code> thereafter.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="using-a-custom-tag-string-parser">
+<h3>Using a custom tag string parser<a class="headerlink" href="#using-a-custom-tag-string-parser" title="Permalink to this headline">¶</a></h3>
+<p>By default <code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> uses <code class="docutils literal notranslate"><span class="pre">taggit.utils._parse_tags</span></code> which accepts a
+string which may contain one or more tags and returns a list of tag names. This
+parser is quite intelligent and can handle a number of edge cases; however, you
+may wish to provide your own parser for various reasons (e.g. you can do some
+preprocessing on the tags so that they are converted to lowercase, reject
+certain tags, disallow certain characters, split only on commas rather than
+commas and whitespace, etc.). To provide your own parser, write a function that
+takes a tag string and returns a list of tag names. For example, a simple
+function to split on comma and convert to lowercase:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">comma_splitter</span><span class="p">(</span><span class="n">tag_string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tag_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>You need to tell <code class="docutils literal notranslate"><span class="pre">taggit</span></code> to use this function instead of the default by
+adding a new setting, <code class="docutils literal notranslate"><span class="pre">TAGGIT_TAGS_FROM_STRING</span></code> and providing it with the
+dotted path to your function. Likewise, you can provide a function to convert a
+list of tags to a string representation and use the setting
+<code class="docutils literal notranslate"><span class="pre">TAGGIT_STRING_FROM_TAGS</span></code> to override the default value (which is
+<code class="docutils literal notranslate"><span class="pre">taggit.utils._edit_string_for_tags</span></code>):</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">comma_joiner</span><span class="p">(</span><span class="n">tags</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the functions above were defined in a module, <code class="docutils literal notranslate"><span class="pre">appname.utils</span></code>, then your
+project settings.py file should contain the following:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TAGGIT_TAGS_FROM_STRING</span> <span class="o">=</span> <span class="s1">&#39;appname.utils.comma_splitter&#39;</span>
+<span class="n">TAGGIT_STRING_FROM_TAGS</span> <span class="o">=</span> <span class="s1">&#39;appname.utils.comma_joiner&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<span id="document-contributing"></span><div class="section" id="contributing-to-django-taggit">
+<h2>Contributing to django-taggit<a class="headerlink" href="#contributing-to-django-taggit" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="https://jazzband.co/"><img alt="Jazzband" src="https://jazzband.co/static/img/jazzband.svg" /></a>
+<p>This is a <a class="reference external" href="https://jazzband.co">Jazzband</a> project. By contributing you agree
+to abide by the <a class="reference external" href="https://jazzband.co/about/conduct">Contributor Code of Conduct</a> and follow the <a class="reference external" href="https://jazzband.co/about/guidelines">guidelines</a>.</p>
+<p>Thank you for taking the time to contribute to django-taggit.</p>
+<p>Follow these guidelines to speed up the process.</p>
+<div class="section" id="reach-out-before-you-start">
+<h3>Reach out before you start<a class="headerlink" href="#reach-out-before-you-start" title="Permalink to this headline">¶</a></h3>
+<p>Before opening a new issue, look if somebody else has already started working
+on the same issue in the <a class="reference external" href="https://github.com/jazzband/django-taggit/issues">GitHub issues</a> and <a class="reference external" href="https://github.com/jazzband/django-taggit/pulls">pull requests</a>.</p>
+</div>
+<div class="section" id="fork-the-repository">
+<h3>Fork the repository<a class="headerlink" href="#fork-the-repository" title="Permalink to this headline">¶</a></h3>
+<p>Once you have forked this repository to your own GitHub account, install your
+own fork in your development environment:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone git@github.com:&lt;your_fork&gt;/django-taggit.git</span>
+<span class="go">cd django-taggit</span>
+<span class="go">python setup.py develop</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-tests">
+<h3>Running tests<a class="headerlink" href="#running-tests" title="Permalink to this headline">¶</a></h3>
+<p>django-taggit uses <a class="reference external" href="https://tox.readthedocs.io/">tox</a> to run tests:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tox</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="follow-style-conventions-black-flake8-isort">
+<h3>Follow style conventions (black, flake8, isort)<a class="headerlink" href="#follow-style-conventions-black-flake8-isort" title="Permalink to this headline">¶</a></h3>
+<p>Check that your changes are not breaking the style conventions with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tox -e black,flake8,isort</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-the-documentation">
+<h3>Update the documentation<a class="headerlink" href="#update-the-documentation" title="Permalink to this headline">¶</a></h3>
+<p>If you introduce new features or change existing documented behavior, please
+remember to update the documentation.</p>
+<p>The documentation is located in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory of the repository.</p>
+<p>To do work on the docs, proceed with the following steps:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install sphinx</span>
+<span class="go">sphinx-build -n -W docs docs/_build</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-a-changelog-line">
+<h3>Add a changelog line<a class="headerlink" href="#add-a-changelog-line" title="Permalink to this headline">¶</a></h3>
+<p>Even when the change is minor, a changelog line is helpful to both describe
+the intent of the change, and to give a heads up to people upgrading. You can
+add a line in the <code class="docutils literal notranslate"><span class="pre">(Unreleased)</span></code> section of <code class="docutils literal notranslate"><span class="pre">CHANGELOG.rst</span></code>, along with
+any more detailed explanations for more complicated changes.</p>
+</div>
+<div class="section" id="send-pull-request">
+<h3>Send pull request<a class="headerlink" href="#send-pull-request" title="Permalink to this headline">¶</a></h3>
+<p>It is now time to push your changes to GitHub and open a <a class="reference external" href="https://github.com/jazzband/django-taggit/pulls">pull request</a>!</p>
+</div>
+<div class="section" id="release-checklist">
+<h3>Release Checklist<a class="headerlink" href="#release-checklist" title="Permalink to this headline">¶</a></h3>
+<p>These steps need to happen by a release maintainer.</p>
+<p>To make a release, the following needs to happen:</p>
+<ul class="simple">
+<li>Bump the version number in <code class="docutils literal notranslate"><span class="pre">taggit/__init__.py</span></code></li>
+<li>Update the changelog (making sure to add the (Unreleased) section to the top)</li>
+<li>Get those changes onto the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch</li>
+<li>Tag the commit with the version number</li>
+<li>CI should then upload a release to be verified through Jazzband</li>
+</ul>
+</div>
+</div>
+<span id="document-external_apps"></span><div class="section" id="external-applications">
+<h2>External Applications<a class="headerlink" href="#external-applications" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the features included in <code class="docutils literal notranslate"><span class="pre">django-taggit</span></code> directly, there are a
+number of external applications which provide additional features that may be
+of interest.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Despite their mention here, the following applications are in no way
+official, nor have they in any way been reviewed or tested.</p>
+</div>
+<p>If you have an application that you’d like to see listed here, simply fork
+<a class="reference external" href="https://github.com/jazzband/django-taggit">django-taggit on github</a>,
+add it to this list, and send a pull request.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/bashu/django-taggit-anywhere">django-taggit-anywhere</a>:
+Simpler approach to tagging with <code class="docutils literal notranslate"><span class="pre">taggit</span></code>. Additionally this
+project provides easy-to-use integration with <code class="docutils literal notranslate"><span class="pre">django-taggit-helpers</span></code> and
+<code class="docutils literal notranslate"><span class="pre">django-taggit-labels</span></code>.</li>
+<li><a class="reference external" href="https://github.com/mfcovington/django-taggit-helpers">django-taggit-helpers</a>:
+Makes it easier to work with admin pages of models
+associated with <code class="docutils literal notranslate"><span class="pre">taggit</span></code> tags by adding helper classes: <code class="docutils literal notranslate"><span class="pre">TaggitCounter</span></code>,
+<code class="docutils literal notranslate"><span class="pre">TaggitListFilter</span></code>, <code class="docutils literal notranslate"><span class="pre">TaggitStackedInline</span></code>, <code class="docutils literal notranslate"><span class="pre">TaggitTabularInline</span></code>.</li>
+<li><a class="reference external" href="https://github.com/bennylope/django-taggit-labels">django-taggit-labels</a>:
+Provides a clickable label widget for the
+Django admin for user friendly selection from managed tag sets.</li>
+<li><a class="reference external" href="https://github.com/glemmaPaul/django-taggit-serializer">django-taggit-serializer</a>:
+Adds functionality for using <code class="docutils literal notranslate"><span class="pre">taggit</span></code> with
+<code class="docutils literal notranslate"><span class="pre">django-rest-framework</span></code>.</li>
+<li><a class="reference external" href="https://github.com/frankwiles/django-taggit-suggest">django-taggit-suggest</a>:
+Provides support for defining keyword and regular
+expression rules for suggesting new tags for content.  This used to be
+available at <code class="docutils literal notranslate"><span class="pre">taggit.contrib.suggest</span></code>.</li>
+<li><a class="reference external" href="https://github.com/feuervogel/django-taggit-templatetags">django-taggit-templatetags</a>:
+Provides several templatetags, including one
+for tag clouds, to expose various <code class="docutils literal notranslate"><span class="pre">taggit</span></code> APIs directly to templates.</li>
+<li><a class="reference external" href="https://github.com/nnseva/django-taggit-bulk">django-taggit-bulk</a>:
+An admin action for the bulk tagging from the model  admin instance list view.</li>
+</ul>
+</div></blockquote>
+</div>
+<span id="document-changelog"></span><div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="unreleased">
+<h3>(Unreleased)<a class="headerlink" href="#unreleased" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id1">
+<h3>4.0.0 (2023-05-04)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Remove Python 3.6 support (no code changes occurred, but we no longer test this release).</li>
+<li>Remove Django 4.0 support (no code changes occurred, but we no longer test this release).</li>
+<li>Add Django 4.2 support.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>3.1.0 (2022-11-08)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Add Python 3.11 support (no code changes were needed, but now we test this release).</li>
+<li>Add Django 4.1 support (no code changes were needed, but now we test this release).</li>
+<li>Fixed an issue where object caches would not be properly cleared after updating tags, leading
+to stale reads in cases where <code class="docutils literal notranslate"><span class="pre">prefetch_related</span></code> is used.</li>
+<li>Change <code class="docutils literal notranslate"><span class="pre">TagListSerializerField</span></code> to be a subclass of <code class="docutils literal notranslate"><span class="pre">ListField</span></code>. This should improve support for API document generation. This change should not affect API behavior, but might affect metaprogramming code, so please procede carefully during this update.</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>3.0.0 (2022-05-02)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Backwards incompatible:</strong> Tag slugification used to silently strip non-ASCII characters
+from the tag name to make the slug. This leads to a lot of confusion for anyone using
+languages with non-latin alphabets, as well as weird performance issues.</p>
+<p>Tag slugification will now, by default, maintain unicode characters as-is during
+slugification. This will lead to less surprises, but might cause issues for you if you are
+expecting all of your tag slugs to fit within a regex like <code class="docutils literal notranslate"><span class="pre">[a-zA-Z0-9]</span></code> (for example in
+URL routing configurations).</p>
+<p>Generally speaking, this should not require action on your part as a library user, as
+existing tag slugs are persisted in the database, and only new tags will receive the
+enhanced unicode-compatible slug.</p>
+<p>If you wish to maintain the old stripping behavior, set the setting
+<code class="docutils literal notranslate"><span class="pre">TAGGIT_STRIP_UNICODE_WHEN_SLUGIFYING</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>As a reminder, custom tag models can easily customize slugification behavior by overriding
+the <code class="docutils literal notranslate"><span class="pre">slugify</span></code> method to your business needs.</p>
+</li>
+</ul>
+<p>`` Drop Django 2.2 support.</p>
+</div>
+<div class="section" id="id4">
+<h3>2.1.0 (2022-01-24)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Add Python 3.10 support.</li>
+<li>Add Django 4.0 support.</li>
+<li>Drop Django 3.1 support.</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>2.0.0 (2021-11-14)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Backwards incompatible:</strong> <code class="docutils literal notranslate"><span class="pre">TaggableManager.set</span></code> now takes a list of tags
+(instead of varargs) so that its API matches Django’s <code class="docutils literal notranslate"><span class="pre">RelatedManager.set</span></code>. Example:<ul>
+<li>previously: <code class="docutils literal notranslate"><span class="pre">item.tags.set(&quot;red&quot;,</span> <span class="pre">&quot;blue&quot;)</span></code></li>
+<li>now: <code class="docutils literal notranslate"><span class="pre">item.tags.set([&quot;red&quot;,</span> <span class="pre">&quot;blue&quot;])</span></code></li>
+</ul>
+</li>
+<li>Fix issue where <code class="docutils literal notranslate"><span class="pre">TagField</span></code> would incorrectly report that a field has changed on empty values.</li>
+<li>Update Russian translation.</li>
+<li>Add Persian translation</li>
+<li>Fix issue for many languages where content types were not being properly translated.</li>
+<li>Provide translators additional context regarding strings in TagBase model.</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>1.5.1 (2021-07-01)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fix compiled Ukranian translation (which would cause a failure on load for this locale).</li>
+<li>Update compiled Danish translation.</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>1.5.0 (2021-06-30)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Vendor in the <cite>django-taggit-serializer</cite> project (under <cite>taggit.serializers</cite>).</li>
+<li>Add Arabic translation.</li>
+<li>Add Ukranian translation.</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>1.4.0 (2021-04-19)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Add Python 3.9 support.</li>
+<li>Remove Python 3.5 support.</li>
+<li>Add Django 3.2 support.</li>
+<li>Remove Django 1.11 and 3.0 support.</li>
+<li>Add Danish translation.</li>
+<li>Fix crashing that could occur with <code class="docutils literal notranslate"><span class="pre">similar_objects</span></code> in multi-inheritance contexts.</li>
+<li>Add support for custom fields on through table models with <cite>through_defaults</cite> for <code class="docutils literal notranslate"><span class="pre">TaggedManager.add</span></code> and <code class="docutils literal notranslate"><span class="pre">TaggedManager.set</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>1.3.0 (2020-05-19)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Model and field <code class="docutils literal notranslate"><span class="pre">verbose_name</span></code> and <code class="docutils literal notranslate"><span class="pre">verbose_name_plural</span></code> attributes are
+now lowercase. This simplifies using the name in the middle of a sentence.
+When used as a header, title, or at the beginning of a sentence, a text
+transformed can be used to adjust the case.</li>
+<li>Fix prefetch_related when using UUIDTaggedItem.</li>
+<li>Allow for passing in extra constructor parameters when using
+<code class="docutils literal notranslate"><span class="pre">TaggableManager.add</span></code>. This is especially useful when using custom
+tag models.</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>1.2.0 (2019-12-03)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Removed</strong> support for end-of-life Django 2.0 and 2.1.</li>
+<li>Added support for Django 3.0.</li>
+<li>Added support for Python 3.8.</li>
+<li>Moved <code class="docutils literal notranslate"><span class="pre">TaggedItemBase.tags_for()</span></code> to ItemBase.</li>
+<li>Replaced reference to removed Django’s <code class="docutils literal notranslate"><span class="pre">.virtual_fields</span></code> with
+<code class="docutils literal notranslate"><span class="pre">.private_field</span></code>.</li>
+<li>Added <code class="docutils literal notranslate"><span class="pre">TextareaTagWidget</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>1.1.0 (2019-03-22)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added Finnish translation.</li>
+<li>Updated Chinese translation.</li>
+<li>Updated Esperanto translation.</li>
+<li>Fix <code class="docutils literal notranslate"><span class="pre">form.changed_data</span></code> to allow early access for a tags defined with
+<code class="docutils literal notranslate"><span class="pre">blank=True</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>1.0.0 (2019-03-17)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Backwards incompatible:</strong> Remove support for Python 2.</li>
+<li>Added <code class="docutils literal notranslate"><span class="pre">has_changed()</span></code> method to <code class="docutils literal notranslate"><span class="pre">taggit.forms.TagField</span></code>.</li>
+<li>Added multi-column unique constraint to model <code class="docutils literal notranslate"><span class="pre">TaggedItem</span></code> on fields
+<code class="docutils literal notranslate"><span class="pre">content_type</span></code>, <code class="docutils literal notranslate"><span class="pre">object_id</span></code>, and <code class="docutils literal notranslate"><span class="pre">tag</span></code>. Databases that contain
+duplicates will need to add a data migration to resolve these duplicates.</li>
+<li>Fixed <code class="docutils literal notranslate"><span class="pre">TaggableManager.most_common()</span></code> to always evaluate lazily. Allows
+placing a <code class="docutils literal notranslate"><span class="pre">.most_common()</span></code> query at the top level of a module.</li>
+<li>Fixed setting the <code class="docutils literal notranslate"><span class="pre">related_name</span></code> on a tags manager that exists on a model
+named <code class="docutils literal notranslate"><span class="pre">Name</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3>0.24.0 (2019-02-19)<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The project has moved to <a class="reference external" href="https://jazzband.co/">Jazzband</a>. This is the
+first release under the new organization. The new repository URL is
+<a class="reference external" href="https://github.com/jazzband/django-taggit">https://github.com/jazzband/django-taggit</a>.</li>
+<li>Added support for Django 2.2.</li>
+<li>Fixed a race condition in <code class="docutils literal notranslate"><span class="pre">TaggableManager</span></code>.</li>
+<li>Removed method <code class="docutils literal notranslate"><span class="pre">ItemBase.bulk_lookup_kwargs()</span></code>.</li>
+<li>Fixed view <code class="docutils literal notranslate"><span class="pre">tagged_object_list</span></code> to set <code class="docutils literal notranslate"><span class="pre">queryset.model</span></code> as
+<code class="docutils literal notranslate"><span class="pre">ListView.model</span></code> (was previously set as a <code class="docutils literal notranslate"><span class="pre">ContentType</span></code> instance).</li>
+<li><code class="docutils literal notranslate"><span class="pre">_TaggableManager</span></code> and <code class="docutils literal notranslate"><span class="pre">TaggableManager</span></code> now always call the parent
+class <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.</li>
+<li>Removed <code class="docutils literal notranslate"><span class="pre">TaggableRel</span></code> and replaced uses with <code class="docutils literal notranslate"><span class="pre">ManyToManyRel</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h3>0.23.0 (2018-08-07)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Backwards incompatible:</strong> Remove support for Django &lt; 1.11</li>
+<li>Added support for Django 2.1 and Python 3.7</li>
+<li>Moved TagWidget value conversion from TagWidget.render() to TagWidget.format_value()</li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h3>0.22.2 (2017-12-27)<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added support for Django 2.0</li>
+<li><strong>Backwards incompatible:</strong> Dropped support for EOL Python 3.3</li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h3>0.22.1 (2017-04-22)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Update spanish translation</li>
+<li>Add testing for Django 1.11 and Python 3.6</li>
+<li>introduce isort and flake8 in the CI</li>
+<li>[docs] Fixed links to external apps</li>
+<li>Improved auto-slug in TagBase to support UUID pk</li>
+<li>[docs] Added contribution guidelines</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h3>0.22.0 (2017-01-29)<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Backwards incompatible:</strong> Drop support for Django 1.7</li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h3>0.21.6 (2017-01-25)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fix case-insensitive tag creation when setting to a mix of new and existing
+tags are used</li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h3>0.21.5 (2017-01-21)<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Check for case-insensitive duplicates when creating new tags</li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h3>0.21.4 (2017-01-10)<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Support __gt__ and __lt__ ordering on Tags</li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h3>0.21.3 (2016-10-07)<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fix list view</li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h3>0.21.2 (2016-08-31)<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Update Python version classifiers in setup.py</li>
+<li>Add Greek translation</li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h3>0.21.1 (2016-08-25)<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Document supported versions of Django; fix Travis to test these versions.</li>
+</ul>
+</div>
+<div class="section" id="id24">
+<h3>0.21.0 (2016-08-22)<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fix form tests on Django 1.10</li>
+<li>Address list_display and fieldsets in admin docs</li>
+<li>external_apps.txt improvements</li>
+<li>Remove support for Django 1.4-1.6, again.</li>
+</ul>
+</div>
+<div class="section" id="id25">
+<h3>0.20.2 (2016-07-11)<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Add extra_filters argument to the manager’s most_common method</li>
+</ul>
+</div>
+<div class="section" id="id26">
+<h3>0.20.1 (2016-06-23)<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Specify <cite>app_label</cite> for <cite>Tag</cite> and <cite>TaggedItem</cite></li>
+</ul>
+</div>
+<div class="section" id="id27">
+<h3>0.20.0 (2016-06-19)<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fix UnboundLocalError in _TaggableManager.set(..)</li>
+<li>Update doc links to reflect RTD domain changes</li>
+<li>Improve Russian translations</li>
+</ul>
+</div>
+<div class="section" id="id28">
+<h3>0.19.1 (2016-05-25)<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Add app config, add simplified Chinese translation file</li>
+</ul>
+</div>
+<div class="section" id="id29">
+<h3>0.19.0 (2016-05-23)<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Implementation of m2m_changed signal sending</li>
+<li>Code and tooling improvements</li>
+</ul>
+</div>
+<div class="section" id="id30">
+<h3>0.18.3 (2016-05-12)<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added Spanish and Turkish translations</li>
+</ul>
+</div>
+<div class="section" id="id31">
+<h3>0.18.2 (2016-05-08)<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Add the min_count parameter to managers.most_common function</li>
+</ul>
+</div>
+<div class="section" id="id32">
+<h3>0.18.1 (2016-03-30)<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Address deprecation warnings</li>
+</ul>
+</div>
+<div class="section" id="id33">
+<h3>0.18.0 (2016-01-18)<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Add option to override default tag string parsing</li>
+<li>Drop support for Python 2.6</li>
+</ul>
+</div>
+<div class="section" id="id34">
+<h3>0.17.6 (2015-12-09)<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Silence Django 1.9 warning</li>
+</ul>
+</div>
+<div class="section" id="id35">
+<h3>0.17.5 (2015-11-27)<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Django 1.9 compatibility fix</li>
+</ul>
+</div>
+<div class="section" id="id36">
+<h3>0.17.4 (2015-11-25)<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Allows custom Through Model with GenericForeignKey</li>
+</ul>
+</div>
+<div class="section" id="id37">
+<h3>0.17.3 (2015-10-26)<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Silence Django 1.9 warning about on_delete</li>
+</ul>
+</div>
+<div class="section" id="id38">
+<h3>0.17.2 (2015-10-25)<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Django 1.9 beta compatibility</li>
+</ul>
+</div>
+<div class="section" id="id39">
+<h3>0.17.1 (2015-09-10)<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fix unknown column <cite>object_id</cite> issue with Django 1.6+</li>
+</ul>
+</div>
+<div class="section" id="id40">
+<h3>0.17.0 (2015-08-14)<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Database index added on TaggedItem fields content_type &amp; object_id</li>
+</ul>
+</div>
+<div class="section" id="id41">
+<h3>0.16.4 (2015-08-13)<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Access default manager via class instead of instance</li>
+</ul>
+</div>
+<div class="section" id="id42">
+<h3>0.16.3 (2015-08-08)<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Prevent IntegrityError with custom TagBase classes</li>
+</ul>
+</div>
+<div class="section" id="id43">
+<h3>0.16.2 (2015-07-13)<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fix an admin bug related to the <cite>Manager</cite> property <cite>through_fields</cite></li>
+</ul>
+</div>
+<div class="section" id="id44">
+<h3>0.16.1 (2015-07-09)<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fix bug that assumed all primary keys are named ‘id’</li>
+</ul>
+</div>
+<div class="section" id="id45">
+<h3>0.16.0 (2015-07-04)<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Add option to allow case-insensitive tags</li>
+</ul>
+</div>
+<div class="section" id="id46">
+<h3>0.15.0 (2015-06-23)<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fix wrong slugs for non-latin chars. Only works if optional GPL dependency
+(unidecode) is installed.</li>
+</ul>
+</div>
+<div class="section" id="id47">
+<h3>0.14.0 (2015-04-26)<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Prevent extra JOIN when prefetching</li>
+<li>Prevent _meta warnings with Django 1.8</li>
+</ul>
+</div>
+<div class="section" id="id48">
+<h3>0.13.0 (2015-04-02)<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Django 1.8 support</li>
+</ul>
+</div>
+<div class="section" id="id49">
+<h3>0.12.3 (2015-03-03)<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Specify that the internal type of the TaggitManager is a ManyToManyField</li>
+</ul>
+</div>
+<div class="section" id="id50">
+<h3>0.12.2 (2014-21-09)<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fixed 1.7 migrations.</li>
+</ul>
+</div>
+<div class="section" id="id51">
+<h3>0.12.1 (2014-10-08)<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Final (hopefully) fixes for the upcoming Django 1.7 release.</li>
+<li>Added Japanese translation.</li>
+</ul>
+</div>
+<div class="section" id="id52">
+<h3>0.12.0 (2014-20-04)<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Backwards incompatible:</strong> Support for Django 1.7 migrations. South users
+have to set <code class="docutils literal notranslate"><span class="pre">SOUTH_MIGRATION_MODULES</span></code> to use <code class="docutils literal notranslate"><span class="pre">taggit.south_migrations</span></code>
+for taggit.</li>
+<li><strong>Backwards incompatible:</strong> Django’s new transaction handling is used on
+Django 1.6 and newer.</li>
+<li><strong>Backwards incompatible:</strong> <code class="docutils literal notranslate"><span class="pre">Tag.save</span></code> got changed to opportunistically try
+to save the tag and if that fails fall back to selecting existing similar
+tags and retry – if that fails too an <code class="docutils literal notranslate"><span class="pre">IntegrityError</span></code> is raised by the
+database, your app will have to handle that.</li>
+<li>Added Italian and Esperanto translations.</li>
+</ul>
+</div>
+<div class="section" id="id53">
+<h3>0.11.2 (2013-13-12)<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Forbid multiple TaggableManagers via generic foreign keys.</li>
+</ul>
+</div>
+<div class="section" id="id54">
+<h3>0.11.1 (2013-25-11)<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fixed support for Django 1.4 and 1.5.</li>
+</ul>
+</div>
+<div class="section" id="id55">
+<h3>0.11.0 (2013-25-11)<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added support for prefetch_related on tags fields.</li>
+<li>Fixed support for Django 1.7.</li>
+<li>Made the tagging relations unserializeable again.</li>
+<li><dl class="first docutils">
+<dt>Allow more than one TaggableManager on models (assuming concrete FKs are</dt>
+<dd>used for the relations).</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id56">
+<h3>0.10.0 (2013-17-08)<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Support for Django 1.6 and 1.7.</li>
+<li>Python3 support</li>
+<li><strong>Backwards incompatible:</strong> Dropped support for Django &lt; 1.4.5.</li>
+<li>Tag names are unique now, use the provided South migrations to upgrade.</li>
+</ul>
+</div>
+<div class="section" id="id57">
+<h3>0.9.2 (2011-01-17)<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Backwards incompatible:</strong> Forms containing a <a class="reference internal" href="index.html#TaggableManager" title="TaggableManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaggableManager</span></code></a> by
+default now require tags, to change this provide <code class="docutils literal notranslate"><span class="pre">blank=True</span></code> to the
+<a class="reference internal" href="index.html#TaggableManager" title="TaggableManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaggableManager</span></code></a>.</li>
+<li>Now works with Django 1.3 (as of beta-1).</li>
+</ul>
+</div>
+<div class="section" id="id58">
+<h3>0.9.0 (2010-09-22)<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added a Hebrew locale.</li>
+<li>Added an index on the <code class="docutils literal notranslate"><span class="pre">object_id</span></code> field of <code class="docutils literal notranslate"><span class="pre">TaggedItem</span></code>.</li>
+<li>When displaying tags always join them with commas, never spaces.</li>
+<li>The docs are now available <a class="reference external" href="https://django-taggit.readthedocs.io/">online</a>.</li>
+<li>Custom <code class="docutils literal notranslate"><span class="pre">Tag</span></code> models are now allowed.</li>
+<li><strong>Backwards incompatible:</strong> Filtering on tags is no longer
+<code class="docutils literal notranslate"><span class="pre">filter(tags__in=[&quot;foo&quot;])</span></code>, it is written
+<code class="docutils literal notranslate"><span class="pre">filter(tags__name__in=[&quot;foo&quot;])</span></code>.</li>
+<li>Added a German locale.</li>
+<li>Added a Dutch locale.</li>
+<li><dl class="first docutils">
+<dt>Removed <code class="docutils literal notranslate"><span class="pre">taggit.contrib.suggest</span></code>, it now lives in an external application,</dt>
+<dd>see <a class="reference internal" href="index.html#document-external_apps"><span class="doc">External Applications</span></a> for more information.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id59">
+<h3>0.8.0 (2010-06-22)<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fixed querying for objects using <code class="docutils literal notranslate"><span class="pre">exclude(tags__in=tags)</span></code>.</li>
+<li>Marked strings as translatable.</li>
+<li>Added a Russian translation.</li>
+<li>Created a <a class="reference external" href="http://groups.google.com/group/django-taggit">mailing list</a>.</li>
+<li>Smarter tagstring parsing for form field; ported from Jonathan Buchanan’s
+<a class="reference external" href="http://django-tagging.googlecode.com">django-tagging</a>. Now supports tags
+containing commas. See <a class="reference internal" href="index.html#tags-in-forms"><span class="std std-ref">Tags in forms</span></a> for details.</li>
+<li>Switched to using savepoints around the slug generation for tags. This
+ensures that it works fine on databases (such as Postgres) which dirty a
+transaction with an <code class="docutils literal notranslate"><span class="pre">IntegrityError</span></code>.</li>
+<li>Added Python 2.4 compatibility.</li>
+<li>Added Django 1.1 compatibility.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Alex Gaynor and individual contributors.
+      
+        <span class="commit">
+          Revision <code>63c9a970</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//django-taggit.readthedocs.io/_/downloads/en/latest/pdf/">pdf</a></dd>
+        
+          <dd><a href="//django-taggit.readthedocs.io/_/downloads/en/latest/htmlzip/">html</a></dd>
+        
+          <dd><a href="//django-taggit.readthedocs.io/_/downloads/en/latest/epub/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/django-taggit/?fromdocs=django-taggit">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/django-taggit/?fromdocs=django-taggit">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

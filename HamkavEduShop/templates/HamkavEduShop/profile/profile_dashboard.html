@@ -1,0 +1,115 @@
+{% extends 'HamkavEduShop/profile/profile_base.html' %} 
+
+
+{% block profile_pages%}
+{% comment %} this is dashboard {% endcomment %}
+
+<section class="py-0 py-xl-5">
+	<div class="container">
+		<div class="row g-4">
+			<!-- Counter item -->
+			<div class="col-sm-6 col-xl-3">
+				<div class="d-flex justify-content-center align-items-center p-3 bg-warning bg-opacity-15 rounded-3">
+					<span class="display-6 lh-1 text-warning mb-0"><i class="fas fa-duotone fa-blog"></i></span>
+					<div class="ms-4 h6 fw-normal mb-0">
+						<div class="d-flex">
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="{{posts_count}}" data-purecounter-delay="200">0</h5>
+							<span class="mb-0 h5"></span>
+						</div>
+						<p class="mb-0"> مقالات  </p>
+					</div>
+				</div>
+			</div>
+			<!-- Counter item -->
+			<div class="col-sm-6 col-xl-3">
+				<div class="d-flex justify-content-center align-items-center p-3 bg-blue bg-opacity-10 rounded-3">
+					<span class="display-6 lh-1 text-blue mb-0"><i class="fas fa-user-tie"></i></span>
+					<div class="ms-4 h6 fw-normal mb-0">
+						<div class="d-flex">
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="0" data-purecounter-delay="200">0</h5>
+							<span class="mb-0 h5"></span>
+						</div>
+						<p class="mb-0"> مربیان  </p>
+					</div>
+				</div>
+			</div>
+			<!-- Counter item -->
+			<div class="col-sm-6 col-xl-3">
+				<div class="d-flex justify-content-center align-items-center p-3 bg-purple bg-opacity-10 rounded-3">
+					<span class="display-6 lh-1 text-purple mb-0"><i class="fas fa-user-graduate"></i></span>
+					<div class="ms-4 h6 fw-normal mb-0">
+						<div class="d-flex">
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="0" data-purecounter-delay="200">0</h5>
+							<span class="mb-0 h5"></span>
+						</div>
+						<p class="mb-0"> دانشجویان  </p>
+					</div>
+				</div>
+			</div>
+			<!-- Counter item -->
+			<div class="col-sm-6 col-xl-3">
+				<div class="d-flex justify-content-center align-items-center p-3 bg-info bg-opacity-10 rounded-3">
+					<span class="display-6 lh-1 text-info mb-0"><i class="bi bi-patch-check-fill"></i></span>
+					<div class="ms-4 h6 fw-normal mb-0">
+						<div class="d-flex">
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="0" data-purecounter-delay="300">0</h5>
+							<span class="mb-0 h5">  </span>
+						</div>
+						<p class="mb-0"> گواهینامه های دریافت شده</p>
+					</div>
+				</div>
+			</div>
+            			<!-- Counter item -->
+			<div class="col-sm-6 col-xl-3">
+				<div class="d-flex justify-content-center align-items-center p-3 bg-dark bg-opacity-10 rounded-3">
+					<span class="display-6 lh-1 text-blue mb-0"><i class="bi bi-file-earmark-spreadsheet"></i></span>
+					<div class="ms-4 h6 fw-normal mb-0">
+						<div class="d-flex">
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="0" data-purecounter-delay="300">0</h5>
+							<span class="mb-0 h5">  </span>
+						</div>
+						<p class="mb-0">  آزمون ها  </p>
+					</div>
+				</div>
+			</div>
+            			<!-- Counter item -->
+			<div class="col-sm-6 col-xl-3">
+				<div class="d-flex justify-content-center align-items-center p-3 bg-orange bg-opacity-10 rounded-3">
+					<span class="display-6 lh-1 text-warning  mb-0"><i class="bi bi-wallet2"></i></span>
+					<div class="ms-4 h6 fw-normal mb-0">
+						<div class="d-flex">
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="0" data-purecounter-delay="300">0</h5>
+							<span class="mb-0 h5">  </span>
+						</div>
+						<p class="mb-0"> درآمد  </p>
+					</div>
+				</div>
+			</div>
+            			<!-- Counter item -->
+			<div class="col-sm-6 col-xl-3">
+				<div class="d-flex justify-content-center align-items-center p-3 bg-orange bg-opacity-10 rounded-3">
+					<span class="display-6 lh-1 text-warning  mb-0"><i class="bi bi-cash-stack"></i></span>
+					<div class="ms-4 h6 fw-normal mb-0">
+						<div class="d-flex">
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="0" data-purecounter-delay="300">0</h5>
+							<span class="mb-0 h5">  </span>
+						</div>
+						<p class="mb-0">  هزینه </p>
+					</div>
+				</div>
+			</div>
+    
+
+
+
+		</div>
+	</div>
+
+			<!-- =======================
+			Counter END -->
+		</section>
+
+        
+
+
+{% endblock profile_pages%}

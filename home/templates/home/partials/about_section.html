@@ -1,0 +1,23 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="row align-items-center">
+	<div class="col-lg-6 col-md-12">
+		<div
+			class="owl-carousel owl-theme no-pb"
+			data-items="1"
+			data-dots="false"
+			data-nav="true">
+			{% for item in page.aboutus_gallery_images.all %}
+			<div class="item">
+				{% image item.image fill-550x240 class="img-fluid w-100" %}
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="col-lg-6 col-md-12 md-mt-3">
+		<h2 class="title">درباره <span>ما</span></h2>
+
+		<p class="lead">{{page.aboutUs|richtext}}</p>
+		{% comment %} <p class="lead">{{aboutPage.aboutUs|richtext}}</p> {% endcomment %}
+	</div>
+</div>

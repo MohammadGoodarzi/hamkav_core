@@ -1,0 +1,51 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="row mt-5">
+  <div class="col-lg-12 col-md-12">
+    <div class="tab style-2 text-center">
+      <!-- Nav tabs -->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist"> <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#tab1-1" role="tab" aria-selected="true">ماموریت ما</a>
+          <a class="nav-item nav-link" id="nav-tab1" data-toggle="tab" href="#tab1-2" role="tab" aria-selected="false">دیدگاه ما</a>
+          <a class="nav-item nav-link" id="nav-tab2" data-toggle="tab" href="#tab1-3" role="tab" aria-selected="false">ارزش های ما</a>
+        </div>
+      </nav>
+      <!-- Tab panes -->
+      <div class="tab-content white-bg box-shadow" id="nav-tabContent">
+        <div role="tabpanel" class="tab-pane fade show active" id="tab1-1">
+          <div class="row align-items-center">
+            <div class="col-md-6 order-md-12">
+              <img class="img-fluid" src="images/service/03.jpg" alt="">
+            </div>
+            <div class="col-md-6 order-md-1 sm-mt-3">
+              <h4> <span class="text-theme">ماموریت</span> ما</h4>
+              <p class="lead">{{page.ourMission|richtext}}</p>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab1-2">
+          <div class="row align-items-center">
+            <div class="col-md-6 order-md-12">
+              <img class="img-fluid" src="images/service/04.jpg" alt="">
+            </div>
+            <div class="col-md-6 order-md-1 sm-mt-3">
+              <h4> <span class="text-theme">دیدگاه </span>ما</h4>
+              <p class="lead">{{page.ourVision|richtext}}</p>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab1-3">
+          <div class="row align-items-center">
+            <div class="col-md-6 order-md-12">
+              <img class="img-fluid" src="images/service/05.jpg" alt="">
+            </div>
+            <div class="col-md-6 order-md-1 sm-mt-3">
+              <h4> <span class="text-theme">ارزش های </span>ما</h4>
+              <p class="lead">{{page.ourValues|richtext}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

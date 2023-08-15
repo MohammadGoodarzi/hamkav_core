@@ -1,0 +1,28 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<footer class="footer dark-bg pt-10 sm-pt-8 pos-r" data-bg-img="images/bg/09.png" style="background-size: contain; background-repeat: no-repeat;">
+
+    <div class="contact-media">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="media-icon style-2 list-inline theme-bg">
+              <li> <i class="flaticon-paper-plane"></i>
+                <span>آدرس:</span>
+                <p class="mb-0">{{page.address}}</p>
+              </li>
+              <li> <i class="flaticon-phone-call"></i>
+                <span>تلفن:</span>
+                <a href="tel:+912345678900">{{page.phone1}}</a>
+              </li>
+              <li> <i class="flaticon-message"></i>
+                <span>ایمیل:</span>
+                <a href="mailto:yourmail@site.com">{{page.email}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    </footer>

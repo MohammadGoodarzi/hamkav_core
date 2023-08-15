@@ -1,0 +1,42 @@
+
+{% load wagtailcore_tags %}
+{% load wagtailuserbar %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+<footer class="bg-dark pt-5 ">
+	{% comment %} <footer class="bg-dark pt-5 navbar fixed-bottom"> {% endcomment %}
+	<div class="container">
+
+
+		<!-- Bottom footer -->
+		<div class="py-3">
+			<div class=" container px-0">
+				<div class="d-lg-flex justify-content-between align-items-center py-3 text-center text-md-left">
+					<!-- copyright text -->
+					<div class="text-muted text-primary-hover"> تحت حمایت    <a href="https://www.hamkav.com/" target="_blank" class="text-reset">راه کارهای فن آوری هم کاو </a></div>
+					<!-- copyright links-->
+					<div class="justify-content-center mt-3 mt-lg-0">
+						<ul class="nav list-inline justify-content-center mb-0">
+							<li class="list-inline-item text-primary-hover">
+								<!-- Language selector -->
+								<div class="dropup mt-0 text-center text-sm-end">
+									<a class="dropdown-toggle nav-link" href="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
+										<i class="fas fa-globe me-2"></i>زبان ها
+									</a>
+									<ul class="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
+										<li><a class="dropdown-item me-4 text-body" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">فارسی</a></li>
+										<li><a class="dropdown-item me-4 text-body" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">انگلیسی </a></li>
+										<li><a class="dropdown-item me-4 text-body" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">عربی</a></li>
+									</ul>
+								</div>
+							</li>
+							<li class="list-inline-item text-primary-hover"><a class="nav-link" href="#">شرایط استفاده</a></li>
+							<li class="list-inline-item text-primary-hover"><a class="nav-link pe-0" href="#">قوانین سایت</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>

@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+
+{% load static wagtailcore_tags wagtailuserbar %}
+{% load wagtailcore_tags %}
+{% load wagtailuserbar %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content%}
+<!-- **************** MAIN CONTENT START **************** -->
+
+
+
+
+
+<main>
+	<section class="p-0 d-flex align-items-center position-relative overflow-hidden">
+	
+		<div class="container-fluid">
+			<div class="row mt-4">
+				<!-- left -->
+				{% include 'HamkavAuth/partials/register_left.html' %}
+				
+				<!-- Right -->
+				{% include 'HamkavAuth/partials/register_right.html' %}
+
+
+			</div>
+		</div>
+	</section>
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+{% endblock%}
+
+
+
+
+
+
+
+

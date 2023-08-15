@@ -1,0 +1,12 @@
+
+.CodeMirror {
+border: none;
+box-shadow: 0 1rem 3rem rgba(29, 58, 83, 0.15) !important;
+}
+
+
+.editor-toolbar 
+ {
+border: none;
+box-shadow: 0 1rem 3rem rgba(29, 58, 83, 0.15) !important;
+}

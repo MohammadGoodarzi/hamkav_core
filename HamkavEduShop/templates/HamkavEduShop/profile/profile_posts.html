@@ -1,0 +1,12 @@
+{% extends 'HamkavEduShop/profile/profile_base.html' %} 
+
+
+{% block profile_pages%}
+{% comment %} {{profile_page_title}} {% endcomment %}
+<h4 class="text-blue px-4">لیست تمامی مقالات شما</h4>
+<hr>
+{% include "HamkavBlog/partials/post_list_grid.html" %}
+
+{% endblock profile_pages%}
+
+

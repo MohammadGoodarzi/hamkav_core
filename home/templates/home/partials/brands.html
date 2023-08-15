@@ -1,0 +1,29 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+<section class="text-center grey-bg pb-17 sm-pb-8">
+    <div class="container">
+      <div class="row">
+  
+  
+        {% for  item in page.brands_gallery_images.all %}
+        <div class="col-md-3 col-sm-6" >
+            {% image  item.image fill-550x240  class="img-center" %}     
+        </div>
+        {% endfor %}
+  
+        <div class="col-md-3 col-sm-6">
+          <img class="img-center" src="images/client/03.png" alt="">
+        </div>
+        <div class="col-md-3 col-sm-6 xs-mt-5">
+          <img class="img-center" src="images/client/04.png" alt="">
+        </div>
+        <div class="col-md-3 col-sm-6 sm-mt-5">
+          <img class="img-center" src="images/client/03.png" alt="">
+        </div>
+        <div class="col-md-3 col-sm-6 sm-mt-5">
+          <img class="img-center" src="images/client/04.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>

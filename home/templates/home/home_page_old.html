@@ -1,0 +1,444 @@
+{% extends "home/home_base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailuserbar %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+{% comment %}
+Delete the line below if you're just getting started and want to remove the welcome screen!
+{% endcomment %}
+<!-- <link rel="stylesheet" href="{% static 'css/welcome_page.css' %}"> -->
+{% endblock extra_css %}
+
+{% block content %}
+
+
+{% comment %}
+Delete the line below if you're just getting started and want to remove the welcome screen!
+{% endcomment %}
+<!-- {% include 'home/welcome_page.html' %} -->
+
+    
+<!-- page wrapper start -->
+
+<div class="page-wrapper">
+
+
+    <!--hero section start-->
+    
+    <section class="banner p-0 pos-r fullscreen-banner">
+      <div class="banner-slider owl-carousel no-pb" data-dots="false">
+        <div class="item" data-bg-img="{%  static 'images/bg/05.jpg' %}" data-overlay="7"></div>
+        <div class="item" data-bg-img="{%  static 'images/bg/04.jpg' %}" data-overlay="7"></div>
+        <div class="item" data-bg-img="{%  static 'images/bg/06.jpg' %}" data-overlay="7"></div>
+      </div>
+      <div class="align-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-10 col-lg-10 col-md-12 ml-auto mr-auto">
+              <div class="banner-text">
+                <img id="bnr-logo" class="img-center animated11" src="{%  static 'images/logo-m.png' %}" alt="">
+                <h1 class="text-white mb-4 animated6">گروه تجاری  <span> آبتین تجارت فولاد ونداد </span> </ h1>
+                <!-- <p class="lead text-white animated5">تامین و توزیع محصولات فولادی و دستیابی به بالاترین سهم از بازار داخلی و خارجی<br/>تلاش برای تکمیل زنجیره های تامین و توزیع محصولات فولادی و نیاز مشتریان</p>  <a class="btn btn-theme btn-radius animated7" href="about-us.html">بیشتر بدانید</a> -->
+                <p class="lead text-white animated5"> تامین انواع ورقهای فولادی اعم از ورق گرم، سرد، گالوانیزه، رنگی، قلع اندود و …</p> <a class="btn btn-theme btn-radius animated7" href="about-us.html">بیشتر بدانید</a>
+                <a class="btn btn-border btn-radius animated6" href="contact-1.html">تماس با ما</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--hero section end-->
+
+    {% include 'home/partials/product_index_page_items.html' %}
+
+    
+    <!--body content start-->
+    
+    <div class="page-content">
+    
+
+
+    <!--about us start-->
+    
+    <section class="grey-bg">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+            <div class="section-title">
+              <h2 class="title">درباره <span>شرکت</span></h2>
+              <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- about section-->
+
+<div class="container">
+
+
+  {% for about in aboutPage %} 
+  
+   {% with about=about.specific %}
+  
+  <div class="row align-items-center">
+    <div class="col-lg-6 col-md-12">
+      <div
+        class="owl-carousel owl-theme no-pb"
+        data-items="1"
+        data-dots="false"
+        data-nav="true">
+        {% for item in about.aboutus_gallery_images.all %}
+        <div class="item">
+          {% image item.image fill-550x240 class="img-fluid w-100" %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12 md-mt-3">
+      
+      <p class="lead">{{about.aboutUs|richtext}}</p>
+    </div>
+  </div>
+  {%endwith%} 
+  {%endfor%}
+  </div>
+  
+<!-- end about section -->
+
+
+
+    
+      </div>
+    </section>
+    
+    <!--about us end-->
+    
+    
+    <!--project start-->
+    
+
+    
+    <!--project end-->
+    
+    
+    <!--counter start-->
+    
+    <section class="text-center grey-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <div class="counter style-2"> <i class="flaticon-innovation"></i>
+              <span class="count-number" data-to="150" data-speed="10000">150</span>
+              <label>پروژه ها</label>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="counter style-2"> <i class="flaticon-pencil"></i>
+              <span class="count-number" data-to="175" data-speed="10000">175</span>
+              <label>پروژه های موفق</label>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="counter style-2 md-mt-5"> <i class="flaticon-coffee-cup"></i>
+              <span class="count-number" data-to="344" data-speed="10000">344</span>
+              <label>فنجان قهوه</label>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="counter style-2 md-mt-5"> <i class="flaticon-employee"></i>
+              <span class="count-number" data-to="125" data-speed="10000">125</span>
+              <label>مشتریان خوشحال</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--counter end-->
+    
+    
+    <!--team start-->
+    
+
+    <!--team end-->
+    
+    
+    <!--progress start-->
+    
+    <section class="dark-bg pos-r">
+      <div class="side-background side-image">
+        <div class="row">
+          <div class="col-lg-6 img-side img-right" style="background: url({%  static 'images/bg/03.jpg' %}) no-repeat left center; background-size: cover;"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mr-auto pr-lg-5">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="section-title mb-4">
+                  <h2 class="title">ویژگی <span>اصلی</span></h2>
+                </div>
+                <p class="line-h-3 text-white">لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است.</p>
+                <div class="row text-white mt-5">
+          <div class="col-md-6 col-sm-6">
+            <div class="featured-item text-right p-0">
+              <div class="featured-icon"> <i class="flaticon-innovation text-theme"></i>
+              </div>
+              <div class="featured-title text-uppercase">
+                <h5>آخرین تکنولوژی</h5>
+              </div>
+              <div class="featured-desc">
+                <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 xs-mt-5">
+            <div class="featured-item text-right p-0">
+              <div class="featured-icon"> <i class="flaticon-innovation-1 text-theme"></i>
+              </div>
+              <div class="featured-title text-uppercase">
+                <h5>آسان و سریع</h5>
+              </div>
+              <div class="featured-desc">
+                <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 mt-5">
+            <div class="featured-item text-right p-0">
+              <div class="featured-icon"> <i class="flaticon-employee text-theme"></i>
+              </div>
+              <div class="featured-title text-uppercase">
+                <h5>تیم کارشناس</h5>
+              </div>
+              <div class="featured-desc">
+                <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 mt-5">
+            <div class="featured-item text-right p-0">
+              <div class="featured-icon"> <i class="flaticon-chat-bubble text-theme"></i>
+              </div>
+              <div class="featured-title text-uppercase">
+                <h5>همیشه متصل است</h5>
+              </div>
+              <div class="featured-desc">
+               <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--progress end-->
+    
+    
+    <!--blog start-->
+    
+    <section>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+            <div class="section-title">
+              <h2 class="title">آخرین <span> اخبار</span></h2>
+              <p class="mb-0">لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <div class="post style-2">
+              <div class="post-image">
+                <img src="{%  static 'images/blog/01.jpg' %}" alt="">
+              <div class="post-date">23 مهر, 1397</div>
+              </div>
+              <div class="post-desc">
+                <div class="post-meta">
+                  <ul class="list-inline">
+                    <li>پسند</li>
+                    <li>نظر</li>
+                  </ul>
+                </div>
+                <div class="post-title">
+                  <h5><a href="blog-details-right-sidebar.html">مهندس صنعت</a></h5>
+                </div>
+                <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است.</p> <a class="post-btn" href="blog-details-right-sidebar.html">ادامه خواندن<i class="mr-2 fas fa-long-arrow-alt-left"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 md-mt-5">
+            <div class="post style-2">
+              <div class="row no-gutters row-eq-height">
+                <div class="col-md-6">
+                  <div class="post-image">
+                    <img class="h-100" src="{%  static 'images/blog/02.jpg' %}" alt="">
+                   <div class="post-date">23 مهر, 1397</div>
+                  </div>
+                </div>
+                <div class="col-md-6 align-item-middle white-bg">
+                  <div>
+                    <div class="post-desc">
+                      <div class="post-meta">
+                        <ul class="list-inline">
+                          <li>پسند</li>
+                    <li>نظر</li>
+                        </ul>
+                      </div>
+                      <div class="post-title">
+                        <h5><a href="blog-details-right-sidebar.html">مدیریت گردش کار</a></h5>
+                      </div>
+                      <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است.</p> <a class="post-btn" href="blog-details-right-sidebar.html">ادامه خواندن<i class="mr-2 fas fa-long-arrow-alt-left"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="post style-2 mt-5">
+              <div class="row no-gutters row-eq-height">
+                <div class="col-md-6">
+                  <div class="post-image">
+                    <img class="h-100" src="{%  static 'images/blog/03.jpg' %}" alt="">
+                   <div class="post-date">23 مهر, 1397</div>
+                  </div>
+                </div>
+                <div class="col-md-6 align-item-middle white-bg">
+                  <div>
+                    <div class="post-desc">
+                      <div class="post-meta">
+                        <ul class="list-inline">
+                          <li>پسند</li>
+                    <li>نظر</li>
+                        </ul>
+                      </div>
+                      <div class="post-title">
+                        <h5><a href="blog-details-right-sidebar.html">سود صنعتی رشد می کند</a></h5>
+                      </div>
+                      <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر را در بر میگیرد, لورم ایپسوم استاندارد صنعت بوده است.</p> <a class="post-btn" href="blog-details-right-sidebar.html">ادامه خواندن<i class="mr-2 fas fa-long-arrow-alt-left"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--blog end-->
+    
+    
+    <!--pricing start-->
+    
+ 
+    
+    <!--pricing end-->
+    
+    
+
+    
+
+    
+    
+    </div>
+    
+    <!--body content end--> 
+    
+    
+
+    
+    
+    </div>
+    
+
+
+<!-- brands-->
+
+
+    <section class="text-center grey-bg pb-17 sm-pb-8">
+
+
+
+
+      <div class="container">
+        <div class="row">
+    
+          {% for about in aboutPage %} 
+          {% with page=about.specific %}
+          {% for  item in page.brands_gallery_images.all %}
+          <div class="col-md-3 col-sm-6" >
+              {% image  item.image fill-550x240  class="img-center" %}     
+          </div>
+          {% endfor %}
+    
+         
+          {%endwith%} 
+          {%endfor%}
+
+
+        </div>
+      </div>
+    </section>
+<!-- brands end -->
+
+
+   
+    
+
+    
+    <!--back-to-top start-->
+    
+    <div class="scroll-top"><a class="smoothscroll" href="#top"><i class="fas fa-chevron-up"></i></a></div>
+    
+    <!--back-to-top end-->
+
+
+
+
+
+    {% for about in aboutPage %} 
+    {% with page=about.specific %}
+    <footer class="footer dark-bg pt-10 sm-pt-8 pos-r" data-bg-img="images/bg/09.png" style="background-size: contain; background-repeat: no-repeat;">
+
+      <div class="contact-media">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="media-icon style-2 list-inline theme-bg">
+                <li> <i class="flaticon-paper-plane"></i>
+                  <span>آدرس:</span>
+                  <p class="mb-0">{{page.address}}</p>
+                </li>
+                <li> <i class="flaticon-phone-call"></i>
+                  <span>تلفن:</span>
+                  <a href="tel:+912345678900">{{page.phone1}}</a>
+                </li>
+                <li> <i class="flaticon-message"></i>
+                  <span>ایمیل:</span>
+                  <a href="mailto:yourmail@site.com">{{page.email}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      </footer>
+      {%endwith%} 
+      {%endfor%}
+
+    
+{% endblock content %}

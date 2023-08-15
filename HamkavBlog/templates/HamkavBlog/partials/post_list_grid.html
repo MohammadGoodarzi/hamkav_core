@@ -1,0 +1,86 @@
+{% load static %}
+
+<!-- =======================
+	
+Page content START -->
+
+<section class="position-relative pt-3">
+	<div class="container">
+		<div class="row g-2 filter-container overflow-hidden" data-isotope='{"layoutMode": "masonry"}'>
+			{% for post in posts %}
+			<!-- Card item START -->
+			<div class="col-sm-6 col-lg-4 col-xl-3">
+				<div class="card">
+					<div class="overflow-hidden rounded-3">
+						<img src="{% static 'images/HamkavBlog/default_post_cover_2.jpeg' %}" class="card-img" alt="course image" />
+						<!-- Overlay -->
+						<div class="bg-overlay bg-black bg-blur opacity-4"></div>
+						<div class="card-img-overlay  align-items-start p-3">
+							<!-- badge -->
+
+							<a href="#" class="badge text-bg-success fw-bold">{{post.category2}} </a>
+							{% if  post.is_deleted %}
+								<p href="#" class="badge text-bg-danger fw-bold"> حذف شده </p>
+							{% endif %}
+							{% if not post.is_published %}
+								<p href="#" class="badge text-bg-dark fw-bold">پیش نویس</p>
+							{% endif %}
+							{% if   post.is_restricted %}
+								<p href="#" class="badge text-bg-warning fw-bold"><i class="fas fa-solid fa-crown"></i>  مقالات ویژه </p>
+							{% endif %}
+						</div>
+					</div>
+
+					<!-- Card body -->
+					<div class="card-body">
+						<!-- Title -->
+						<h5 class="card-title"><a class="text-truncate-2" href="{{ post.get_absolute_url }}" class="card-title">{{ post.title|truncatewords:10}}</a></h5>
+						{% comment %}
+						<p class="text-truncate-2">در دنیای امروزی، اکثر مشاغل و کار‌ها با کامپیوتر‌ها پیوندی جدا نشدنی پیدا کرده‌اند به گونه‌ای</p>
+						{% endcomment %}
+						<a class="text-truncate-2 text-dark" href="{{ post.get_absolute_url }}" class="card-body"><small>{{ post.brife|truncatewords:30 }}</small></a>
+						<!-- Info -->
+						<div class="mt-4 d-flex justify-content-between">
+							<h6 class="mb-0 fw-normal">{{ post.user.full_name}}</h6>
+							<span class="small">{{post.created|timesince}} پیش</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Card item END -->
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<section class="position-relative pt-0">
+	<div class="container">
+		<!-- Pagination START -->
+		<nav class="d-flex justify-content-center mt-5" aria-label="navigation">
+			<ul class="pagination pagination-primary-soft rounded mb-0">
+				{% if posts %} {% if posts.has_previous %}
+				<li class="page-item mb-0">
+					<a class="page-link" href="?page=1" tabindex="-1"><i class="fas fa-angle-double-right"></i></a>
+				</li>
+				<li class="page-item mb-0"><a class="page-link" href="?page={{ posts.previous_page_number }}">{{ posts.previous_page_number }}</a></li>
+				{% endif %}
+
+				<li class="page-item mb-0 active"><a class="page-link" href="#">{{ posts.number}}</a></li>
+
+				{% if posts.has_next %}
+
+				<li class="page-item mb-0"><a class="page-link" href="?page={{ posts.next_page_number }}">{{ posts.next_page_number }}</a></li>
+				<li class="page-item mb-0">
+					<a class="page-link" href="?page={{ posts.paginator.num_pages }}"><i class="fas fa-angle-double-left"></i></a>
+				</li>
+				{% endif %} {% else%}
+				<div class="pagination text-bg-secondary rounded mb-0 p-1">پستی برای نمایش وجود ندارد</div>
+				{% endif %}
+			</ul>
+		</nav>
+		<!-- Pagination END -->
+	</div>
+</section>
+
+<!-- =======================
+Page content END -->

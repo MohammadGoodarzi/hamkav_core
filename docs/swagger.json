@@ -1,0 +1,1247 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "mediana sms api doc </br>  sdks for some programming languages is in out github at https://github.com/medianasms </br> api-key format: <code>Authorization: \"AccessKey your-api-key\"</code>\n\n# Authentication\n\n<!-- ReDoc-Inject: <security-definitions> -->",
+    "title": "Mediana sms api",
+    "version": "1.0.1",
+    "x-logo": {
+      "url": "http://docs.medianasms.com/logo-256x256.png",
+      "backgroundColor": "#FFFFFF",
+      "altText": "Mediana SMS"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://rest.medianasms.com"
+    }
+  ],
+  "paths": {
+    "/v1/user": {
+      "get": {
+        "x-code-samples": {
+          "lang": "JavaScript",
+          "source": "console.log('Hello World')"
+        },
+        "tags": [
+          "auth"
+        ],
+        "description": "get authorized user",
+        "operationId": "GetAuthorizedUser",
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "user": {
+                          "$ref": "#/components/schemas/user"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": "OK",
+                  "code": 200,
+                  "message": "Ok",
+                  "data": {
+                    "user": {
+                      "id": 1,
+                      "username": "admin",
+                      "name": "sdfsdf",
+                      "email": "asd@asd.asda",
+                      "document_block": "yes",
+                      "send_block": "yes",
+                      "mobile": "12323",
+                      "tellephone": "123123",
+                      "national_id": "aasda",
+                      "certificate_id": "asdad",
+                      "address": "sdf",
+                      "postal_code": "123",
+                      "company": "sdf",
+                      "expire": "2017-01-01T00:00:00Z",
+                      "status": "active"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "error": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "key not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key is not valid"
+                      }
+                    }
+                  },
+                  "key scheme not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key scheme is not valid"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/credit": {
+      "get": {
+        "tags": [
+          "credit"
+        ],
+        "description": "get user credit",
+        "operationId": "GetCredit",
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "credit": {
+                          "type": "integer",
+                          "format": "float64"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": "OK",
+                  "code": 200,
+                  "message": "Ok",
+                  "data": {
+                    "credit": 9999937780
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "error": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "key not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key is not valid"
+                      }
+                    }
+                  },
+                  "key scheme not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key scheme is not valid"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/messages": {
+      "post": {
+        "tags": [
+          "messages"
+        ],
+        "description": "send SMS",
+        "operationId": "SendSMS",
+        "requestBody": {
+          "description": "parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "originator",
+                  "recipients",
+                  "message"
+                ],
+                "properties": {
+                  "originator": {
+                    "description": "your line number to send message from that",
+                    "type": "string",
+                    "example": "+9850002"
+                  },
+                  "recipients": {
+                    "description": "recipients number",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "989123456789",
+                      "989125554433"
+                    ]
+                  },
+                  "message": {
+                    "description": "message to send",
+                    "type": "string",
+                    "example": "mediana is awesome"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "bulk_id": {
+                          "description": "message tracking code",
+                          "type": "integer",
+                          "format": "int64"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "value": {
+                    "status": "OK",
+                    "code": 200,
+                    "message": "Ok",
+                    "data": {
+                      "bulk_id": 52738692
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "error": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "key not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key is not valid"
+                      }
+                    }
+                  },
+                  "key scheme not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key scheme is not valid"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/messages/patterns": {
+      "post": {
+        "tags": [
+          "messages"
+        ],
+        "description": "create message pattern",
+        "operationId": "CreatePattern",
+        "requestBody": {
+          "description": "parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "pattern"
+                ],
+                "properties": {
+                  "pattern": {
+                    "description": "pattern template",
+                    "type": "string",
+                    "example": "Hello %name%"
+                  },
+                  "description": {
+                    "description": "pattern description",
+                    "type": "string",
+                    "example": "greeter pattern"
+                  },
+                  "is_shared": {
+                    "description": "determine that pattern shared or not",
+                    "type": "boolean",
+                    "example": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "pattern": {
+                          "$ref": "#/components/schemas/pattern"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "value": {
+                    "status": "OK",
+                    "code": 200,
+                    "message": "Ok",
+                    "data": {
+                      "pattern": {
+                        "code": "6gr7ngjmhi",
+                        "status": "pending",
+                        "message": "salam %name%!",
+                        "is_shared": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "error": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "key not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key is not valid"
+                      }
+                    }
+                  },
+                  "key scheme not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key scheme is not valid"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/messages/patterns/send": {
+      "post": {
+        "tags": [
+          "messages"
+        ],
+        "description": "send pattern SMS",
+        "operationId": "SendPattern",
+        "requestBody": {
+          "description": "parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "pattern_code",
+                  "recipient",
+                  "originator",
+                  "values"
+                ],
+                "properties": {
+                  "pattern_code": {
+                    "description": "pattern code",
+                    "type": "string",
+                    "example": "t2cfmnyo0c"
+                  },
+                  "originator": {
+                    "description": "your line number to send message from that",
+                    "type": "string",
+                    "example": "+9850002"
+                  },
+                  "recipient": {
+                    "description": "recipient number",
+                    "type": "string",
+                    "example": "+989123459900"
+                  },
+                  "values": {
+                    "description": "pattern values",
+                    "type": "object",
+                    "example": {
+                      "name": "Mohamad"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "bulk_id": {
+                          "description": "message tracking code",
+                          "type": "integer",
+                          "format": "int64"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "value": {
+                    "status": "OK",
+                    "code": 200,
+                    "message": "Ok",
+                    "data": {
+                      "bulk_id": 52738692
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "error": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "key not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key is not valid"
+                      }
+                    }
+                  },
+                  "key scheme not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key scheme is not valid"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/messages/{bulk_id}": {
+      "get": {
+        "tags": [
+          "messages"
+        ],
+        "description": "get a sms properties",
+        "operationId": "GetSMS",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bulk_id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "style": "simple",
+            "example": 52738671
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "message": {
+                          "$ref": "#/components/schemas/message"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "status": "OK",
+                  "code": 200,
+                  "message": "Ok",
+                  "data": {
+                    "message": {
+                      "bulk_id": 52738671,
+                      "number": "+9850002",
+                      "message": "Hello from me",
+                      "status": "active",
+                      "type": "webservice",
+                      "confirm_state": "",
+                      "created_at": "2019-12-07T13:34:06Z",
+                      "sent_at": "2019-12-07T13:34:06Z",
+                      "recipients_count": 1,
+                      "valid_recipients_count": 0,
+                      "page": 1,
+                      "cost": 0,
+                      "payback_cost": 0,
+                      "description": "single send"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "error": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "key not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key is not valid"
+                      }
+                    }
+                  },
+                  "key scheme not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key scheme is not valid"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/messages/{bulk_id}/recipients": {
+      "get": {
+        "tags": [
+          "messages"
+        ],
+        "description": "get a sms recipients status",
+        "operationId": "GetMessageRecipientsStatus",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bulk_id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "style": "simple",
+            "example": 52738671
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "format": "uint64"
+            },
+            "example": "0"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": "10"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "recipients": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/recipient"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/meta"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "OK",
+                  "code": 200,
+                  "message": "Ok",
+                  "data": {
+                    "recipients": [
+                      {
+                        "recipient": "+98912345xxxx",
+                        "status": "send"
+                      }
+                    ]
+                  },
+                  "meta": {
+                    "total": 1,
+                    "pages": 1,
+                    "limit": 1,
+                    "page": 0,
+                    "prev": null,
+                    "next": null
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "error": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "key not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key is not valid"
+                      }
+                    }
+                  },
+                  "key scheme not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key scheme is not valid"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/messages/inbox": {
+      "get": {
+        "tags": [
+          "messages"
+        ],
+        "description": "fetch inbox messages",
+        "operationId": "FetchInboxMessages",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "format": "uint64"
+            },
+            "example": "0"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": "10"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "messages": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/inboxMessage"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/meta"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "OK",
+                  "code": 200,
+                  "message": "Ok",
+                  "data": {
+                    "messages": [
+                      {
+                        "number": "+98100020400",
+                        "message": "سشیسشیسشیسش",
+                        "sender": "5555",
+                        "time": "1970-01-01T04:05:55Z",
+                        "type": "normal"
+                      }
+                    ]
+                  },
+                  "meta": {
+                    "total": 1,
+                    "pages": 1,
+                    "limit": 1,
+                    "page": 0,
+                    "prev": null,
+                    "next": null
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "properties": {
+                        "error": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "key not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key is not valid"
+                      }
+                    }
+                  },
+                  "key scheme not valid": {
+                    "value": {
+                      "status": "UNAUTHORIZED",
+                      "code": 401,
+                      "message": "Unauthorized",
+                      "data": {
+                        "error": "api key scheme is not valid"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "user": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "uint",
+            "readOnly": true
+          },
+          "username": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "document_block": {
+            "type": "string"
+          },
+          "send_block": {
+            "type": "string"
+          },
+          "mobile": {
+            "type": "string"
+          },
+          "tellephone": {
+            "type": "string"
+          },
+          "national_id": {
+            "type": "string"
+          },
+          "certificate_id": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "expire": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "recipient": {
+        "type": "object",
+        "properties": {
+          "recipient": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "send",
+              "discarded",
+              "pending",
+              "failed"
+            ]
+          }
+        }
+      },
+      "meta": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer"
+          },
+          "pages": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "prev": {
+            "type": "string"
+          },
+          "next": {
+            "type": "string"
+          }
+        }
+      },
+      "inboxMessage": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "sender": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "pattern": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "is_shared": {
+            "type": "boolean"
+          }
+        }
+      },
+      "message": {
+        "type": "object",
+        "properties": {
+          "bulk_id": {
+            "type": "integer"
+          },
+          "number": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "confirm_state": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "sent_at": {
+            "type": "string"
+          },
+          "recipients_count": {
+            "type": "integer"
+          },
+          "valid_recipients_count": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "cost": {
+            "type": "integer"
+          },
+          "payback_cost": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    }
+  }
+}

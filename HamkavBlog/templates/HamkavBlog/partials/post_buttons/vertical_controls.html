@@ -1,0 +1,29 @@
+{% load static %}
+
+{% if request.user.is_authenticated %}
+
+
+						
+						<li class= " d-flex justify-content-START">
+							{% comment %} <a href="{% url 'HamkavBlog:post_like' post.id %}" class="{% if can_like %}disabled{% endif %} btn btn-primary col-md-2">Like {{ post.likes_count }}</a> {% endcomment %}
+							
+								<div class="d-flex flex-column m-1">
+									<a class="btn btn-light btn-round mb-0 {% if can_like %}  disabled {% endif %}  " href="{% url 'HamkavBlog:post_like' post.id %}" data-bs-toggle="tooltip" data-bs-placement="top" title="لایک!"> 
+										<i class="bi {% if can_like %} bi-heart-fill {%else%} bi-heart{% endif %} fa-fw"></i></a>
+									<p class="px-3 mb-0">{{ post.likes_count }}</p>
+								</div>
+								<div class="d-flex flex-column m-1">
+									<a class="btn btn-light btn-round mb-0" href="#"> <i class="bi bi-bookmark fa-fw"></i></a>
+								</div>
+								{% if request.user.id == post.user.id %}
+								<div class="d-flex flex-column m-1">
+									<a class="btn btn-light btn-round mb-0"  data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش این پست" href="{% url 'HamkavBlog:post_update' post.id %}"> <i class="bi bi-pencil-square"></i></a>
+								</div>
+								<div class="d-flex flex-column m-1">
+									<a class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="حدف این پست" href="{% url 'HamkavBlog:post_delete' post.id %}"> <i class="bi bi-trash-fill"></i></a>
+								</div>
+							{% endif %}
+						</li>
+						
+
+						{% endif %}

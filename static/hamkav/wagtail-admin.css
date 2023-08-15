@@ -1,0 +1,21 @@
+section {
+    padding:0px;
+}
+
+
+
+
+select {
+    background-position-x: 10px;
+}
+
+
+:root {
+    --w-color-primary:#424242;
+    /* Any valid CSS format is supported. */
+    --w-color-primary-200: #5a5a5a;
+    /* Set each HSL component separately to change all hues at once. */
+    --w-color-secondary-hue: 180.5;
+    --w-color-secondary-saturation: 100%;
+    --w-color-secondary-lightness: 24.7%;
+  }

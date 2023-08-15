@@ -1,0 +1,44 @@
+{% load static %}
+
+<li class="nav-item ms-2 ms-sm-3 dropdown">
+    <!-- Notification button -->
+    <a class="btn btn-light btn-round mb-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+        <i class="bi bi-bell fa-fw"></i>
+    </a>
+    <!-- Notification dote -->
+    <span class="notif-badge animation-blink"></span>
+
+    <!-- Notification dropdown menu START -->
+    <div class="dropdown-menu dropdown-animation dropdown-menu-end dropdown-menu-size-md p-0 shadow-lg border-0">
+        <div class="card bg-transparent">
+            <div class="card-header bg-transparent border-bottom py-4 d-flex justify-content-between align-items-center">
+                <h6 class="m-0">پیام ها <span class="badge bg-danger bg-opacity-10 text-danger ms-2">2 خبر جدید</span></h6>
+                <a class="small" href="#">حذف همه</a>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-unstyled list-group-flush">
+                    <!-- Notif item -->
+                    <li>
+    <a href="#" class="list-group-item-action border-0 border-bottom d-flex p-3">
+      <div class="me-3">
+        <div class="avatar avatar-md">
+          <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/03.jpg'%}" alt="avatar">
+        </div>
+      </div>
+      <div>
+        <h6 class="mb-1">به روز رسانی نسخه 2.3 با موفقیت انجام شد</h6>
+        <p class="small text-body m-0">چه خبر! با ویژگی های جدید آشنا شوید</p>
+        <small class="text-body">5 دقیقه قبل</small>
+      </div>
+    </a>
+  </li>
+                </ul>
+            </div>
+            <!-- Button -->
+            <div class="card-footer bg-transparent border-0 py-3 text-center position-relative">
+                <a href="#" class="stretched-link">مشاهده تمام فعالیت های ورودی</a>
+            </div>
+        </div>
+    </div>
+    <!-- Notification dropdown menu END -->
+</li>

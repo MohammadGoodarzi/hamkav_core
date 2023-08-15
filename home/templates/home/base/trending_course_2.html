@@ -1,0 +1,350 @@
+
+{% load wagtailcore_tags %}
+{% load wagtailuserbar %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+
+
+<section class="pt-0 pt-md-5">
+	<div class="container">
+		<!-- Title -->
+		<div class="row">
+			<div class="col-lg-8 mb-4">
+				<h2 class="mb-0">دوره های <span class="text-warning">منتولینک </span> آکادمی</h2>
+				{% comment %} <p class="mb-0">مشاهده دوره های جدید و 🔥 در جشنواره</p> {% endcomment %}
+			</div>
+		</div>
+
+		<div class="row g-4">
+			<!-- Card Item START -->
+			<div class="col-md-6 col-xl-4">
+				<div class="card p-2 shadow h-100">
+					<div class="rounded-top overflow-hidden">
+						<div class="card-overlay-hover">
+							<!-- Image -->
+							<img src="{% static 'assets/images/courses/4by3/17.jpg' %}" class="card-img-top" alt="course image">
+						</div>
+						<!-- Hover element -->
+						<div class="card-img-overlay">
+							<div class="card-element-hover d-flex justify-content-end">
+								<a href="#" class="icon-md bg-white rounded-circle text-center">
+									<i class="fas fa-shopping-cart text-danger"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- Card body -->
+					<div class="card-body">
+						<!-- Rating and avatar -->
+						<div class="d-flex justify-content-between">
+							<!-- Rating and info -->
+							<ul class="list-inline hstack gap-2 mb-0">
+								<!-- Info -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">9.1k</span>
+								</li>
+								<!-- Rating -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">4.5</span>
+								</li>
+							</ul>
+							<!-- Avatar -->
+							{% comment %} <div class="avatar avatar-sm">
+								<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/09.jpg' %}" alt="avatar">
+							</div> {% endcomment %}
+						</div>
+						<!-- Divider -->
+						<hr>
+						<!-- Title -->
+						<h5 class="card-title fw-normal"><a href="#">آموزش ساخت سایت خبری با لاراول</a></h5>
+						<!-- Badge and Price -->
+						<div class="d-flex justify-content-between align-items-center mb-0">
+							<a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> طراحی وب </a>
+							<!-- Price -->
+							<h2 class="text-success mb-0 fs-5 fw-normal">69,000 تومان</h2>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<!-- Card Item END -->
+
+			<!-- Card Item START -->
+			<div class="col-md-6 col-xl-4">
+				<div class="card p-2 shadow h-100">
+					<div class="rounded-top overflow-hidden">
+						<div class="card-overlay-hover">
+							<!-- Image -->
+							<img src="{% static 'assets/images/courses/4by3/18.jpg' %}" class="card-img-top" alt="course image">
+						</div>
+						<!-- Hover element -->
+						<div class="card-img-overlay">
+							<div class="card-element-hover d-flex justify-content-end">
+								<a href="#" class="icon-md bg-white rounded-circle text-center">
+									<i class="fas fa-shopping-cart text-danger"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- Card body -->
+					<div class="card-body">
+						<!-- Rating and avatar -->
+						<div class="d-flex justify-content-between">
+							<!-- Rating and info -->
+							<ul class="list-inline hstack gap-2 mb-0">
+								<!-- Info -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">2.5k</span>
+								</li>
+								<!-- Rating -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">3.6</span>
+								</li>
+							</ul>
+							{% comment %} <!-- Avatar -->
+							<div class="avatar avatar-sm">
+								<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/07.jpg' %}" alt="avatar">
+							</div> {% endcomment %}
+						</div>
+						<!-- Divider -->
+						<hr>
+						<!-- Title -->
+						<h5 class="card-title fw-normal"><a href="#">آموزش مقدماتی کتابخانه Pygame</a></h5>
+						<!-- Badge and Price -->
+						<div class="d-flex justify-content-between align-items-center mb-0">
+							<a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> برنامه نویسی </a>
+							<!-- Price -->
+							<h2 class="text-success mb-0 fs-5 fw-normal">69,000 تومان</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Card Item END -->
+
+			<!-- Card Item START -->
+			<div class="col-md-6 col-xl-4">
+				<div class="card p-2 shadow h-100">
+					<div class="rounded-top overflow-hidden">
+						<div class="card-overlay-hover">
+							<!-- Image -->
+							<img src="{% static 'assets/images/courses/4by3/21.jpg' %}" class="card-img-top" alt="course image">
+						</div>
+						<!-- Hover element -->
+						<div class="card-img-overlay">
+							<div class="card-element-hover d-flex justify-content-end">
+								<a href="#" class="icon-md bg-white rounded-circle text-center">
+									<i class="fas fa-shopping-cart text-danger"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- Card body -->
+					<div class="card-body">
+						<!-- Rating and avatar -->
+						<div class="d-flex justify-content-between">
+							<!-- Rating and info -->
+							<ul class="list-inline hstack gap-2 mb-0">
+								<!-- Info -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">6k</span>
+								</li>
+								<!-- Rating -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">3.8</span>
+								</li>
+							</ul>
+							<!-- Avatar -->
+							{% comment %} <div class="avatar avatar-sm">
+								<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/05.jpg' %}" alt="avatar">
+							</div> {% endcomment %}
+						</div>
+						<!-- Divider -->
+						<hr>
+						<!-- Title -->
+						<h5 class="card-title fw-normal"><a href="#">آموزش ساخت شبکه اجتماعی با MERN</a></h5>
+						<!-- Badge and Price -->
+						<div class="d-flex justify-content-between align-items-center mb-0">
+							<a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> طراحی سایت </a>
+							<!-- Price -->
+							<h2 class="text-success mb-0 fs-5 fw-normal">69,000 تومان</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Card Item END -->
+
+			<!-- Card Item START -->
+			<div class="col-md-6 col-xl-4">
+				<div class="card p-2 shadow h-100">
+					<div class="rounded-top overflow-hidden">
+						<div class="card-overlay-hover">
+							<!-- Image -->
+							<img src="{% static 'assets/images/courses/4by3/20.jpg' %}" class="card-img-top" alt="course image">
+						</div>
+						<!-- Hover element -->
+						<div class="card-img-overlay">
+							<div class="card-element-hover d-flex justify-content-end">
+								<a href="#" class="icon-md bg-white rounded-circle text-center">
+									<i class="fas fa-shopping-cart text-danger"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- Card body -->
+					<div class="card-body">
+						<!-- Rating and avatar -->
+						<div class="d-flex justify-content-between">
+							<!-- Rating and info -->
+							<ul class="list-inline hstack gap-2 mb-0">
+								<!-- Info -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">15k</span>
+								</li>
+								<!-- Rating -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">4.8</span>
+								</li>
+							</ul>
+							<!-- Avatar -->
+							{% comment %} <div class="avatar avatar-sm">
+								<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/02.jpg' %}" alt="avatar">
+							</div> {% endcomment %}
+						</div>
+						<!-- Divider -->
+						<hr>
+						<!-- Title -->
+						<h5 class="card-title fw-normal"><a href="#">دوره بازاریابی دیجیتال برای مبتدیان</a></h5>
+						<!-- Badge and Price -->
+						<div class="d-flex justify-content-between align-items-center mb-0">
+							<a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> طراحی وب </a>
+							<!-- Price -->
+							<h2 class="text-success mb-0 fs-5 fw-normal">69,000 تومان</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Card Item END -->
+
+			<!-- Card Item START -->
+			<div class="col-md-6 col-xl-4">
+				<div class="card p-2 shadow h-100">
+					<div class="rounded-top overflow-hidden">
+						<div class="card-overlay-hover">
+							<!-- Image -->
+							<img src="{% static 'assets/images/courses/4by3/15.jpg' %}" class="card-img-top" alt="course image">
+						</div>
+						<!-- Hover element -->
+						<div class="card-img-overlay">
+							<div class="card-element-hover d-flex justify-content-end">
+								<a href="#" class="icon-md bg-white rounded-circle text-center">
+									<i class="fas fa-shopping-cart text-danger"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- Card body -->
+					<div class="card-body">
+						<!-- Rating and avatar -->
+						<div class="d-flex justify-content-between">
+							<!-- Rating and info -->
+							<ul class="list-inline hstack gap-2 mb-0">
+								<!-- Info -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">8k</span>
+								</li>
+								<!-- Rating -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">3.6</span>
+								</li>
+							</ul>
+							<!-- Avatar -->
+							{% comment %} <div class="avatar avatar-sm">
+								<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/11.jpg' %}" alt="avatar">
+							</div> {% endcomment %}
+						</div>
+						<!-- Divider -->
+						<hr>
+						<!-- Title -->
+						<h5 class="card-title fw-normal"><a href="#">آموزش رایگان مایکروسافت پروجکت MSP</a></h5>
+						<!-- Badge and Price -->
+						<div class="d-flex justify-content-between align-items-center mb-0">
+							<a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> فناوری اطلاعات </a>
+							<!-- Price -->
+							<h2 class="text-success mb-0 fs-5 fw-normal">69,000 تومان</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Card Item END -->
+
+			<!-- Card Item START -->
+			<div class="col-md-6 col-xl-4">
+				<div class="card p-2 shadow h-100">
+					<div class="rounded-top overflow-hidden">
+						<div class="card-overlay-hover">
+							<!-- Image -->
+							<img src="{% static 'assets/images/courses/4by3/14.jpg' %}" class="card-img-top" alt="course image">
+						</div>
+						<!-- Hover element -->
+						<div class="card-img-overlay">
+							<div class="card-element-hover d-flex justify-content-end">
+								<a href="#" class="icon-md bg-white rounded-circle text-center">
+									<i class="fas fa-shopping-cart text-danger"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- Card body -->
+					<div class="card-body">
+						<!-- Rating and avatar -->
+						<div class="d-flex justify-content-between">
+							<!-- Rating and info -->
+							<ul class="list-inline hstack gap-2 mb-0">
+								<!-- Info -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">4k</span>
+								</li>
+								<!-- Rating -->
+								<li class="list-inline-item d-flex justify-content-center align-items-center">
+									<div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
+									<span class="h6 fw-light mb-0 ms-2">4.0</span>
+								</li>
+							</ul>
+							<!-- Avatar -->
+							{% comment %} <div class="avatar avatar-sm">
+								<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/12.jpg' %}" alt="avatar">
+							</div> {% endcomment %}
+						</div>
+						<!-- Divider -->
+						<hr>
+						<!-- Title -->
+						<h5 class="card-title fw-normal"><a href="#">آموزش رایگان اصول و مبانی برنامه نویسی</a></h5>
+						<!-- Badge and Price -->
+						<div class="d-flex justify-content-between align-items-center mb-0">
+							<a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> بهینه سازی سایت </a>
+							<!-- Price -->
+							<h2 class="text-success mb-0 fs-5 fw-normal">69,000 تومان</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Card Item END -->
+
+		</div>
+		<!-- Button -->
+		<div class="text-center mt-5">
+			<a href="#" class="btn btn-primary-soft mb-0">مشاهده همه<i class="fas fa-sync ms-2"></i></a>
+		</div>
+	</div>
+</section>

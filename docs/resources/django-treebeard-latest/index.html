@@ -1,0 +1,2666 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>django-treebeard 4.7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html#document-index" class="icon icon-home"> django-treebeard
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-install">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#installing">Installing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#pip-or-easy-install">pip (or easy_install)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#setup-py">setup.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#deb-packages">.deb packages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-tutorial">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-caveats">Known Caveats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#raw-queries">Raw Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#overriding-the-default-manager">Overriding the default manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#custom-managers">Custom Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#copying-model-instances">Copying model instances</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-changes">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-api">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-mp_tree">Materialized Path trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-ns_tree">Nested Sets trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-al_tree">Adjacency List trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-exceptions">Exceptions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-admin">Admin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#module-treebeard.admin">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#interface">Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#advanced-interface">Advanced Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#basic-interface">Basic Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#model-detail-pages">Model Detail Pages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-forms">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-tests">Running the Test Suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#pytest">pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tox">tox</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#document-index">django-treebeard</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html#document-index">Docs</a> &raquo;</li>
+        
+      <li>django-treebeard 4.7 documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/django-treebeard/django-treebeard/blob/master/docs/source/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="django-treebeard">
+<h1>django-treebeard<a class="headerlink" href="#django-treebeard" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://tabo.pe/projects/django-treebeard/">django-treebeard</a>
+is a library that implements efficient tree implementations for the
+<a class="reference external" href="http://www.djangoproject.com/">Django Web Framework 1.8+</a>, written by
+<a class="reference external" href="https://tabo.pe">Gustavo Picón</a> and licensed under the Apache License 2.0.</p>
+<p><code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> is:</p>
+<ul class="simple">
+<li><strong>Flexible</strong>: Includes 3 different tree implementations with the same API:<ol class="arabic">
+<li><a class="reference internal" href="index.html#document-al_tree"><span class="doc">Adjacency List</span></a></li>
+<li><a class="reference internal" href="index.html#document-mp_tree"><span class="doc">Materialized Path</span></a></li>
+<li><a class="reference internal" href="index.html#document-ns_tree"><span class="doc">Nested Sets</span></a></li>
+</ol>
+</li>
+<li><strong>Fast</strong>: Optimized non-naive tree operations</li>
+<li><strong>Easy</strong>: Uses Django’s
+<a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/db/models/#model-inheritance" title="(in Django v4.2)"><span>Model inheritance</span></a> with <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/db/models/#abstract-base-classes" title="(in Django v4.2)"><span>Abstract base classes</span></a>.
+to define your own models.</li>
+<li><strong>Clean</strong>: Testable and well tested code base. Code/branch test coverage
+is above 96%.</li>
+</ul>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<span id="document-install"></span><div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="prerequisites">
+<h4>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> needs at least <strong>Python 3.6</strong> to run, and <strong>Django 2.2 or later</strong>.</p>
+</div>
+<div class="section" id="installing">
+<h4>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h4>
+<p>You have several ways to install <code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code>. If you’re not sure,
+<a class="reference external" href="http://guide.python-distribute.org/pip.html">just use pip</a></p>
+<div class="section" id="pip-or-easy-install">
+<h5>pip (or easy_install)<a class="headerlink" href="#pip-or-easy-install" title="Permalink to this headline">¶</a></h5>
+<p>You can install the release versions from
+<a class="reference external" href="https://pypi.org/project/django-treebeard/">django-treebeard’s PyPI page</a> using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>django-treebeard
+</pre></div>
+</div>
+<p>or if for some reason you can’t use <code class="docutils literal notranslate"><span class="pre">pip</span></code>, you can try <code class="docutils literal notranslate"><span class="pre">easy_install</span></code>,
+(at your own risk):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>easy_install<span class="w"> </span>--always-unzip<span class="w"> </span>django-treebeard
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-py">
+<h5>setup.py<a class="headerlink" href="#setup-py" title="Permalink to this headline">¶</a></h5>
+<p>Download a release from the <a class="reference external" href="https://github.com/django-treebeard/django-treebeard/releases">treebeard download page</a> and unpack it, then
+run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>setup.py<span class="w"> </span>install
+</pre></div>
+</div>
+</div>
+<div class="section" id="deb-packages">
+<h5>.deb packages<a class="headerlink" href="#deb-packages" title="Permalink to this headline">¶</a></h5>
+<p>Both Debian and Ubuntu include <code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> as a package, so you can
+just use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>python-django-treebeard
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>aptitude<span class="w"> </span>install<span class="w"> </span>python-django-treebeard
+</pre></div>
+</div>
+<p>Remember that the packages included in linux distributions are usually not the
+most recent versions.</p>
+</div>
+</div>
+<div class="section" id="configuration">
+<h4>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h4>
+<p>Add <code class="docutils literal notranslate"><span class="pre">'treebeard'</span></code> to the
+<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/settings/#std-setting-INSTALLED_APPS" title="(in Django v4.2)"><code class="xref std std-setting docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code></a> section in your django
+settings file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are going to use the <a class="reference internal" href="index.html#treebeard.admin.TreeAdmin" title="treebeard.admin.TreeAdmin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeAdmin</span></code></a>
+class, you need to add the path to treebeard’s templates in
+<code class="xref std std-setting docutils literal notranslate"><span class="pre">TEMPLATE_DIRS</span></code>.
+Also you need to add
+<code class="docutils literal notranslate"><span class="pre">django.template.context_processors.request</span></code>
+to <code class="xref std std-setting docutils literal notranslate"><span class="pre">TEMPLATES['OPTIONS']['context_processors']</span></code>
+setting in your django settings file (see <a class="reference external" href="https://docs.djangoproject.com/en/1.11/ref/templates/upgrading/">https://docs.djangoproject.com/en/1.11/ref/templates/upgrading/</a> for how to define this setting within the TEMPLATES settings). For more recent versions of Django, use <code class="docutils literal notranslate"><span class="pre">django.core.context_processors.request</span></code> instead.</p>
+</div>
+</div>
+</div>
+<span id="document-tutorial"></span><div class="section" id="tutorial">
+<h3>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h3>
+<p>Create a basic model for your tree. In this example we’ll use a Materialized Path tree:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="kn">from</span> <span class="nn">treebeard.mp_tree</span> <span class="kn">import</span> <span class="n">MP_Node</span>
+
+<span class="k">class</span> <span class="nc">Category</span><span class="p">(</span><span class="n">MP_Node</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+    <span class="n">node_order_by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Category: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create and apply migrations:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>manage.py<span class="w"> </span>makemigrations
+<span class="gp">$ </span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</pre></div>
+</div>
+<p>Let’s create some nodes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">treebeard_tutorial.models</span> <span class="kn">import</span> <span class="n">Category</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">node_id</span><span class="p">:</span> <span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">node_id</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">Category</span><span class="o">.</span><span class="n">add_root</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Computer Hardware&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">node</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Memory&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span><span class="o">.</span><span class="n">add_sibling</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Hard Drives&#39;</span><span class="p">)</span>
+<span class="go">&lt;Category: Category: Hard Drives&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span><span class="o">.</span><span class="n">add_sibling</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;SSD&#39;</span><span class="p">)</span>
+<span class="go">&lt;Category: Category: SSD&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Desktop Memory&#39;</span><span class="p">)</span>
+<span class="go">&lt;Category: Category: Desktop Memory&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Laptop Memory&#39;</span><span class="p">)</span>
+<span class="go">&lt;Category: Category: Laptop Memory&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Server Memory&#39;</span><span class="p">)</span>
+<span class="go">&lt;Category: Category: Server Memory&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Why retrieving every node again after the first operation? Because
+<code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> uses raw queries for most write operations,
+and raw queries don’t update the django objects of the db entries they
+modify. See: <a class="reference internal" href="index.html#document-caveats"><span class="doc">Known Caveats</span></a>.</p>
+</div>
+<p>We just created this tree:</p>
+<div class="graphviz"><img src="_images/graphviz-9b8657c3a710d5d2b55cf472ac6db7056281b631.png" alt="digraph introduction_digraph {
+&quot;Computer Hardware&quot;;
+&quot;Computer Hardware&quot; -&gt; &quot;Hard Drives&quot;;
+&quot;Computer Hardware&quot; -&gt; &quot;Memory&quot;;
+&quot;Memory&quot; -&gt; &quot;Desktop Memory&quot;;
+&quot;Memory&quot; -&gt; &quot;Laptop Memory&quot;;
+&quot;Memory&quot; -&gt; &quot;Server Memory&quot;;
+&quot;Computer Hardware&quot; -&gt; &quot;SSD&quot;;
+}" class="graphviz" /></div>
+<p>You can see the tree structure with code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Category</span><span class="o">.</span><span class="n">dump_bulk</span><span class="p">()</span>
+<span class="go">[{&#39;id&#39;: 1, &#39;data&#39;: {&#39;name&#39;: u&#39;Computer Hardware&#39;},</span>
+<span class="go">  &#39;children&#39;: [</span>
+<span class="go">     {&#39;id&#39;: 3, &#39;data&#39;: {&#39;name&#39;: u&#39;Hard Drives&#39;}},</span>
+<span class="go">     {&#39;id&#39;: 2, &#39;data&#39;: {&#39;name&#39;: u&#39;Memory&#39;},</span>
+<span class="go">      &#39;children&#39;: [</span>
+<span class="go">         {&#39;id&#39;: 5, &#39;data&#39;: {&#39;name&#39;: u&#39;Desktop Memory&#39;}},</span>
+<span class="go">         {&#39;id&#39;: 6, &#39;data&#39;: {&#39;name&#39;: u&#39;Laptop Memory&#39;}},</span>
+<span class="go">         {&#39;id&#39;: 7, &#39;data&#39;: {&#39;name&#39;: u&#39;Server Memory&#39;}}]},</span>
+<span class="go">     {&#39;id&#39;: 4, &#39;data&#39;: {&#39;name&#39;: u&#39;SSD&#39;}}]}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Category</span><span class="o">.</span><span class="n">get_annotated_list</span><span class="p">()</span>
+<span class="go">[(&lt;Category: Category: Computer Hardware&gt;,</span>
+<span class="go">  {&#39;close&#39;: [], &#39;level&#39;: 0, &#39;open&#39;: True}),</span>
+<span class="go"> (&lt;Category: Category: Hard Drives&gt;,</span>
+<span class="go">  {&#39;close&#39;: [], &#39;level&#39;: 1, &#39;open&#39;: True}),</span>
+<span class="go"> (&lt;Category: Category: Memory&gt;,</span>
+<span class="go">  {&#39;close&#39;: [], &#39;level&#39;: 1, &#39;open&#39;: False}),</span>
+<span class="go"> (&lt;Category: Category: Desktop Memory&gt;,</span>
+<span class="go">  {&#39;close&#39;: [], &#39;level&#39;: 2, &#39;open&#39;: True}),</span>
+<span class="go"> (&lt;Category: Category: Laptop Memory&gt;,</span>
+<span class="go">  {&#39;close&#39;: [], &#39;level&#39;: 2, &#39;open&#39;: False}),</span>
+<span class="go"> (&lt;Category: Category: Server Memory&gt;,</span>
+<span class="go">  {&#39;close&#39;: [0], &#39;level&#39;: 2, &#39;open&#39;: False}),</span>
+<span class="go"> (&lt;Category: Category: SSD&gt;,</span>
+<span class="go">  {&#39;close&#39;: [0, 1], &#39;level&#39;: 1, &#39;open&#39;: False})]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Category</span><span class="o">.</span><span class="n">get_annotated_list_qs</span><span class="p">(</span><span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__icontains</span><span class="o">=</span><span class="s1">&#39;Hardware&#39;</span><span class="p">))</span>
+<span class="go">[(&lt;Category: Category: Computer Hardware&gt;, {&#39;open&#39;: True, &#39;close&#39;: [], &#39;level&#39;: 0})]</span>
+</pre></div>
+</div>
+<p>Read the <a class="reference internal" href="index.html#treebeard.models.Node" title="treebeard.models.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">treebeard.models.Node</span></code></a> API reference for detailed info.</p>
+</div>
+<span id="document-caveats"></span><div class="section" id="known-caveats">
+<h3>Known Caveats<a class="headerlink" href="#known-caveats" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="raw-queries">
+<h4>Raw Queries<a class="headerlink" href="#raw-queries" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> uses Django raw SQL queries for
+some write operations, and raw queries don’t update the objects in the
+ORM since it’s being bypassed.</p>
+<p>Because of this, if you have a node in memory and plan to use it after a
+tree modification (adding/removing/moving nodes), you need to reload it.</p>
+</div>
+<div class="section" id="overriding-the-default-manager">
+<h4>Overriding the default manager<a class="headerlink" href="#overriding-the-default-manager" title="Permalink to this headline">¶</a></h4>
+<p>One of the most common source of bug reports in <code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code>
+is the overriding of the default managers in the subclasses.</p>
+<p><code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> relies on the default manager for correctness
+and internal maintenance. If you override the default manager,
+by overriding the <code class="docutils literal notranslate"><span class="pre">objects</span></code> member in your subclass, you
+<em>WILL</em> have errors and inconsistencies in your tree.</p>
+<p>To avoid this problem, if you need to override the default
+manager, you’ll <em>NEED</em> to subclass the manager from
+the base manager class for the tree you are using.</p>
+<p>Read the documentation in each tree type for details.</p>
+</div>
+<div class="section" id="custom-managers">
+<h4>Custom Managers<a class="headerlink" href="#custom-managers" title="Permalink to this headline">¶</a></h4>
+<p>Related to the previous caveat, if you need to create custom
+managers, you <em>NEED</em> to subclass the manager from the
+base manager class for the tree you are using.</p>
+<p>Read the documentation in each tree type for details.</p>
+</div>
+<div class="section" id="copying-model-instances">
+<h4>Copying model instances<a class="headerlink" href="#copying-model-instances" title="Permalink to this headline">¶</a></h4>
+<p>Starting in version 4.5, we made a change to support custom names
+in primary fields that exposed a bug in Django’s documentation.
+This has been fixed in the dev version of Django (3.2 as of
+writing this), but even when using older versions,
+the <a class="reference external" href="https://docs.djangoproject.com/en/3.2/topics/db/queries/#copying-model-instances">new instructions</a> apply.</p>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-changes"></span><div class="section" id="changelog">
+<h3>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="release-4-7-apr-7-2023">
+<h4>Release 4.7 (Apr 7, 2023)<a class="headerlink" href="#release-4-7-apr-7-2023" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Drop support for Django 4.0.</li>
+<li>Add support for Django 4.2.</li>
+</ul>
+</div>
+<div class="section" id="release-4-6-1-feb-5-2023">
+<h4>Release 4.6.1 (Feb 5, 2023)<a class="headerlink" href="#release-4-6-1-feb-5-2023" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Fix unescaped string representation of <cite>AL_Node</cite> models in the Django admin.
+Thanks to goodguyandy for reporting the issue.</li>
+<li>Optimise <cite>MP_Node.get_descendants</cite> to avoid database queries when called on a leaf node.</li>
+</ul>
+</div>
+<div class="section" id="release-4-6-jan-2-2023">
+<h4>Release 4.6 (Jan 2, 2023)<a class="headerlink" href="#release-4-6-jan-2-2023" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Drop support for Django 3.1 and lower.</li>
+<li>Add support for Django 4.0 and 4.1.</li>
+<li>Drop support for Python 3.7 and lower.</li>
+<li>Add support for Python 3.10 and Python 3.11.</li>
+<li>Change the return value of <cite>delete()</cite> for all node classes to be consistent with Django,
+and return a tuple of the number of objects deleted and a dictionary with the number of
+deletions per object type.</li>
+<li>Change the <cite>delete()</cite> methods for all node classes to accept arbitrary positional and
+keyword arguments which are passed to the parent method.</li>
+<li>Set <cite>alters_data</cite> and <cite>queryset_only</cite> attributes on the <cite>delete()</cite> methods for all node classes
+to prevent them being used in an unwanted context (e.g., in Django templates).</li>
+<li>Drop dependency on jQuery UI in the admin.</li>
+</ul>
+</div>
+<div class="section" id="release-4-5-1-feb-22-2021">
+<h4>Release 4.5.1 (Feb 22, 2021)<a class="headerlink" href="#release-4-5-1-feb-22-2021" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Removed unnecessary default in MP’s depth field.</li>
+</ul>
+</div>
+<div class="section" id="release-4-5-feb-17-2021">
+<h4>Release 4.5 (Feb 17, 2021)<a class="headerlink" href="#release-4-5-feb-17-2021" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Add support for custom primary key fields with custom names.</li>
+<li>Add support for Python 3.9.</li>
+<li>Add support for MSSQL 2019.</li>
+<li>Add Code of conduct</li>
+<li>Removed outdated Sqlite workaround code</li>
+<li>Remove last remains of Python 2.7 code</li>
+<li>Use Pytest-django and fixtures for testing</li>
+</ul>
+</div>
+<div class="section" id="release-4-4-jan-13-2021">
+<h4>Release 4.4 (Jan 13, 2021)<a class="headerlink" href="#release-4-4-jan-13-2021" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Implement a non-destructive path-fixing algorithm for <cite>MP_Node.fix_tree</cite>.</li>
+<li>Ensure <cite>post_save</cite> is triggered <em>after</em> the parent node is updated in <cite>MP_AddChildHandler</cite>.</li>
+<li>Fix static URL generation to use <cite>static</cite> template tag instead of constructing the URL manually.</li>
+<li>Declare support for Django 2.2, 3.0 and 3.1.</li>
+<li>Drop support for Django 2.1 and lower.</li>
+<li>Drop support for Python 2.7 and Python 3.5.</li>
+<li>Increase performance for <cite>MoveNodeForm</cite> when using large trees.</li>
+</ul>
+</div>
+<div class="section" id="release-4-3-1-dec-25-2019">
+<h4>Release 4.3.1 (Dec 25, 2019)<a class="headerlink" href="#release-4-3-1-dec-25-2019" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Added check to avoid unnecessary database query for <cite>MP_Node.get_ancestors()</cite>
+if the node is a root node.</li>
+<li>Drop support for Python-3.4.</li>
+<li>Play more nicely with other form classes, that implement <cite>__init__(self, *args, **kwargs)</cite>,
+e.g. django-parler’s <cite>TranslatableModelForm</cite>, where <cite>kwargs.get(‘instance’)</cite> is <cite>None</cite>
+when called from here.</li>
+<li>Sorting on path on necessary queries, fixes some issues and stabilizes the whole MP section.</li>
+<li>Add German translation strings.</li>
+</ul>
+</div>
+<div class="section" id="release-4-3-apr-16-2018">
+<h4>Release 4.3 (Apr 16, 2018)<a class="headerlink" href="#release-4-3-apr-16-2018" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Support for Django-2.0</li>
+</ul>
+</div>
+<div class="section" id="release-4-2-2-mar-11-2018">
+<h4>Release 4.2.2 (Mar 11, 2018)<a class="headerlink" href="#release-4-2-2-mar-11-2018" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Bugfix issues #97: UnboundLocalError raised on treebeard admin</li>
+</ul>
+</div>
+<div class="section" id="release-4-2-1-mar-9-2018">
+<h4>Release 4.2.1 (Mar 9, 2018)<a class="headerlink" href="#release-4-2-1-mar-9-2018" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Bugfix issues #90: admin change list view and jsi18n load for Django-1.11</li>
+</ul>
+</div>
+<div class="section" id="release-4-2-0-dec-8-2017">
+<h4>Release 4.2.0 (Dec 8, 2017)<a class="headerlink" href="#release-4-2-0-dec-8-2017" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Support for Django-2.0</li>
+</ul>
+</div>
+<div class="section" id="release-4-1-2-jun-22-2017">
+<h4>Release 4.1.2 (Jun 22, 2017)<a class="headerlink" href="#release-4-1-2-jun-22-2017" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Fixed MANIFEST.in for Debian packaging.</li>
+</ul>
+</div>
+<div class="section" id="release-4-1-1-may-24-2017">
+<h4>Release 4.1.1 (May 24, 2017)<a class="headerlink" href="#release-4-1-1-may-24-2017" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Removed deprecated templatetag inclusion</li>
+<li>Added support for Python-3.6</li>
+<li>Added support for MS-SQL</li>
+</ul>
+</div>
+<div class="section" id="release-4-1-0-nov-24-2016">
+<h4>Release 4.1.0 (Nov 24, 2016)<a class="headerlink" href="#release-4-1-0-nov-24-2016" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Add support for Django-1.10</li>
+<li>Drop support for Django-1.7</li>
+<li>Moved Repository from Bitbucket to GitHub</li>
+<li>Moved documentation to <a class="reference external" href="https://django-treebeard.readthedocs.io/">https://django-treebeard.readthedocs.io/</a></li>
+<li>Moved continuous integration to <a class="reference external" href="https://travis-ci.org/django-treebeard/django-treebeard">https://travis-ci.org/django-treebeard/django-treebeard</a></li>
+</ul>
+</div>
+<div class="section" id="release-4-0-1-may-1-2016">
+<h4>Release 4.0.1 (May 1, 2016)<a class="headerlink" href="#release-4-0-1-may-1-2016" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Escape input in forms (Martin Koistinen / Divio)</li>
+<li>Clarification on model detail pages (Michael Huang)</li>
+</ul>
+</div>
+<div class="section" id="release-4-0-dec-28-2015">
+<h4>Release 4.0 (Dec 28, 2015)<a class="headerlink" href="#release-4-0-dec-28-2015" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Added support for 3.5 and Django 1.7, 1.8 and 1.9</li>
+<li>Django 1.6 is no longer supported.</li>
+<li>Remove deprecated backports needed for now unsupported Django versions</li>
+<li>Fixed a bug with queryset deletion not handling inheritance correctly.</li>
+<li>Assorted documentation fixes</li>
+</ul>
+</div>
+<div class="section" id="release-3-0-jan-18-2015">
+<h4>Release 3.0 (Jan 18, 2015)<a class="headerlink" href="#release-3-0-jan-18-2015" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Limited tests (and hence support) to Python 2.7+/3.4+ and Django 1.6+</li>
+<li>Removed usage of deprecated Django functions.</li>
+<li>Fixed documentation issues.</li>
+<li>Fixed issues in MoveNodeForm</li>
+<li>Added get_annotated_list_qs and max_depth for get_annotated_list</li>
+</ul>
+</div>
+<div class="section" id="release-2-0-april-2-2014">
+<h4>Release 2.0 (April 2, 2014)<a class="headerlink" href="#release-2-0-april-2-2014" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Stable release.</li>
+</ul>
+</div>
+<div class="section" id="release-2-0rc2-march-2014">
+<h4>Release 2.0rc2 (March, 2014)<a class="headerlink" href="#release-2-0rc2-march-2014" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Support models that use multi-table inheritance (Matt Wescott)</li>
+<li>Tree methods called on proxy models should consistently return instances
+of that proxy model (Matt Wescott)</li>
+</ul>
+</div>
+<div class="section" id="release-2-0rc1-february-2014">
+<h4>Release 2.0rc1 (February, 2014)<a class="headerlink" href="#release-2-0rc1-february-2014" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Fixed unicode related issue in the template tags.</li>
+<li>Major documentation cleanup.</li>
+<li>More warnings on the use of managers.</li>
+<li>Faster MP’s is_root() method.</li>
+</ul>
+</div>
+<div class="section" id="release-2-0b2-december-2013">
+<h4>Release 2.0b2 (December, 2013)<a class="headerlink" href="#release-2-0b2-december-2013" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Dropped support for Python 2.5</li>
+</ul>
+</div>
+<div class="section" id="release-2-0b1-may-29-2013">
+<h4>Release 2.0b1 (May 29, 2013)<a class="headerlink" href="#release-2-0b1-may-29-2013" title="Permalink to this headline">¶</a></h4>
+<p>This is a beta release.</p>
+<ul class="simple">
+<li>Added support for Django 1.5 and Python 3.X</li>
+<li>Updated docs: the library supports python 2.5+ and Django 1.4+. Dropped
+support for older versions</li>
+<li>Revamped admin interface for MP and NS trees, supporting drag&amp;drop to reorder
+nodes. Work on this patch was sponsored by the
+<a class="reference external" href="http://www.orcasinc.com/">Oregon Center for Applied Science</a>, inspired by <a class="reference external" href="http://www.feincms.org">FeinCMS</a> developed by
+<a class="reference external" href="http://www.isgeek.net">Jesús del Carpio</a> with tests from <a class="reference external" href="http://xbito.pe">Fernando Gutierrez</a>. Thanks ORCAS!</li>
+<li>Updated setup.py to use distribute/setuptools instead of distutils</li>
+<li>Now using pytest for testing</li>
+<li>Small optimization to ns_tree.is_root</li>
+<li>Moved treebeard.tests to it’s own directory (instead of tests.py)</li>
+<li>Added the runtests.py test runner</li>
+<li>Added tox support</li>
+<li>Fixed drag&amp;drop bug in the admin</li>
+<li>Fixed a bug when moving MP_Nodes</li>
+<li>Using .pk instead of .id when accessing nodes.</li>
+<li>Removed the Benchmark (tbbench) and example (tbexample) apps.</li>
+<li>Fixed url parts join issues in the admin.</li>
+<li>Fixed: Now installing the static resources</li>
+<li>Fixed ManyToMany form field save handling</li>
+<li>In the admin, the node is now saved when moving so it can trigger handlers
+and/or signals.</li>
+<li>Improved translation files, including javascript.</li>
+<li>Renamed Node.get_database_engine() to Node.get_database_vendor(). As the name
+implies, it returns the database vendor instead of the engine used. Treebeard
+will get the value from Django, but you can subclass the method if needed.</li>
+</ul>
+</div>
+<div class="section" id="release-1-61-jul-24-2010">
+<h4>Release 1.61 (Jul 24, 2010)<a class="headerlink" href="#release-1-61-jul-24-2010" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Added admin i18n. Included translations: es, ru</li>
+<li>Fixed a bug when trying to introspect the database engine used in Django 1.2+
+while using new style db settings (DATABASES). Added
+Node.get_database_engine to deal with this.</li>
+</ul>
+</div>
+<div class="section" id="release-1-60-apr-18-2010">
+<h4>Release 1.60 (Apr 18, 2010)<a class="headerlink" href="#release-1-60-apr-18-2010" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Added get_annotated_list</li>
+<li>Complete revamp of the documentation. It’s now divided in sections for easier
+reading, and the package includes .rst files instead of the html build.</li>
+<li>Added raw id fields support in the admin</li>
+<li>Fixed setup.py to make it work in 2.4 again</li>
+<li>The correct ordering in NS/MP trees is now enforced in the queryset.</li>
+<li>Cleaned up code, removed some unnecessary statements.</li>
+<li>Tests refactoring, to make it easier to spot the model being tested.</li>
+<li>Fixed support of trees using proxied models. It was broken due to a bug in
+Django.</li>
+<li>Fixed a bug in add_child when adding nodes to a non-leaf in sorted MP.</li>
+<li>There are now 648 unit tests. Test coverage is 96%</li>
+<li>This will be the last version compatible with Django 1.0. There will be a
+a 1.6.X branch maintained for urgent bug fixes, but the main development will
+focus on recent Django versions.</li>
+</ul>
+</div>
+<div class="section" id="release-1-52-dec-18-2009">
+<h4>Release 1.52 (Dec 18, 2009)<a class="headerlink" href="#release-1-52-dec-18-2009" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Really fixed the installation of templates.</li>
+</ul>
+</div>
+<div class="section" id="release-1-51-dec-16-2009">
+<h4>Release 1.51 (Dec 16, 2009)<a class="headerlink" href="#release-1-51-dec-16-2009" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Forgot to include treebeard/tempates/*.html in MANIFEST.in</li>
+</ul>
+</div>
+<div class="section" id="release-1-5-dec-15-2009">
+<h4>Release 1.5 (Dec 15, 2009)<a class="headerlink" href="#release-1-5-dec-15-2009" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="new-features-added">
+<h5>New features added<a class="headerlink" href="#new-features-added" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li>Forms<ul>
+<li>Added MoveNodeForm</li>
+</ul>
+</li>
+<li>Django Admin<ul>
+<li>Added TreeAdmin</li>
+</ul>
+</li>
+<li>MP_Node<ul>
+<li>Added 2 new checks in MP_Node.find_problems():<ol class="arabic" start="4">
+<li>a list of ids of nodes with the wrong depth value for
+their path</li>
+<li>a list of ids nodes that report a wrong number of children</li>
+</ol>
+</li>
+<li>Added a new (safer and faster but less comprehensive) MP_Node.fix_tree()
+approach.</li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li>Added warnings in the documentation when subclassing MP_Node or NS_Node
+and adding a new Meta.</li>
+<li>HTML documentation is now included in the package.</li>
+<li>CHANGES file and section in the docs.</li>
+</ul>
+</li>
+<li>Other changes:<ul>
+<li>script to build documentation</li>
+<li>updated numconv.py</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="bugs-fixed">
+<h5>Bugs fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li>Added table quoting to all the sql queries that bypass the ORM.
+Solves bug in postgres when the table isn’t created by syncdb.</li>
+<li>Removing unused method NS_Node._find_next_node</li>
+<li>Fixed MP_Node.get_tree to include the given parent when given a leaf node</li>
+</ul>
+</div>
+</div>
+<div class="section" id="release-1-1-nov-20-2008">
+<h4>Release 1.1 (Nov 20, 2008)<a class="headerlink" href="#release-1-1-nov-20-2008" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id1">
+<h5>Bugs fixed<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li>Added exceptions.py</li>
+</ul>
+</div>
+</div>
+<div class="section" id="release-1-0-nov-19-2008">
+<h4>Release 1.0 (Nov 19, 2008)<a class="headerlink" href="#release-1-0-nov-19-2008" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>First public release.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<span id="document-api"></span><div class="section" id="module-treebeard.models">
+<span id="api"></span><h3>API<a class="headerlink" href="#module-treebeard.models" title="Permalink to this headline">¶</a></h3>
+<div class="graphviz"><img src="_images/inheritance-fddee6f622f2c681ac2d05c88c1e167f636e7728.png" alt="Inheritance diagram of Node" usemap="#inheritance98f8236c1d" class="inheritance graphviz" /></div>
+<map id="inheritance98f8236c1d" name="inheritance98f8236c1d">
+<area shape="rect" id="node2" href="#treebeard.models.Node" target="_top" title="Node class" alt="" coords="269,5,444,31"/>
+</map><dl class="class">
+<dt id="treebeard.models.Node">
+<em class="property">class </em><code class="descclassname">treebeard.models.</code><code class="descname">Node</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Node class</p>
+<p>This is the base class that defines the API of all tree models in this
+library:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="index.html#treebeard.mp_tree.MP_Node" title="treebeard.mp_tree.MP_Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">treebeard.mp_tree.MP_Node</span></code></a> (materialized path)</li>
+<li><a class="reference internal" href="index.html#treebeard.ns_tree.NS_Node" title="treebeard.ns_tree.NS_Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">treebeard.ns_tree.NS_Node</span></code></a> (nested sets)</li>
+<li><a class="reference internal" href="index.html#treebeard.al_tree.AL_Node" title="treebeard.al_tree.AL_Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">treebeard.al_tree.AL_Node</span></code></a> (adjacency list)</li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Please be aware of the <a class="reference internal" href="index.html#document-caveats"><span class="doc">Known Caveats</span></a> when using this library.</p>
+</div>
+<dl class="classmethod">
+<dt id="treebeard.models.Node.add_root">
+<em class="property">classmethod </em><code class="descname">add_root</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.add_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a root node to the tree. The new root node will be the new
+rightmost root node. If you want to insert a root node at a specific
+position, use <a class="reference internal" href="#treebeard.models.Node.add_sibling" title="treebeard.models.Node.add_sibling"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_sibling()</span></code></a> in an already existing root node
+instead.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>**kwargs</strong> – object creation data that will be passed to the
+inherited Node model</li>
+<li><strong>instance</strong> – Instead of passing object creation data, you can
+pass an already-constructed (but not yet saved) model instance to
+be inserted into the tree.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the created node object. It will be save()d by this method.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="index.html#treebeard.exceptions.NodeAlreadySaved" title="treebeard.exceptions.NodeAlreadySaved"><strong>NodeAlreadySaved</strong></a> – when the passed <code class="docutils literal notranslate"><span class="pre">instance</span></code> already exists
+in the database</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MyNode</span><span class="o">.</span><span class="n">add_root</span><span class="p">(</span><span class="n">numval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">strval</span><span class="o">=</span><span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or, to pass in an existing instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_node</span> <span class="o">=</span> <span class="n">MyNode</span><span class="p">(</span><span class="n">numval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">strval</span><span class="o">=</span><span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+<span class="n">MyNode</span><span class="o">.</span><span class="n">add_root</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">new_node</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.add_child">
+<code class="descname">add_child</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a child to the node. The new node will be the new rightmost
+child. If you want to insert a node at a specific position,
+use the <a class="reference internal" href="#treebeard.models.Node.add_sibling" title="treebeard.models.Node.add_sibling"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_sibling()</span></code></a> method of an already existing
+child node instead.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>**kwargs</strong> – Object creation data that will be passed to the inherited Node
+model</li>
+<li><strong>instance</strong> – Instead of passing object creation data, you can
+pass an already-constructed (but not yet saved) model instance to
+be inserted into the tree.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The created node object. It will be save()d by this method.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="index.html#treebeard.exceptions.NodeAlreadySaved" title="treebeard.exceptions.NodeAlreadySaved"><strong>NodeAlreadySaved</strong></a> – when the passed <code class="docutils literal notranslate"><span class="pre">instance</span></code> already exists
+in the database</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">numval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">strval</span><span class="o">=</span><span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or, to pass in an existing instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_node</span> <span class="o">=</span> <span class="n">MyNode</span><span class="p">(</span><span class="n">numval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">strval</span><span class="o">=</span><span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">new_node</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.add_sibling">
+<code class="descname">add_sibling</code><span class="sig-paren">(</span><em>pos=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.add_sibling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new node as a sibling to the current node object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pos</strong> – <p>The position, relative to the current node object, where the
+new node will be inserted, can be one of:</p>
+<ul>
+<li><code class="docutils literal notranslate"><span class="pre">first-sibling</span></code>: the new node will be the new leftmost sibling</li>
+<li><code class="docutils literal notranslate"><span class="pre">left</span></code>: the new node will take the node’s place, which will be
+moved to the right 1 position</li>
+<li><code class="docutils literal notranslate"><span class="pre">right</span></code>: the new node will be inserted at the right of the node</li>
+<li><code class="docutils literal notranslate"><span class="pre">last-sibling</span></code>: the new node will be the new rightmost sibling</li>
+<li><code class="docutils literal notranslate"><span class="pre">sorted-sibling</span></code>: the new node will be at the right position
+according to the value of node_order_by</li>
+</ul>
+</li>
+<li><strong>**kwargs</strong> – Object creation data that will be passed to the inherited
+Node model</li>
+<li><strong>instance</strong> – Instead of passing object creation data, you can
+pass an already-constructed (but not yet saved) model instance to
+be inserted into the tree.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The created node object. It will be saved by this method.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="index.html#treebeard.exceptions.InvalidPosition" title="treebeard.exceptions.InvalidPosition"><strong>InvalidPosition</strong></a> – when passing an invalid <code class="docutils literal notranslate"><span class="pre">pos</span></code> parm</li>
+<li><a class="reference internal" href="index.html#treebeard.exceptions.InvalidPosition" title="treebeard.exceptions.InvalidPosition"><strong>InvalidPosition</strong></a> – when <code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code> is enabled and the
+<code class="docutils literal notranslate"><span class="pre">pos</span></code> parm wasn’t <code class="docutils literal notranslate"><span class="pre">sorted-sibling</span></code></li>
+<li><a class="reference internal" href="index.html#treebeard.exceptions.MissingNodeOrderBy" title="treebeard.exceptions.MissingNodeOrderBy"><strong>MissingNodeOrderBy</strong></a> – when passing <code class="docutils literal notranslate"><span class="pre">sorted-sibling</span></code> as <code class="docutils literal notranslate"><span class="pre">pos</span></code>
+and the <code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code> attribute is missing</li>
+<li><a class="reference internal" href="index.html#treebeard.exceptions.NodeAlreadySaved" title="treebeard.exceptions.NodeAlreadySaved"><strong>NodeAlreadySaved</strong></a> – when the passed <code class="docutils literal notranslate"><span class="pre">instance</span></code> already exists
+in the database</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">add_sibling</span><span class="p">(</span><span class="s1">&#39;sorted-sibling&#39;</span><span class="p">,</span> <span class="n">numval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">strval</span><span class="o">=</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or, to pass in an existing instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_node</span> <span class="o">=</span> <span class="n">MyNode</span><span class="p">(</span><span class="n">numval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">strval</span><span class="o">=</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">add_sibling</span><span class="p">(</span><span class="s1">&#39;sorted-sibling&#39;</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="n">new_node</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a node and all it’s descendants.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Call our queryset’s delete to handle children removal. Subclasses
+will handle extra maintenance.</p>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.get_tree">
+<em class="property">classmethod </em><code class="descname">get_tree</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_tree" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of nodes ordered as DFS, including the parent. If
+no parent is given, the entire tree is returned.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_depth">
+<code class="descname">get_depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_depth" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the depth (level) of the node</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_depth</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_ancestors">
+<code class="descname">get_ancestors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A queryset containing the current node object’s ancestors,
+starting by the root node and descending to the parent.
+(some subclasses may return a list)</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_ancestors</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_children">
+<code class="descname">get_children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_children" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A queryset of all the node’s children</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_children</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_children_count">
+<code class="descname">get_children_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_children_count" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The number of the node’s children</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_children_count</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_descendants">
+<code class="descname">get_descendants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_descendants" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A queryset of all the node’s descendants, doesn’t
+include the node itself (some subclasses may return a list).</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_descendants</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_descendant_count">
+<code class="descname">get_descendant_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_descendant_count" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of descendants of a node.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_descendant_count</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_first_child">
+<code class="descname">get_first_child</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_first_child" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The leftmost node’s child, or None if it has no children.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_first_child</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_last_child">
+<code class="descname">get_last_child</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_last_child" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The rightmost node’s child, or None if it has no children.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_last_child</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_first_sibling">
+<code class="descname">get_first_sibling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_first_sibling" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The leftmost node’s sibling, can return the node itself if
+it was the leftmost sibling.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_first_sibling</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_last_sibling">
+<code class="descname">get_last_sibling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_last_sibling" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The rightmost node’s sibling, can return the node itself if
+it was the rightmost sibling.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_last_sibling</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_prev_sibling">
+<code class="descname">get_prev_sibling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_prev_sibling" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The previous node’s sibling, or None if it was the leftmost
+sibling.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_prev_sibling</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_next_sibling">
+<code class="descname">get_next_sibling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_next_sibling" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The next node’s sibling, or None if it was the rightmost
+sibling.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_next_sibling</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_parent">
+<code class="descname">get_parent</code><span class="sig-paren">(</span><em>update=False</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_parent" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the parent node of the current node object.
+Caches the result in the object itself to help in loops.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update</strong> – Updates the cached value.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_parent</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_root">
+<code class="descname">get_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_root" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the root node for the current node object.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_root</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.get_siblings">
+<code class="descname">get_siblings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_siblings" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A queryset of all the node’s siblings, including the node
+itself.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">get_siblings</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.is_child_of">
+<code class="descname">is_child_of</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.is_child_of" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the node is a child of another node given as an
+argument, else, returns <code class="docutils literal notranslate"><span class="pre">False</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – The node that will be checked as a parent</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">is_child_of</span><span class="p">(</span><span class="n">node2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.is_descendant_of">
+<code class="descname">is_descendant_of</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.is_descendant_of" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the node is a descendant of another node given
+as an argument, else, returns <code class="docutils literal notranslate"><span class="pre">False</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – The node that will be checked as an ancestor</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">is_descendant_of</span><span class="p">(</span><span class="n">node2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.is_sibling_of">
+<code class="descname">is_sibling_of</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.is_sibling_of" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the node is a sibling of another node given as an
+argument, else, returns <code class="docutils literal notranslate"><span class="pre">False</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – The node that will be checked as a sibling</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">is_sibling_of</span><span class="p">(</span><span class="n">node2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.is_root">
+<code class="descname">is_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.is_root" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the node is a root node (else, returns False)</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">is_root</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.is_leaf">
+<code class="descname">is_leaf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.is_leaf" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the node is a leaf node (else, returns False)</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.move">
+<code class="descname">move</code><span class="sig-paren">(</span><em>target</em>, <em>pos=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the current node and all it’s descendants to a new position
+relative to another node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>target</strong> – The node that will be used as a relative child/sibling when moving</li>
+<li><strong>pos</strong> – <p>The position, relative to the target node, where the
+current node object will be moved to, can be one of:</p>
+<ul>
+<li><code class="docutils literal notranslate"><span class="pre">first-child</span></code>: the node will be the new leftmost child of the
+<code class="docutils literal notranslate"><span class="pre">target</span></code> node</li>
+<li><code class="docutils literal notranslate"><span class="pre">last-child</span></code>: the node will be the new rightmost child of the
+<code class="docutils literal notranslate"><span class="pre">target</span></code> node</li>
+<li><code class="docutils literal notranslate"><span class="pre">sorted-child</span></code>: the new node will be moved as a child of the
+<code class="docutils literal notranslate"><span class="pre">target</span></code> node according to the value of <code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">first-sibling</span></code>: the node will be the new leftmost sibling of
+the <code class="docutils literal notranslate"><span class="pre">target</span></code> node</li>
+<li><code class="docutils literal notranslate"><span class="pre">left</span></code>: the node will take the <code class="docutils literal notranslate"><span class="pre">target</span></code> node’s place, which
+will be moved to the right 1 position</li>
+<li><code class="docutils literal notranslate"><span class="pre">right</span></code>: the node will be moved to the right of the <code class="docutils literal notranslate"><span class="pre">target</span></code>
+node</li>
+<li><code class="docutils literal notranslate"><span class="pre">last-sibling</span></code>: the node will be the new rightmost sibling of
+the <code class="docutils literal notranslate"><span class="pre">target</span></code> node</li>
+<li><code class="docutils literal notranslate"><span class="pre">sorted-sibling</span></code>: the new node will be moved as a sibling of
+the <code class="docutils literal notranslate"><span class="pre">target</span></code> node according to the value of
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If no <code class="docutils literal notranslate"><span class="pre">pos</span></code> is given the library will use <code class="docutils literal notranslate"><span class="pre">last-sibling</span></code>,
+or <code class="docutils literal notranslate"><span class="pre">sorted-sibling</span></code> if <code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code> is enabled.</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">None</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="index.html#treebeard.exceptions.InvalidPosition" title="treebeard.exceptions.InvalidPosition"><strong>InvalidPosition</strong></a> – when passing an invalid <code class="docutils literal notranslate"><span class="pre">pos</span></code> parm</li>
+<li><a class="reference internal" href="index.html#treebeard.exceptions.InvalidPosition" title="treebeard.exceptions.InvalidPosition"><strong>InvalidPosition</strong></a> – when <code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code> is enabled and the
+<code class="docutils literal notranslate"><span class="pre">pos</span></code> parm wasn’t <code class="docutils literal notranslate"><span class="pre">sorted-sibling</span></code> or <code class="docutils literal notranslate"><span class="pre">sorted-child</span></code></li>
+<li><a class="reference internal" href="index.html#treebeard.exceptions.InvalidMoveToDescendant" title="treebeard.exceptions.InvalidMoveToDescendant"><strong>InvalidMoveToDescendant</strong></a> – when trying to move a node to one of
+it’s own descendants</li>
+<li><a class="reference internal" href="index.html#treebeard.exceptions.PathOverflow" title="treebeard.exceptions.PathOverflow"><strong>PathOverflow</strong></a> – when the library can’t make room for the
+node’s new position</li>
+<li><a class="reference internal" href="index.html#treebeard.exceptions.MissingNodeOrderBy" title="treebeard.exceptions.MissingNodeOrderBy"><strong>MissingNodeOrderBy</strong></a> – when passing <code class="docutils literal notranslate"><span class="pre">sorted-sibling</span></code> or
+<code class="docutils literal notranslate"><span class="pre">sorted-child</span></code> as <code class="docutils literal notranslate"><span class="pre">pos</span></code> and the <code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code>
+attribute is missing</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The node can be moved under another root node.</p>
+</div>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">node2</span><span class="p">,</span> <span class="s1">&#39;sorted-child&#39;</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">node2</span><span class="p">,</span> <span class="s1">&#39;prev-sibling&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.models.Node.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>force_insert=False</em>, <em>force_update=False</em>, <em>using=None</em>, <em>update_fields=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the current instance. Override this in a subclass if you want to
+control the saving process.</p>
+<p>The ‘force_insert’ and ‘force_update’ parameters can be used to insist
+that the “save” must be an SQL insert or update (or equivalent for
+non-SQL backends), respectively. Normally, they should not be set.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.get_first_root_node">
+<em class="property">classmethod </em><code class="descname">get_first_root_node</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_first_root_node" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The first root node in the tree or <code class="docutils literal notranslate"><span class="pre">None</span></code> if it is empty.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MyNodeModel</span><span class="o">.</span><span class="n">get_first_root_node</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.get_last_root_node">
+<em class="property">classmethod </em><code class="descname">get_last_root_node</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_last_root_node" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The last root node in the tree or <code class="docutils literal notranslate"><span class="pre">None</span></code> if it is empty.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MyNodeModel</span><span class="o">.</span><span class="n">get_last_root_node</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.get_root_nodes">
+<em class="property">classmethod </em><code class="descname">get_root_nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_root_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A queryset containing the root nodes in the tree.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MyNodeModel</span><span class="o">.</span><span class="n">get_root_nodes</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.load_bulk">
+<em class="property">classmethod </em><code class="descname">load_bulk</code><span class="sig-paren">(</span><em>bulk_data</em>, <em>parent=None</em>, <em>keep_ids=False</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.load_bulk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a list/dictionary structure to the tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bulk_data</strong> – <p>The data that will be loaded, the structure is a list of
+dictionaries with 2 keys:</p>
+<ul>
+<li><code class="docutils literal notranslate"><span class="pre">data</span></code>: will store arguments that will be passed for object
+creation, and</li>
+<li><code class="docutils literal notranslate"><span class="pre">children</span></code>: a list of dictionaries, each one has it’s own
+<code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">children</span></code> keys (a recursive structure)</li>
+</ul>
+</li>
+<li><strong>parent</strong> – The node that will receive the structure as children, if not
+specified the first level of the structure will be loaded as root
+nodes</li>
+<li><strong>keep_ids</strong> – If enabled, loads the nodes with the same primary keys that are
+given in the structure. Will error if there are nodes without
+primary key info or if the primary keys are already used.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of the added node ids.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Any internal data that you may have stored in your
+nodes’ data (<code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">depth</span></code>) will be
+ignored.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If your node model has a ForeignKey this method will try to load
+the related object before loading the data. If the related object
+doesn’t exist it won’t load anything and will raise a DoesNotExist
+exception. This is done because the dump_data method uses integers
+to dump related objects.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If your node model has <code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code> enabled, it will
+take precedence over the order in the structure.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;data&#39;</span><span class="p">:{</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="s1">&#39;1&#39;</span><span class="p">}},</span>
+        <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:{</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="s1">&#39;2&#39;</span><span class="p">},</span> <span class="s1">&#39;children&#39;</span><span class="p">:[</span>
+          <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:{</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="s1">&#39;21&#39;</span><span class="p">}},</span>
+          <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:{</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="s1">&#39;22&#39;</span><span class="p">}},</span>
+          <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:{</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="s1">&#39;23&#39;</span><span class="p">},</span> <span class="s1">&#39;children&#39;</span><span class="p">:[</span>
+            <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:{</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="s1">&#39;231&#39;</span><span class="p">}},</span>
+          <span class="p">]},</span>
+          <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:{</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="s1">&#39;24&#39;</span><span class="p">}},</span>
+        <span class="p">]},</span>
+        <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:{</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="s1">&#39;3&#39;</span><span class="p">}},</span>
+        <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:{</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="s1">&#39;4&#39;</span><span class="p">},</span> <span class="s1">&#39;children&#39;</span><span class="p">:[</span>
+          <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:{</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="s1">&#39;41&#39;</span><span class="p">}},</span>
+        <span class="p">]},</span>
+<span class="p">]</span>
+<span class="c1"># parent = None</span>
+<span class="n">MyNodeModel</span><span class="o">.</span><span class="n">load_bulk</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Will create:</p>
+<div class="graphviz"><img src="_images/graphviz-43a7e84ebb5c9b243f3b4beccb5489556e74fc18.png" alt="digraph load_bulk_digraph {
+&quot;1&quot;;
+&quot;2&quot;;
+&quot;2&quot; -&gt; &quot;21&quot;;
+&quot;2&quot; -&gt; &quot;22&quot;;
+&quot;2&quot; -&gt; &quot;23&quot; -&gt; &quot;231&quot;;
+&quot;2&quot; -&gt; &quot;24&quot;;
+&quot;3&quot;;
+&quot;4&quot;;
+&quot;4&quot; -&gt; &quot;41&quot;;
+}" class="graphviz" /></div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.dump_bulk">
+<em class="property">classmethod </em><code class="descname">dump_bulk</code><span class="sig-paren">(</span><em>parent=None</em>, <em>keep_ids=True</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.dump_bulk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dumps a tree branch to a python data structure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> – The node whose descendants will be dumped. The node itself will be
+included in the dump. If not given, the entire tree will be dumped.</li>
+<li><strong>keep_ids</strong> – Stores the pk value (primary key) of every node. Enabled by
+default.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A python data structure, described with detail in
+<a class="reference internal" href="#treebeard.models.Node.load_bulk" title="treebeard.models.Node.load_bulk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load_bulk()</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span> <span class="o">=</span> <span class="n">MyNodeModel</span><span class="o">.</span><span class="n">dump_bulk</span><span class="p">()</span>
+<span class="n">branch</span> <span class="o">=</span> <span class="n">MyNodeModel</span><span class="o">.</span><span class="n">dump_bulk</span><span class="p">(</span><span class="n">node_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.find_problems">
+<em class="property">classmethod </em><code class="descname">find_problems</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.find_problems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks for problems in the tree structure.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.fix_tree">
+<em class="property">classmethod </em><code class="descname">fix_tree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.fix_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solves problems that can appear when transactions are not used and
+a piece of code breaks, leaving the tree in an inconsistent state.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.get_descendants_group_count">
+<em class="property">classmethod </em><code class="descname">get_descendants_group_count</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_descendants_group_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper for a very common case: get a group of siblings and the number
+of <em>descendants</em> (not only children) in every sibling.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> – The parent of the siblings to return. If no parent is given, the
+root nodes will be returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A <cite>list</cite> (<strong>NOT</strong> a Queryset) of node objects with an extra
+attribute: <cite>descendants_count</cite>.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get a list of the root nodes</span>
+<span class="n">root_nodes</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">get_descendants_group_count</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">root_nodes</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> by </span><span class="si">%s</span><span class="s1"> (</span><span class="si">%d</span><span class="s1"> replies)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">comment</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">author</span><span class="p">,</span>
+                                     <span class="n">node</span><span class="o">.</span><span class="n">descendants_count</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.get_annotated_list">
+<em class="property">classmethod </em><code class="descname">get_annotated_list</code><span class="sig-paren">(</span><em>parent=None</em>, <em>max_depth=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_annotated_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an annotated list from a tree branch.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> – The node whose descendants will be annotated. The node itself
+will be included in the list. If not given, the entire tree
+will be annotated.</li>
+<li><strong>max_depth</strong> – Optionally limit to specified depth</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">annotated_list</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">get_annotated_list</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>With data:</p>
+<div class="graphviz"><img src="_images/graphviz-bfbd37d3c78de73e3e7dec704903d1d1fad4361c.png" alt="digraph get_annotated_list_digraph {
+&quot;a&quot;;
+&quot;a&quot; -&gt; &quot;ab&quot;;
+&quot;ab&quot; -&gt; &quot;aba&quot;;
+&quot;ab&quot; -&gt; &quot;abb&quot;;
+&quot;ab&quot; -&gt; &quot;abc&quot;;
+&quot;a&quot; -&gt; &quot;ac&quot;;
+}" class="graphviz" /></div>
+<p>Will return:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">(</span><span class="n">a</span><span class="p">,</span>     <span class="p">{</span><span class="s1">&#39;open&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>  <span class="s1">&#39;close&#39;</span><span class="p">:[],</span>    <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+    <span class="p">(</span><span class="n">ab</span><span class="p">,</span>    <span class="p">{</span><span class="s1">&#39;open&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>  <span class="s1">&#39;close&#39;</span><span class="p">:[],</span>    <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+    <span class="p">(</span><span class="n">aba</span><span class="p">,</span>   <span class="p">{</span><span class="s1">&#39;open&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>  <span class="s1">&#39;close&#39;</span><span class="p">:[],</span>    <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+    <span class="p">(</span><span class="n">abb</span><span class="p">,</span>   <span class="p">{</span><span class="s1">&#39;open&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;close&#39;</span><span class="p">:[],</span>    <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+    <span class="p">(</span><span class="n">abc</span><span class="p">,</span>   <span class="p">{</span><span class="s1">&#39;open&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;close&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+    <span class="p">(</span><span class="n">ac</span><span class="p">,</span>    <span class="p">{</span><span class="s1">&#39;open&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;close&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">],</span>   <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>This can be used with a template like:</p>
+<div class="highlight-django notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span><span class="o">,</span> <span class="nv">info</span> <span class="k">in</span> <span class="nv">annotated_list</span> <span class="cp">%}</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">info.open</span> <span class="cp">%}</span>
+<span class="x">        &lt;ul&gt;&lt;li&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="x">        &lt;/li&gt;&lt;li&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">item</span> <span class="cp">}}</span>
+
+<span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">close</span> <span class="k">in</span> <span class="nv">info.close</span> <span class="cp">%}</span>
+<span class="x">        &lt;/li&gt;&lt;/ul&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This method was contributed originally by
+<a class="reference external" href="mailto:rudi&#37;&#52;&#48;05bit&#46;com">Alexey Kinyov</a>, using an idea borrowed from
+<a class="reference external" href="https://github.com/django-mptt/django-mptt/">django-mptt</a>.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.55.</span></p>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.get_annotated_list_qs">
+<em class="property">classmethod </em><code class="descname">get_annotated_list_qs</code><span class="sig-paren">(</span><em>qs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_annotated_list_qs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an annotated list from a queryset.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.models.Node.get_database_vendor">
+<em class="property">classmethod </em><code class="descname">get_database_vendor</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.models.Node.get_database_vendor" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the supported database vendor used by a treebeard model when
+performing read (select) or write (update, insert, delete) operations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> – <cite>read</cite> or <cite>write</cite></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">postgresql, mysql or sqlite</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MyNodeModel</span><span class="o">.</span><span class="n">get_database_vendor</span><span class="p">(</span><span class="s2">&quot;write&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.61.</span></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span id="document-mp_tree"></span><div class="section" id="module-treebeard.mp_tree">
+<span id="materialized-path-trees"></span><h3>Materialized Path trees<a class="headerlink" href="#module-treebeard.mp_tree" title="Permalink to this headline">¶</a></h3>
+<p>This is an efficient implementation of Materialized Path
+trees for Django, as described by <a class="reference external" href="http://vadimtropashko.wordpress.com/">Vadim Tropashko</a> in <a class="reference external" href="http://www.rampant-books.com/book_2006_1_sql_coding_styles.htm">SQL Design
+Patterns</a>. Materialized Path is probably the fastest way of working with
+trees in SQL without the need of extra work in the database, like Oracle’s
+<code class="docutils literal notranslate"><span class="pre">CONNECT</span> <span class="pre">BY</span></code> or sprocs and triggers for nested intervals.</p>
+<p>In a materialized path approach, every node in the tree will have a
+<a class="reference internal" href="#treebeard.mp_tree.MP_Node.path" title="treebeard.mp_tree.MP_Node.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a> attribute, where the full path from the root
+to the node will be stored. This has the advantage of needing very simple
+and fast queries, at the risk of inconsistency because of the
+denormalization of <code class="docutils literal notranslate"><span class="pre">parent</span></code>/<code class="docutils literal notranslate"><span class="pre">child</span></code> foreign keys. This can be prevented
+with transactions.</p>
+<p><code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> uses a particular approach: every step in the path has
+a fixed width and has no separators. This makes queries predictable and
+faster at the cost of using more characters to store a step. To address
+this problem, every step number is encoded.</p>
+<p>Also, two extra fields are stored in every node:
+<a class="reference internal" href="#treebeard.mp_tree.MP_Node.depth" title="treebeard.mp_tree.MP_Node.depth"><code class="xref py py-attr docutils literal notranslate"><span class="pre">depth</span></code></a> and <a class="reference internal" href="#treebeard.mp_tree.MP_Node.numchild" title="treebeard.mp_tree.MP_Node.numchild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">numchild</span></code></a>.
+This makes the read operations faster, at the cost of a little more
+maintenance on tree updates/inserts/deletes. Don’t worry, even with these
+extra steps, materialized path is more efficient than other approaches.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">As with all tree implementations, please be aware of the
+<a class="reference internal" href="index.html#document-caveats"><span class="doc">Known Caveats</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The materialized path approach makes heavy use of <code class="docutils literal notranslate"><span class="pre">LIKE</span></code> in your
+database, with clauses like <code class="docutils literal notranslate"><span class="pre">WHERE</span> <span class="pre">path</span> <span class="pre">LIKE</span> <span class="pre">'002003%'</span></code>. If you think
+that <code class="docutils literal notranslate"><span class="pre">LIKE</span></code> is too slow, you’re right, but in this case the
+<a class="reference internal" href="#treebeard.mp_tree.MP_Node.path" title="treebeard.mp_tree.MP_Node.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a> field is indexed in the database, and all
+<code class="docutils literal notranslate"><span class="pre">LIKE</span></code> clauses that don’t <strong>start</strong> with a <code class="docutils literal notranslate"><span class="pre">%</span></code> character will use
+the index. This is what makes the materialized path approach so fast.</p>
+</div>
+<div class="graphviz"><img src="_images/inheritance-47afcae978bbdb0405b43ded767c676a0f4de34d.png" alt="Inheritance diagram of MP_Node" usemap="#inheritance30e227950c" class="inheritance graphviz" /></div>
+<map id="inheritance30e227950c" name="inheritance30e227950c">
+<area shape="rect" id="node2" href="index.html#treebeard.models.Node" target="_top" title="Node class" alt="" coords="269,5,444,31"/>
+<area shape="rect" id="node3" href="#treebeard.mp_tree.MP_Node" target="_top" title="Abstract model to create your own Materialized Path Trees." alt="" coords="492,5,699,31"/>
+</map><dl class="class">
+<dt id="treebeard.mp_tree.MP_Node">
+<em class="property">class </em><code class="descclassname">treebeard.mp_tree.</code><code class="descname">MP_Node</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.mp_tree.MP_Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="index.html#treebeard.models.Node" title="treebeard.models.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">treebeard.models.Node</span></code></a></p>
+<p>Abstract model to create your own Materialized Path Trees.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not change the values of <a class="reference internal" href="#treebeard.mp_tree.MP_Node.path" title="treebeard.mp_tree.MP_Node.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>, <a class="reference internal" href="#treebeard.mp_tree.MP_Node.depth" title="treebeard.mp_tree.MP_Node.depth"><code class="xref py py-attr docutils literal notranslate"><span class="pre">depth</span></code></a> or
+<a class="reference internal" href="#treebeard.mp_tree.MP_Node.numchild" title="treebeard.mp_tree.MP_Node.numchild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">numchild</span></code></a> directly: use one of the included methods instead.
+Consider these values <em>read-only</em>.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not change the values of the <a class="reference internal" href="#treebeard.mp_tree.MP_Node.steplen" title="treebeard.mp_tree.MP_Node.steplen"><code class="xref py py-attr docutils literal notranslate"><span class="pre">steplen</span></code></a>, <a class="reference internal" href="#treebeard.mp_tree.MP_Node.alphabet" title="treebeard.mp_tree.MP_Node.alphabet"><code class="xref py py-attr docutils literal notranslate"><span class="pre">alphabet</span></code></a> or
+<a class="reference internal" href="#treebeard.mp_tree.MP_Node.node_order_by" title="treebeard.mp_tree.MP_Node.node_order_by"><code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code></a> after saving your first object. Doing so will
+corrupt the tree.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>If you need to define your own
+<a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/db/managers/#django.db.models.Manager" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Manager</span></code></a> class,
+you’ll need to subclass
+<a class="reference internal" href="#treebeard.mp_tree.MP_NodeManager" title="treebeard.mp_tree.MP_NodeManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">MP_NodeManager</span></code></a>.</p>
+<p class="last">Also, if in your manager you need to change the default
+queryset handler, you’ll need to subclass
+<a class="reference internal" href="#treebeard.mp_tree.MP_NodeQuerySet" title="treebeard.mp_tree.MP_NodeQuerySet"><code class="xref py py-class docutils literal notranslate"><span class="pre">MP_NodeQuerySet</span></code></a>.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SortedNode</span><span class="p">(</span><span class="n">MP_Node</span><span class="p">):</span>
+   <span class="n">node_order_by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;numval&#39;</span><span class="p">,</span> <span class="s1">&#39;strval&#39;</span><span class="p">]</span>
+
+   <span class="n">numval</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+   <span class="n">strval</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Read the API reference of <a class="reference internal" href="index.html#treebeard.models.Node" title="treebeard.models.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">treebeard.models.Node</span></code></a> for info on methods
+available in this class, or read the following section for methods with
+particular arguments or exceptions.</p>
+<dl class="attribute">
+<dt id="treebeard.mp_tree.MP_Node.steplen">
+<code class="descname">steplen</code><a class="headerlink" href="#treebeard.mp_tree.MP_Node.steplen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute that defines the length of each step in the <a class="reference internal" href="#treebeard.mp_tree.MP_Node.path" title="treebeard.mp_tree.MP_Node.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a> of
+a node.  The default value of <em>4</em> allows a maximum of
+<em>1679615</em> children per node. Increase this value if you plan to store
+large trees (a <code class="docutils literal notranslate"><span class="pre">steplen</span></code> of <em>5</em> allows more than <em>60M</em> children per
+node). Note that increasing this value, while increasing the number of
+children per node, will decrease the max <a class="reference internal" href="#treebeard.mp_tree.MP_Node.depth" title="treebeard.mp_tree.MP_Node.depth"><code class="xref py py-attr docutils literal notranslate"><span class="pre">depth</span></code></a> of the tree (by
+default: <em>63</em>). To increase the max <a class="reference internal" href="#treebeard.mp_tree.MP_Node.depth" title="treebeard.mp_tree.MP_Node.depth"><code class="xref py py-attr docutils literal notranslate"><span class="pre">depth</span></code></a>, increase the
+max_length attribute of the <a class="reference internal" href="#treebeard.mp_tree.MP_Node.path" title="treebeard.mp_tree.MP_Node.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a> field in your model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.mp_tree.MP_Node.alphabet">
+<code class="descname">alphabet</code><a class="headerlink" href="#treebeard.mp_tree.MP_Node.alphabet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute: the alphabet that will be used in base conversions
+when encoding the path steps into strings. The default value,
+<code class="docutils literal notranslate"><span class="pre">0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></code> is the most optimal possible
+value that is portable between the supported databases (which means:
+their default collation will order the <a class="reference internal" href="#treebeard.mp_tree.MP_Node.path" title="treebeard.mp_tree.MP_Node.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a> field correctly).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>In case you know what you are doing, there is a test that is
+disabled by default that can tell you the optimal default alphabet
+in your enviroment. To run the test you must enable the
+<span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TREEBEARD_TEST_ALPHABET</span></code> enviroment variable:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nv">TREEBEARD_TEST_ALPHABET</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>py.test<span class="w"> </span>-k<span class="w"> </span>test_alphabet
+</pre></div>
+</div>
+<p>In OS X Mavericks, good readable values for the three supported
+databases in their <em>default</em> configuration:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="44%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Database</th>
+<th class="head">Optimal Alphabet</th>
+<th class="head">Base</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>MySQL 5.6.17</td>
+<td>0-9A-Z</td>
+<td>36</td>
+</tr>
+<tr class="row-odd"><td>PostgreSQL 9.3.4</td>
+<td>0-9A-Za-z</td>
+<td>62</td>
+</tr>
+<tr class="row-even"><td>Sqlite3</td>
+<td>0-9A-Za-z</td>
+<td>62</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The default value is MySQL’s since it will work in all DBs,
+but when working with a better database, changing the
+<a class="reference internal" href="#treebeard.mp_tree.MP_Node.alphabet" title="treebeard.mp_tree.MP_Node.alphabet"><code class="xref py py-attr docutils literal notranslate"><span class="pre">alphabet</span></code></a> value is recommended in order to increase the
+density of the paths.</p>
+<p class="last">For an even better approach, change the collation of the
+<a class="reference internal" href="#treebeard.mp_tree.MP_Node.path" title="treebeard.mp_tree.MP_Node.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a> column in the database to handle raw ASCII, and
+use the printable ASCII characters (0x20 to 0x7E) as the
+<a class="reference internal" href="#treebeard.mp_tree.MP_Node.alphabet" title="treebeard.mp_tree.MP_Node.alphabet"><code class="xref py py-attr docutils literal notranslate"><span class="pre">alphabet</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.mp_tree.MP_Node.node_order_by">
+<code class="descname">node_order_by</code><a class="headerlink" href="#treebeard.mp_tree.MP_Node.node_order_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute: a list of model fields that will be used for node
+ordering. When enabled, all tree operations will assume this ordering.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node_order_by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">,</span> <span class="s1">&#39;field3&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.mp_tree.MP_Node.path">
+<code class="descname">path</code><a class="headerlink" href="#treebeard.mp_tree.MP_Node.path" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">CharField</span></code>, stores the full materialized path for each node. The
+default value of it’s max_length, <em>255</em>, is the max efficient and
+portable value for a <code class="docutils literal notranslate"><span class="pre">varchar</span></code>. Increase it to allow deeper trees (max
+depth by default: <em>63</em>)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><cite>django-treebeard</cite> uses Django’s abstract model inheritance, so
+to change the <code class="docutils literal notranslate"><span class="pre">max_length</span></code> value of the path in your model, you
+have to redeclare the path field in your model:</p>
+<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyNodeModel</span><span class="p">(</span><span class="n">MP_Node</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For performance, and if your database allows it, you can safely
+define the path column as ASCII (not utf-8/unicode/iso8859-1/etc) to
+keep the index smaller (and faster). Also note that some databases
+(mysql) have a small index size limit. InnoDB for instance has a
+limit of 765 bytes per index, so that would be the limit if your path
+is ASCII encoded. If your path column in InnoDB is using unicode,
+the index limit will be 255 characters since in MySQL’s indexes,
+unicode means 3 bytes per character.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> uses <a class="reference external" href="https://tabo.pe/projects/numconv/">numconv</a> for path encoding.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.mp_tree.MP_Node.depth">
+<code class="descname">depth</code><a class="headerlink" href="#treebeard.mp_tree.MP_Node.depth" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">PositiveIntegerField</span></code>, depth of a node in the tree. A root node
+has a depth of <em>1</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.mp_tree.MP_Node.numchild">
+<code class="descname">numchild</code><a class="headerlink" href="#treebeard.mp_tree.MP_Node.numchild" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">PositiveIntegerField</span></code>, the number of children of the node.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.mp_tree.MP_Node.add_root">
+<em class="property">classmethod </em><code class="descname">add_root</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.mp_tree.MP_Node.add_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a root node to the tree.</p>
+<p>This method saves the node in database. The object is populated as if via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">obj</span> <span class="pre">=</span> <span class="pre">cls(**kwargs)</span>
+<span class="pre">`</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="index.html#treebeard.exceptions.PathOverflow" title="treebeard.exceptions.PathOverflow"><strong>PathOverflow</strong></a> – when no more root objects can be added</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a class="reference internal" href="index.html#treebeard.models.Node.add_root" title="treebeard.models.Node.add_root"><code class="xref py py-meth docutils literal notranslate"><span class="pre">treebeard.models.Node.add_root()</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.mp_tree.MP_Node.add_child">
+<code class="descname">add_child</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.mp_tree.MP_Node.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a child to the node.</p>
+<p>This method saves the node in database. The object is populated as if via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">obj</span> <span class="pre">=</span> <span class="pre">self.__class__(**kwargs)</span>
+<span class="pre">`</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="index.html#treebeard.exceptions.PathOverflow" title="treebeard.exceptions.PathOverflow"><strong>PathOverflow</strong></a> – when no more child nodes can be added</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a class="reference internal" href="index.html#treebeard.models.Node.add_child" title="treebeard.models.Node.add_child"><code class="xref py py-meth docutils literal notranslate"><span class="pre">treebeard.models.Node.add_child()</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.mp_tree.MP_Node.add_sibling">
+<code class="descname">add_sibling</code><span class="sig-paren">(</span><em>pos=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.mp_tree.MP_Node.add_sibling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new node as a sibling to the current node object.</p>
+<p>This method saves the node in database. The object is populated as if via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">obj</span> <span class="pre">=</span> <span class="pre">self.__class__(**kwargs)</span>
+<span class="pre">`</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="index.html#treebeard.exceptions.PathOverflow" title="treebeard.exceptions.PathOverflow"><strong>PathOverflow</strong></a> – when the library can’t make room for the
+node’s new position</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a class="reference internal" href="index.html#treebeard.models.Node.add_sibling" title="treebeard.models.Node.add_sibling"><code class="xref py py-meth docutils literal notranslate"><span class="pre">treebeard.models.Node.add_sibling()</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="treebeard.mp_tree.MP_Node.move">
+<code class="descname">move</code><span class="sig-paren">(</span><em>target</em>, <em>pos=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.mp_tree.MP_Node.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the current node and all it’s descendants to a new position
+relative to another node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="index.html#treebeard.exceptions.PathOverflow" title="treebeard.exceptions.PathOverflow"><strong>PathOverflow</strong></a> – when the library can’t make room for the
+node’s new position</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a class="reference internal" href="index.html#treebeard.models.Node.move" title="treebeard.models.Node.move"><code class="xref py py-meth docutils literal notranslate"><span class="pre">treebeard.models.Node.move()</span></code></a></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.mp_tree.MP_Node.get_tree">
+<em class="property">classmethod </em><code class="descname">get_tree</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.mp_tree.MP_Node.get_tree" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <em>queryset</em> of nodes ordered as DFS, including the parent.
+If no parent is given, the entire tree is returned.</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a class="reference internal" href="index.html#treebeard.models.Node.get_tree" title="treebeard.models.Node.get_tree"><code class="xref py py-meth docutils literal notranslate"><span class="pre">treebeard.models.Node.get_tree()</span></code></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This metod returns a queryset.</p>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.mp_tree.MP_Node.find_problems">
+<em class="property">classmethod </em><code class="descname">find_problems</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.mp_tree.MP_Node.find_problems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks for problems in the tree structure, problems can occur when:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>your code breaks and you get incomplete transactions (always
+use transactions!)</li>
+<li>changing the <code class="docutils literal notranslate"><span class="pre">steplen</span></code> value in a model (you must
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">dump_bulk()</span></code> first, change <code class="docutils literal notranslate"><span class="pre">steplen</span></code> and then
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">load_bulk()</span></code></li>
+</ol>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A tuple of five lists:<ol class="arabic simple">
+<li>a list of ids of nodes with characters not found in the
+<code class="docutils literal notranslate"><span class="pre">alphabet</span></code></li>
+<li>a list of ids of nodes when a wrong <code class="docutils literal notranslate"><span class="pre">path</span></code> length
+according to <code class="docutils literal notranslate"><span class="pre">steplen</span></code></li>
+<li>a list of ids of orphaned nodes</li>
+<li>a list of ids of nodes with the wrong depth value for
+their path</li>
+<li>a list of ids nodes that report a wrong number of children</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A node won’t appear in more than one list, even when it exhibits
+more than one problem. This method stops checking a node when it
+finds a problem and continues to the next node.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Problems 1, 2 and 3 can’t be solved automatically.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MyNodeModel</span><span class="o">.</span><span class="n">find_problems</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.mp_tree.MP_Node.fix_tree">
+<em class="property">classmethod </em><code class="descname">fix_tree</code><span class="sig-paren">(</span><em>destructive=False</em>, <em>fix_paths=False</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.mp_tree.MP_Node.fix_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solves some problems that can appear when transactions are not used and
+a piece of code breaks, leaving the tree in an inconsistent state.</p>
+<p>The problems this method solves are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Nodes with an incorrect <code class="docutils literal notranslate"><span class="pre">depth</span></code> or <code class="docutils literal notranslate"><span class="pre">numchild</span></code> values due to
+incorrect code and lack of database transactions.</li>
+<li>“Holes” in the tree. This is normal if you move/delete nodes a
+lot. Holes in a tree don’t affect performance,</li>
+<li>Incorrect ordering of nodes when <code class="docutils literal notranslate"><span class="pre">node_order_by</span></code> is enabled.
+Ordering is enforced on <em>node insertion</em>, so if an attribute in
+<code class="docutils literal notranslate"><span class="pre">node_order_by</span></code> is modified after the node is inserted, the
+tree ordering will be inconsistent.</li>
+</ol>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fix_paths</strong> – A boolean value. If True, a slower, more complex fix_tree method
+will be attempted. If False (the default), it will use a safe (and
+fast!) fix approach, but it will only solve the <code class="docutils literal notranslate"><span class="pre">depth</span></code> and
+<code class="docutils literal notranslate"><span class="pre">numchild</span></code> nodes, it won’t fix the tree holes or broken path
+ordering.</li>
+<li><strong>destructive</strong> – Deprecated; alias for <code class="docutils literal notranslate"><span class="pre">fix_paths</span></code>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MyNodeModel</span><span class="o">.</span><span class="n">fix_tree</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="treebeard.mp_tree.MP_NodeManager">
+<em class="property">class </em><code class="descclassname">treebeard.mp_tree.</code><code class="descname">MP_NodeManager</code><a class="headerlink" href="#treebeard.mp_tree.MP_NodeManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<p>Custom manager for nodes in a Materialized Path tree.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="treebeard.mp_tree.MP_NodeQuerySet">
+<em class="property">class </em><code class="descclassname">treebeard.mp_tree.</code><code class="descname">MP_NodeQuerySet</code><span class="sig-paren">(</span><em>model=None</em>, <em>query=None</em>, <em>using=None</em>, <em>hints=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.mp_tree.MP_NodeQuerySet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/querysets/#django.db.models.query.QuerySet" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.query.QuerySet</span></code></a></p>
+<p>Custom queryset for the tree node manager.</p>
+<p>Needed only for the custom delete method.</p>
+</dd></dl>
+
+</div>
+<span id="document-ns_tree"></span><div class="section" id="module-treebeard.ns_tree">
+<span id="nested-sets-trees"></span><h3>Nested Sets trees<a class="headerlink" href="#module-treebeard.ns_tree" title="Permalink to this headline">¶</a></h3>
+<p>An implementation of Nested Sets trees for Django, as described by
+<a class="reference external" href="http://en.wikipedia.org/wiki/Joe_Celko">Joe Celko</a> in <a class="reference external" href="https://shop.elsevier.com/books/joe-celkos-trees-and-hierarchies-in-sql-for-smarties/celko/978-0-12-387733-8">Trees and Hierarchies in SQL for Smarties</a>.</p>
+<p>Nested sets have very efficient reads at the cost of high maintenance on
+write/delete operations.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">As with all tree implementations, please be aware of the
+<a class="reference internal" href="index.html#document-caveats"><span class="doc">Known Caveats</span></a>.</p>
+</div>
+<div class="graphviz"><img src="_images/inheritance-a1641a6efe3e282f72b20004843061272abfc5ce.png" alt="Inheritance diagram of NS_Node" usemap="#inheritance9297a3b266" class="inheritance graphviz" /></div>
+<map id="inheritance9297a3b266" name="inheritance9297a3b266">
+<area shape="rect" id="node2" href="index.html#treebeard.models.Node" target="_top" title="Node class" alt="" coords="269,5,444,31"/>
+<area shape="rect" id="node3" href="#treebeard.ns_tree.NS_Node" target="_top" title="Abstract model to create your own Nested Sets Trees." alt="" coords="492,5,692,31"/>
+</map><dl class="class">
+<dt id="treebeard.ns_tree.NS_Node">
+<em class="property">class </em><code class="descclassname">treebeard.ns_tree.</code><code class="descname">NS_Node</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.ns_tree.NS_Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="index.html#treebeard.models.Node" title="treebeard.models.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">treebeard.models.Node</span></code></a></p>
+<p>Abstract model to create your own Nested Sets Trees.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>If you need to define your own
+<a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/db/managers/#django.db.models.Manager" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Manager</span></code></a> class,
+you’ll need to subclass
+<a class="reference internal" href="#treebeard.ns_tree.NS_NodeManager" title="treebeard.ns_tree.NS_NodeManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">NS_NodeManager</span></code></a>.</p>
+<p class="last">Also, if in your manager you need to change the default
+queryset handler, you’ll need to subclass
+<a class="reference internal" href="#treebeard.ns_tree.NS_NodeQuerySet" title="treebeard.ns_tree.NS_NodeQuerySet"><code class="xref py py-class docutils literal notranslate"><span class="pre">NS_NodeQuerySet</span></code></a>.</p>
+</div>
+<dl class="attribute">
+<dt id="treebeard.ns_tree.NS_Node.node_order_by">
+<code class="descname">node_order_by</code><a class="headerlink" href="#treebeard.ns_tree.NS_Node.node_order_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute: a list of model fields that will be used for node
+ordering. When enabled, all tree operations will assume this ordering.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node_order_by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">,</span> <span class="s1">&#39;field3&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.ns_tree.NS_Node.depth">
+<code class="descname">depth</code><a class="headerlink" href="#treebeard.ns_tree.NS_Node.depth" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">PositiveIntegerField</span></code>, depth of a node in the tree. A root node
+has a depth of <em>1</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.ns_tree.NS_Node.lft">
+<code class="descname">lft</code><a class="headerlink" href="#treebeard.ns_tree.NS_Node.lft" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">PositiveIntegerField</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.ns_tree.NS_Node.rgt">
+<code class="descname">rgt</code><a class="headerlink" href="#treebeard.ns_tree.NS_Node.rgt" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">PositiveIntegerField</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.ns_tree.NS_Node.tree_id">
+<code class="descname">tree_id</code><a class="headerlink" href="#treebeard.ns_tree.NS_Node.tree_id" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">PositiveIntegerField</span></code></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="treebeard.ns_tree.NS_Node.get_tree">
+<em class="property">classmethod </em><code class="descname">get_tree</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.ns_tree.NS_Node.get_tree" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <em>queryset</em> of nodes ordered as DFS, including the parent.
+If no parent is given, all trees are returned.</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a class="reference internal" href="index.html#treebeard.models.Node.get_tree" title="treebeard.models.Node.get_tree"><code class="xref py py-meth docutils literal notranslate"><span class="pre">treebeard.models.Node.get_tree()</span></code></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This method returns a queryset.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="treebeard.ns_tree.NS_NodeManager">
+<em class="property">class </em><code class="descclassname">treebeard.ns_tree.</code><code class="descname">NS_NodeManager</code><a class="headerlink" href="#treebeard.ns_tree.NS_NodeManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<p>Custom manager for nodes in a Nested Sets tree.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="treebeard.ns_tree.NS_NodeQuerySet">
+<em class="property">class </em><code class="descclassname">treebeard.ns_tree.</code><code class="descname">NS_NodeQuerySet</code><span class="sig-paren">(</span><em>model=None</em>, <em>query=None</em>, <em>using=None</em>, <em>hints=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.ns_tree.NS_NodeQuerySet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/querysets/#django.db.models.query.QuerySet" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.query.QuerySet</span></code></a></p>
+<p>Custom queryset for the tree node manager.</p>
+<p>Needed only for the customized delete method.</p>
+</dd></dl>
+
+</div>
+<span id="document-al_tree"></span><div class="section" id="module-treebeard.al_tree">
+<span id="adjacency-list-trees"></span><h3>Adjacency List trees<a class="headerlink" href="#module-treebeard.al_tree" title="Permalink to this headline">¶</a></h3>
+<p>This is a simple implementation of the traditional Adjacency List Model for
+storing trees in relational databases.</p>
+<p>In the adjacency list model, every node will have a
+“<a class="reference internal" href="#treebeard.al_tree.AL_Node.parent" title="treebeard.al_tree.AL_Node.parent"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parent</span></code></a>” key, that will be NULL for root nodes.</p>
+<p>Since <code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> must return trees ordered in a predictable way,
+the ordering for models without the <a class="reference internal" href="#treebeard.al_tree.AL_Node.node_order_by" title="treebeard.al_tree.AL_Node.node_order_by"><code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code></a>
+attribute will have an extra attribute that will store the relative
+position of a node between it’s siblings: <a class="reference internal" href="#treebeard.al_tree.AL_Node.sib_order" title="treebeard.al_tree.AL_Node.sib_order"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sib_order</span></code></a>.</p>
+<p>The adjacency list model has the advantage of fast writes at the cost of
+slow reads. If you read more than you write, use
+<a class="reference internal" href="index.html#treebeard.mp_tree.MP_Node" title="treebeard.mp_tree.MP_Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">MP_Node</span></code></a> instead.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">As with all tree implementations, please be aware of the
+<a class="reference internal" href="index.html#document-caveats"><span class="doc">Known Caveats</span></a>.</p>
+</div>
+<div class="graphviz"><img src="_images/inheritance-9f50406956149b7a1e4db5dc40d1e74883ff1499.png" alt="Inheritance diagram of AL_Node" usemap="#inheritance730557996c" class="inheritance graphviz" /></div>
+<map id="inheritance730557996c" name="inheritance730557996c">
+<area shape="rect" id="node3" href="index.html#treebeard.models.Node" target="_top" title="Node class" alt="" coords="269,5,444,31"/>
+<area shape="rect" id="node2" href="#treebeard.al_tree.AL_Node" target="_top" title="Abstract model to create your own Adjacency List Trees." alt="" coords="492,5,687,31"/>
+</map><dl class="class">
+<dt id="treebeard.al_tree.AL_Node">
+<em class="property">class </em><code class="descclassname">treebeard.al_tree.</code><code class="descname">AL_Node</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.al_tree.AL_Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="index.html#treebeard.models.Node" title="treebeard.models.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">treebeard.models.Node</span></code></a></p>
+<p>Abstract model to create your own Adjacency List Trees.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you need to define your own
+<a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/db/managers/#django.db.models.Manager" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Manager</span></code></a> class,
+you’ll need to subclass
+<a class="reference internal" href="#treebeard.al_tree.AL_NodeManager" title="treebeard.al_tree.AL_NodeManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">AL_NodeManager</span></code></a>.</p>
+</div>
+<dl class="attribute">
+<dt id="treebeard.al_tree.AL_Node.node_order_by">
+<code class="descname">node_order_by</code><a class="headerlink" href="#treebeard.al_tree.AL_Node.node_order_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute: a list of model fields that will be used for node
+ordering. When enabled, all tree operations will assume this ordering.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node_order_by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">,</span> <span class="s1">&#39;field3&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.al_tree.AL_Node.parent">
+<code class="descname">parent</code><a class="headerlink" href="#treebeard.al_tree.AL_Node.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ForeignKey</span></code> to itself. This attribute <strong>MUST</strong> be defined in the
+subclass (sadly, this isn’t inherited correctly from the ABC in
+<cite>Django 1.0</cite>). Just copy&amp;paste these lines to your model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parent</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;self&#39;</span><span class="p">,</span>
+                           <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children_set&#39;</span><span class="p">,</span>
+                           <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                           <span class="n">db_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="treebeard.al_tree.AL_Node.sib_order">
+<code class="descname">sib_order</code><a class="headerlink" href="#treebeard.al_tree.AL_Node.sib_order" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">PositiveIntegerField</span></code> used to store the relative position of a node
+between it’s siblings. This attribute is mandatory <em>ONLY</em> if you don’t
+set a <a class="reference internal" href="#treebeard.al_tree.AL_Node.node_order_by" title="treebeard.al_tree.AL_Node.node_order_by"><code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code></a> field. You can define it copy&amp;pasting this
+line in your model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sib_order</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AL_TestNode</span><span class="p">(</span><span class="n">AL_Node</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;self&#39;</span><span class="p">,</span>
+                               <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children_set&#39;</span><span class="p">,</span>
+                               <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                               <span class="n">db_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sib_order</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">()</span>
+    <span class="n">desc</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">AL_TestNodeSorted</span><span class="p">(</span><span class="n">AL_Node</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;self&#39;</span><span class="p">,</span>
+                               <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children_set&#39;</span><span class="p">,</span>
+                               <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                               <span class="n">db_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">node_order_by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;val1&#39;</span><span class="p">,</span> <span class="s1">&#39;val2&#39;</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">]</span>
+    <span class="n">val1</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+    <span class="n">val2</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+    <span class="n">desc</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Read the API reference of <a class="reference internal" href="index.html#treebeard.models.Node" title="treebeard.models.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">treebeard.models.Node</span></code></a> for info on
+methods available in this class, or read the following section for methods
+with particular arguments or exceptions.</p>
+<dl class="method">
+<dt id="treebeard.al_tree.AL_Node.get_depth">
+<code class="descname">get_depth</code><span class="sig-paren">(</span><em>update=False</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.al_tree.AL_Node.get_depth" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the depth (level) of the node
+Caches the result in the object itself to help in loops.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update</strong> – Updates the cached value.</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a class="reference internal" href="index.html#treebeard.models.Node.get_depth" title="treebeard.models.Node.get_depth"><code class="xref py py-meth docutils literal notranslate"><span class="pre">treebeard.models.Node.get_depth()</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="treebeard.al_tree.AL_NodeManager">
+<em class="property">class </em><code class="descclassname">treebeard.al_tree.</code><code class="descname">AL_NodeManager</code><a class="headerlink" href="#treebeard.al_tree.AL_NodeManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<p>Custom manager for nodes in an Adjacency List tree.</p>
+</dd></dl>
+
+</div>
+<span id="document-exceptions"></span><div class="section" id="module-treebeard.exceptions">
+<span id="exceptions"></span><h3>Exceptions<a class="headerlink" href="#module-treebeard.exceptions" title="Permalink to this headline">¶</a></h3>
+<dl class="exception">
+<dt id="treebeard.exceptions.InvalidPosition">
+<em class="property">exception </em><code class="descclassname">treebeard.exceptions.</code><code class="descname">InvalidPosition</code><a class="headerlink" href="#treebeard.exceptions.InvalidPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when passing an invalid pos value</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="treebeard.exceptions.InvalidMoveToDescendant">
+<em class="property">exception </em><code class="descclassname">treebeard.exceptions.</code><code class="descname">InvalidMoveToDescendant</code><a class="headerlink" href="#treebeard.exceptions.InvalidMoveToDescendant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when attempting to move a node to one of it’s descendants.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="treebeard.exceptions.NodeAlreadySaved">
+<em class="property">exception </em><code class="descclassname">treebeard.exceptions.</code><code class="descname">NodeAlreadySaved</code><a class="headerlink" href="#treebeard.exceptions.NodeAlreadySaved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when attempting to add a node which is already saved to the
+database.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="treebeard.exceptions.PathOverflow">
+<em class="property">exception </em><code class="descclassname">treebeard.exceptions.</code><code class="descname">PathOverflow</code><a class="headerlink" href="#treebeard.exceptions.PathOverflow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when trying to add or move a node to a position where no more nodes
+can be added (see <code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">alphabet</span></code> for more info)</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="treebeard.exceptions.MissingNodeOrderBy">
+<em class="property">exception </em><code class="descclassname">treebeard.exceptions.</code><code class="descname">MissingNodeOrderBy</code><a class="headerlink" href="#treebeard.exceptions.MissingNodeOrderBy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when an operation needs a missing
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">node_order_by</span></code> attribute</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="additional-features">
+<h2>Additional features<a class="headerlink" href="#additional-features" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<span id="document-admin"></span><div class="section" id="admin">
+<h3>Admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="module-treebeard.admin">
+<span id="api"></span><h4>API<a class="headerlink" href="#module-treebeard.admin" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="treebeard.admin.TreeAdmin">
+<em class="property">class </em><code class="descclassname">treebeard.admin.</code><code class="descname">TreeAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.admin.TreeAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<p>Django Admin class for treebeard.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">treebeard.admin</span> <span class="kn">import</span> <span class="n">TreeAdmin</span>
+<span class="kn">from</span> <span class="nn">treebeard.forms</span> <span class="kn">import</span> <span class="n">movenodeform_factory</span>
+<span class="kn">from</span> <span class="nn">myproject.models</span> <span class="kn">import</span> <span class="n">MyNode</span>
+
+<span class="k">class</span> <span class="nc">MyAdmin</span><span class="p">(</span><span class="n">TreeAdmin</span><span class="p">):</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">movenodeform_factory</span><span class="p">(</span><span class="n">MyNode</span><span class="p">)</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">MyNode</span><span class="p">,</span> <span class="n">MyAdmin</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="treebeard.admin.admin_factory">
+<code class="descclassname">treebeard.admin.</code><code class="descname">admin_factory</code><span class="sig-paren">(</span><em>form_class</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.admin.admin_factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dynamically build a TreeAdmin subclass for the given form class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>form_class</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A TreeAdmin subclass.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="interface">
+<h4>Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h4>
+<p>The features of the admin interface will depend on the tree type.</p>
+<div class="section" id="advanced-interface">
+<h5>Advanced Interface<a class="headerlink" href="#advanced-interface" title="Permalink to this headline">¶</a></h5>
+<p><a class="reference internal" href="index.html#document-mp_tree"><span class="doc">Materialized Path</span></a> and <a class="reference internal" href="index.html#document-ns_tree"><span class="doc">Nested Sets</span></a> trees have
+an AJAX interface based on <a class="reference external" href="http://www.feincms.org">FeinCMS</a>, that includes features like
+drag&amp;drop and an attractive interface.</p>
+<img alt="_images/treebeard-admin-advanced.png" src="_images/treebeard-admin-advanced.png" />
+</div>
+<div class="section" id="basic-interface">
+<h5>Basic Interface<a class="headerlink" href="#basic-interface" title="Permalink to this headline">¶</a></h5>
+<p><a class="reference internal" href="index.html#document-al_tree"><span class="doc">Adjacency List</span></a> trees have a basic admin interface.</p>
+<img alt="_images/treebeard-admin-basic.png" src="_images/treebeard-admin-basic.png" />
+</div>
+<div class="section" id="model-detail-pages">
+<h5>Model Detail Pages<a class="headerlink" href="#model-detail-pages" title="Permalink to this headline">¶</a></h5>
+<p>If a model’s field values are modified, then it is necessary to add the fields ‘_position’ and ‘_ref_node_id’. Otherwise, it is not possible to create instances of the model.</p>
+<p>Example:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyAdmin</span><span class="p">(</span><span class="n">TreeAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="s1">&#39;is_edited&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;_position&#39;</span><span class="p">,</span> <span class="s1">&#39;_ref_node_id&#39;</span><span class="p">,)</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">movenodeform_factory</span><span class="p">(</span><span class="n">MyNode</span><span class="p">)</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">MyNode</span><span class="p">,</span> <span class="n">MyAdmin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+<span id="document-forms"></span><div class="section" id="module-treebeard.forms">
+<span id="forms"></span><h3>Forms<a class="headerlink" href="#module-treebeard.forms" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="treebeard.forms.MoveNodeForm">
+<em class="property">class </em><code class="descclassname">treebeard.forms.</code><code class="descname">MoveNodeForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=':'</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.forms.MoveNodeForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<p>Form to handle moving a node in a tree.</p>
+<p>Handles sorted/unsorted trees.</p>
+<p>It adds two fields to the form:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Relative to: The target node where the current node will</dt>
+<dd>be moved to.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Position: The position relative to the target node that</dt>
+<dd>will be used to move the node. These can be:<ul class="last">
+<li>For sorted trees: <code class="docutils literal notranslate"><span class="pre">Child</span> <span class="pre">of</span></code> and <code class="docutils literal notranslate"><span class="pre">Sibling</span> <span class="pre">of</span></code></li>
+<li>For unsorted trees: <code class="docutils literal notranslate"><span class="pre">First</span> <span class="pre">child</span> <span class="pre">of</span></code>, <code class="docutils literal notranslate"><span class="pre">Before</span></code> and
+<code class="docutils literal notranslate"><span class="pre">After</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Subclassing <a class="reference internal" href="#treebeard.forms.MoveNodeForm" title="treebeard.forms.MoveNodeForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoveNodeForm</span></code></a> directly is
+discouraged, since special care is needed to handle
+excluded fields, and these change depending on the
+tree type.</p>
+<p class="last">It is recommended that the <a class="reference internal" href="#treebeard.forms.movenodeform_factory" title="treebeard.forms.movenodeform_factory"><code class="xref py py-func docutils literal notranslate"><span class="pre">movenodeform_factory()</span></code></a>
+function is used instead.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="treebeard.forms.movenodeform_factory">
+<code class="descclassname">treebeard.forms.</code><code class="descname">movenodeform_factory</code><span class="sig-paren">(</span><em>model</em>, <em>form=&lt;class 'treebeard.forms.MoveNodeForm'&gt;</em>, <em>fields=None</em>, <em>exclude=None</em>, <em>formfield_callback=None</em>, <em>widgets=None</em><span class="sig-paren">)</span><a class="headerlink" href="#treebeard.forms.movenodeform_factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dynamically build a MoveNodeForm subclass with the proper Meta.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> (<a class="reference internal" href="index.html#treebeard.models.Node" title="treebeard.models.Node"><em>Node</em></a>) – The subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code> that will be handled
+by the form.</li>
+<li><strong>form</strong> – The form class that will be used as a base. By
+default, <a class="reference internal" href="#treebeard.forms.MoveNodeForm" title="treebeard.forms.MoveNodeForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoveNodeForm</span></code></a> will be used.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A <a class="reference internal" href="#treebeard.forms.MoveNodeForm" title="treebeard.forms.MoveNodeForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoveNodeForm</span></code></a> subclass</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For a full reference of this function, please read
+<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/models/#django.forms.models.modelform_factory" title="(in Django v4.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">modelform_factory()</span></code></a></p>
+<p>Example, <code class="docutils literal notranslate"><span class="pre">MyNode</span></code> is a subclass of <a class="reference internal" href="index.html#treebeard.al_tree.AL_Node" title="treebeard.al_tree.AL_Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">treebeard.al_tree.AL_Node</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MyNodeForm</span> <span class="o">=</span> <span class="n">movenodeform_factory</span><span class="p">(</span><span class="n">MyNode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is equivalent to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyNodeForm</span><span class="p">(</span><span class="n">MoveNodeForm</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">MyNode</span>
+        <span class="n">exclude</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;sib_order&#39;</span><span class="p">,</span> <span class="s1">&#39;parent&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<span id="document-tests"></span><div class="section" id="running-the-test-suite">
+<h3>Running the Test Suite<a class="headerlink" href="#running-the-test-suite" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> includes a comprehensive test suite. It is highly
+recommended that you run and update the test suite when you send patches.</p>
+<div class="section" id="pytest">
+<h4>pytest<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h4>
+<p>You will need <a class="reference external" href="http://pytest.org/">pytest</a> to run the test suite:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>pytest
+</pre></div>
+</div>
+<p>Then just run the test suite:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pytest
+</pre></div>
+</div>
+<p>You can use all the features and plugins of pytest this way.</p>
+<p>By default the test suite will run using a sqlite3 database in RAM, but you can
+change this setting environment variables:</p>
+<dl class="option">
+<dt id="cmdoption-arg-database-user">
+<code class="descname">DATABASE_USER</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-arg-database-user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-arg-database-password">
+<code class="descname">DATABASE_PASSWORD</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-arg-database-password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-arg-database-host">
+<code class="descname">DATABASE_HOST</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-arg-database-host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-arg-database-user-postgres">
+<code class="descname">DATABASE_USER_POSTGRES</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-arg-database-user-postgres" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-arg-database-port-postgres">
+<code class="descname">DATABASE_PORT_POSTGRES</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-arg-database-port-postgres" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-arg-database-user-mysql">
+<code class="descname">DATABASE_USER_MYSQL</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-arg-database-user-mysql" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-arg-database-port-mysql">
+<code class="descname">DATABASE_PORT_MYSQL</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-arg-database-port-mysql" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the database settings to be used by the test suite. Useful if you
+want to test the same database engine/version you use in production.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="tox">
+<h4>tox<a class="headerlink" href="#tox" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">django-treebeard</span></code> uses <a class="reference external" href="https://tox.readthedocs.io/en/latest/index.html">tox</a> to run the test suite in all the supported
+environments - permutations of:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Python 3.8 - 3.11</li>
+<li>Django 3.2, 4.1 and 4.2</li>
+<li>Sqlite, MySQL, PostgreSQL and MSSQL</li>
+</ul>
+</div></blockquote>
+<p>This means that there are a lot of permutations, which takes a long time.
+If you want to test only one or a few environments, use the <cite>-e</cite>
+option in <a class="reference external" href="https://tox.readthedocs.io/en/latest/index.html">tox</a>, like:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py39-dj32-postgres
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Gustavo Picón
+      
+        <span class="commit">
+          Revision <code>f9674d0a</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//django-treebeard.readthedocs.io/_/downloads/en/latest/pdf/">pdf</a></dd>
+        
+          <dd><a href="//django-treebeard.readthedocs.io/_/downloads/en/latest/htmlzip/">html</a></dd>
+        
+          <dd><a href="//django-treebeard.readthedocs.io/_/downloads/en/latest/epub/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/django-treebeard/?fromdocs=django-treebeard">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/django-treebeard/?fromdocs=django-treebeard">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

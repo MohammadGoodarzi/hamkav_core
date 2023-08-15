@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block extra_css_file%}
+{% comment %} <link rel="stylesheet" type="text/css" href="{%  static 'assets/vendor/simplemde/rtl/simplemde-rtl.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{%  static 'assets/vendor/simplemde/rtl/simplemde-custom.css' %}">
+<link rel="stylesheet" type="text/css" href="{%  static 'assets/vendor/highlights/default.min.css' %}"> {% endcomment %}
+{% endblock%}
+
+{% block extra_css %}
+
+
+{% endblock %}
+
+{% block level1_menu%}
+
+{% if request.user.is_authenticated %}
+    {% comment %} <li class="nav-item dropdown"><a class="btn btn-primary mb-0 p-1 mt-2" href="{% url 'HamkavBlog:post_create' %}"> نوشتن </a></li> {% endcomment %}
+{% else %}
+
+{% endif %}
+
+{% if request.user.is_admin %}{% endif %} 
+
+
+
+
+{% endblock%}
+
+
+
+
+{% block content %}
+<div class="bg-light">
+    {% block blog_content %}{% endblock %}
+</div>
+{% endblock %}
+
+
+
+
+
+{% block extra_js_file%}
+{% comment %} <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="{%  static 'assets/vendor/simplemde/rtl/simplemde-rtl.min.js' %}"></script>
+<script src="{%  static 'assets/js/simpleMDEconfig.js' %}"></script>
+<script src="{%  static 'assets/vendor/highlights/highlight.min.js' %}"></script> {% endcomment %}
+
+
+{% endblock%}
+
+
+{% block extra_js %}
+    {% block blog_extra_js %}
+
+
+     {% comment %} <script>hljs.highlightAll();</script>  {% endcomment %}
+    
+
+    {% endblock %}
+{% endblock %}

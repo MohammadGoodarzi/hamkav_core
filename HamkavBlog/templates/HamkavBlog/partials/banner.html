@@ -1,0 +1,39 @@
+{% load static %}
+
+<!-- =======================
+Page Banner START -->
+<section class="bg-light">
+	<div class="container">
+		<div class="row">
+			<!-- Content START -->
+			<div class="col-lg-8 mx-auto text-center">
+				<!-- Title -->
+				<h1 class="fs-4"> دنبال چی میگردی؟ </h1>
+				<p class="mb-0">برای دریافت پاسخ، سوالات خود را اینجا جستجو کنید.</p>
+				<!-- Search bar -->
+				<form class="bg-body rounded p-2 mt-4 shadow-lg " method="get">
+					<div class="input-group  	"> 
+						<input class="form-control me-1 border-0 " type="text" placeholder="جستجوی پرسش ..." name = "search">
+						<button type="submit" class="btn btn-dark mb-0 rounded">جستجو</button>
+						<a class="btn  text-bg-secondary mb-0 rounded mx-2" href="{% url 'HamkavBlog:home'%}">همه   </a>
+
+					</div>
+				</form>
+
+				<!-- Popular questions START -->
+				<!-- Popular questions END -->
+			</div>
+      <!-- Content END -->
+
+			<!-- Image -->
+			<div class="col-12 mt-6">
+				{% comment %} <img src="{% static 'assets/images/element/help-center.svg' %}" class="w-100" alt=""> {% endcomment %}
+			</div>
+		</div>
+	</div>
+
+
+	
+</section>
+<!-- =======================
+Page Banner END -->

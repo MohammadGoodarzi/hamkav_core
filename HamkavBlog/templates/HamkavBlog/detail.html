@@ -1,0 +1,93 @@
+{% extends 'HamkavBlog/blog_base.html' %} {% load static %} {% load markdown_processing %} {% comment %} {% load wagtailcore_tags %} {% endcomment %} {% block blog_content %} {% comment %} {% if
+request.user.id == post.user.id %}
+<a href="{% url 'HamkavBlog:post_delete' post.id %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'HamkavBlog:post_update' post.id %}" class="btn btn-info">Update</a>
+{% endif %} {% endcomment %}
+
+<!-- =======================
+Main Content START -->
+<section class="pb-1 pt-6 pb-md-5 bg-white ">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-sx-12">
+				<!-- Title and Info START -->
+				<div class="row">
+					<!-- Content -->
+					<div class="col-lg-9 order-1">
+						<!-- Pre title -->
+
+						{% comment %} <span>{{post.user.full_name}}</span> |<span> {{ post.created|timesince }} پیش</span><span class="mx-2">|</span>
+						<div class="badge text-bg-success">{{post.category.label}}</div>
+						{% endcomment %}
+						<a href="{% url 'HamkavAuth:user_profile' post.user.id %}">{{ post.user.full_name }} <span class="me-3 small text-secondary-emphasis"> | {{ post.created|timesince }} پیش</span></a>
+						<div class="badge text-bg-success">{{post.category2}}</div>
+
+						 {% if request.user == post.user %}
+						 	{% if post.is_published %}
+								<div class="badge text-bg-blue">منتشر شده</div>
+								{% else %}
+								<div class="badge text-bg-danger">پیش نویش </div>
+							{% endif %} 
+						{% endif %} 
+
+						<!-- Title -->
+						<h1 class="mt-4 mb-4 fs-4">{{post.title}}</h1>
+						<div class="fs-5 lh-lg markdownview" style="color:#444444">
+							{{post.body|markdown|safe}} {% comment %} {{post.created_shamsi}} {% endcomment %}
+						</div>
+
+		{% if not request.user.is_authenticated %}
+		<a class="btn btn-primary" href="{% url 'HamkavAuth:user_login' %}?next={{request.path}}"> ورود به منتولینک </a>
+		{% endif %}
+		{% if post.is_restricted%}
+		
+		{%endif%}
+						{% comment %} <div class="row g-4">
+					
+							
+							<div class="z-index-1 ">
+								<!-- Counter item -->
+								<div class="">
+									<div class="p-4 bg-warning bg-opacity-15 rounded-3">
+										
+										جهت مشاهده ادامه این پست نیاز است عضو سایت باشید
+								این عضویت رایگان و در کمتر از ۳۰ ثانیه انجام میپذیرد
+									</div>
+								</div>
+							</div> 
+
+							
+						</div> {% endcomment %}
+						
+
+
+						<div class="pt-3 pb-3">{% include 'HamkavBlog/partials/post_buttons/vertical_controls.html' %}</div>
+					</div>
+				</div>
+				<!-- Title and Info END -->
+
+				<hr />
+				<!-- Divider -->
+
+				<!-- Comment review and form START -->
+				<div class="row mt-4">
+					<!-- Comment START -->
+					{% include 'HamkavBlog/partials/comments/comments.html' %}
+					<!-- Comment END -->
+				</div>
+				<!-- Comment review and form END -->
+			</div>
+			<div class="col-lg-2 d-none d-lg-block">
+				<!-- Tags and share START -->
+				<div class="mt-3">{% include 'HamkavBlog/partials/tags/tags.html' %}</div>
+				<hr />
+				<!-- Tags and share END -->
+			</div>
+		</div>
+		<!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Main Content END -->
+
+{% endblock %}

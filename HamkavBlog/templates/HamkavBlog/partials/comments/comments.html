@@ -1,0 +1,83 @@
+{% load static %}
+
+
+	<!-- Form START -->
+   
+        <!-- Title -->
+        <h3 class="mt-3 mb-4 mt-sm-0  fs-6 text-secondary-emphasis">ثبت دیدگاه</h3>
+
+                    {% if request.user.is_authenticated %}
+
+            
+                    <form action="" method="post" class=" rounded-3 position-relative  position-relative mb-2">
+                        {% csrf_token %}
+                        {% comment %} {{ form.as_p }} {% endcomment %}
+                        
+						{% comment %} <label class="form-label text-white text-opacity-50">متن درخواست</label> {% endcomment %}
+						<div class="col-12  input-group"> 
+							<textarea  name = "body" class="form-control fs-6" rows="3" placeholder="بنویسس"></textarea>
+							<button type="submit" class="btn btn-dark mb-0 rounded bg-dark-input ">ثبت <i class="bi bi-arrow-up-left"></i></button>
+						</div>
+                    </form> 
+					<br/>
+                {% else %}
+                    <p class="alert alert-danger">لطفا برای ثبت نظر وارد شوید.</p>
+                {% endif %}
+
+
+
+
+
+
+    <!-- Form END -->
+
+
+<div class="col-md-7">
+    {% comment %} <h3 class="fs-5">دیدگاه کاربران</h3> {% endcomment %}
+
+
+
+    {% for comment in comments %}
+    
+    <div class="mt-2 d-flex">
+        <img class="avatar avatar-md rounded-circle me-3" src="{% static 'assets/images/avatar/01.jpg' %}" alt="avatar">
+
+        <div>
+            <div class="mb-2  fs-6 text-secondary-emphasis">
+                <h6 class="m-0  fs-6 text-secondary-emphasis">
+                        <a href="{% url 'HamkavAuth:user_profile' post.user.id %}">{{ comment.user.full_name }}  <span class="me-3 small  text-secondary-emphasis"> | {{ comment.created|timesince }}  پیش</span></a>
+                    </h6>
+                
+            </div>
+            <p class="text-secondary-emphasis">{{comment.body}}</p>
+            {% comment %} <a href="#" class="btn btn-sm btn-light mb-0">پاسخ</a> {% endcomment %}
+        </div>
+
+        <div>
+            {% if request.user.is_authenticated %}
+                <form action="{% url 'HamkavBlog:add_reply' post.id comment.id %}" method="post" style="display:none;">
+                    {% csrf_token %}
+                    {{ reply_form.as_p }}
+                    <input type="submit" value="send">
+                </form>
+            {% endif %}
+    
+            {% with replies=comment.rcomments.all %}
+                {% for reply in replies %}
+                    <p class="bg-primary p-3 m-2">{{ reply.user }} <br/> {{ reply.body }}</p>
+                {% endfor %}
+            {% endwith %}
+        </div>
+
+
+    </div><br/>
+{% empty %}
+    <p class="mt-6">اولین نظر را شما ثبت کنید!</p>
+{% endfor %}
+
+
+
+
+
+
+</div>

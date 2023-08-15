@@ -1,0 +1,68 @@
+{% load static %}
+
+
+<div class="col-12 col-lg-6 ">
+    <div class="row my-2 ">
+        <!-- Title -->
+        <div class="col-sm-10 col-xl-8 m-auto  shadow-lg border-2 p-4">
+            <h3 class="mb-4"> شماره تلفن و رمز عبور   </h3>
+        
+            <!-- Form START -->
+                <form method='post' novalidate>
+
+
+                {% csrf_token %}
+
+
+                <!-- phone -->
+                <div class="mb-4">
+                    <label for="inputPhone" class="form-label"> تلفن</label>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
+                        <input type="number" name = "phone" class="form-control border-0 bg-light rounded-end ps-1" placeholder="09121111111" id="inputPhone" value = {{ form.phone.value|default_if_none:"" }} >
+                    </div>
+                    <span class="text-danger">{{form.phone.errors }}</span>
+
+
+                </div>
+                <!-- Password -->
+                <div class="mb-4">
+                    <label for="inputPassword" class="form-label">رمز عبور *</label>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
+                        <input type="password" name="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" id="inputPassword">
+                    </div>
+                    <span class="text-danger">{{form.password.errors }}</span>
+
+
+                </div>
+
+                <div class="mb-4">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="checkbox-1">
+                        <label class="form-check-label" for="checkbox-1">با ثبت نام <a href="#">شرایط و قوانین سایت</a> را خواهید پذیرفت.</label>
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="align-items-center mt-0">
+                    <div class="">
+                    {% comment %} <div class="d-grid"> {% endcomment %}
+                        <button class="btn btn-primary mb-0" type="submit">ورود </button>
+                    </div>
+                </div>
+
+            </form>
+            <!-- Form END -->
+
+
+            <!-- Sign in link -->
+            <div class="mt-3  text-right">
+                <span> آيا در ورود مشکلی دارید؟<a href="{% url 'HamkavAuth:user_password_recovery' %}">  بازیابی رمز عبور </a></span> <br>
+                {% comment %} <span> آیا هنوز عضو جامعه منتولینک نشده اید؟<a href="{% url 'HamkavAuth:user_register' %}"> ثبت نام</a></span> {% endcomment %}
+
+                
+            </div>
+
+        </div>
+    </div>
+</div>

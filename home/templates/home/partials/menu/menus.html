@@ -1,0 +1,231 @@
+{% load static  %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load menu_tags %}
+
+<div id="header-wrap">
+    <div class="container">
+      <div class="row">
+
+
+
+
+
+        <div class="col-lg-12">
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand logo" href="index.html">
+              <img id="logo-img" class="img-center" src="{%  static 'images/logo-yale-blue.png' %}" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+
+              
+
+
+              {% comment %} {% main_menu max_levels=3 template="" sub_menu_template="" %} {% endcomment %}
+
+
+
+
+
+
+
+               <!-- Left nav -->
+              <ul id="main-menu" class="nav navbar-nav ml-auto">
+                <li class="nav-item"> <a class="nav-link active" href="#"><span class="menu-label">صفحه اصلی</span></a>
+                  <!-- <ul>
+                    <li><a href="index.html">صفحه اصلی 1</a>
+                    </li>
+                    <li><a href="index-2.html">صفحه اصلی 2</a>
+                    </li>
+                    <li><a href="index-3.html">صفحه اصلی 3</a>
+                    </li>
+                    <li><a href="index-4.html">صفحه اصلی 4</a>
+                    </li>
+                    <li><a href="index-5.html">صفحه اصلی 5</a>
+                    </li>
+                  </ul> -->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"> <span class="menu-label">صفحات</span>
+                  </a>                          
+                  <ul>
+                    <li><a href="about_us.html">درباره ما</a>
+                    </li>
+                    <li><a href="faq.html">سوالات متداول</a>
+                    </li>
+                    <li><a href="team-single.html">مشخصات تیم</a>
+                    </li>
+                    <li><a href="coming-soon.html">نسخه به زودی</a>
+                    </li>
+                    <li><a href="error-page.html">خطای 404</a>
+                    </li>
+                  </ul>
+                </li>
+               <li class="nav-item"> <a class="nav-link" href="#"><span class="menu-label">پروژه</span></a>
+                  <ul>
+                    <li> <a href="#">پروژه</a>
+                      <ul>
+                        <li><a href="project-grid-2.html">شبکه 2</a>
+                        </li>
+                        <li><a href="project-grid-3.html">شبکه 3</a>
+                        </li>
+                        <li><a href="project-grid-4.html">شبکه 4</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li> <a href="#">ماسونری</a>
+                      <ul>
+                        <li><a href="project-masonary-grid-2.html">شبکه 2</a>
+                        </li>
+                        <li><a href="project-masonary-grid-3.html">شبکه 3</a>
+                        </li>
+                        <li><a href="project-masonary-grid-4.html">شبکه 4</a>
+                        </li>
+                        <li><a href="project-masonary-full-width.html">تمام عرض</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li> <a href="project-details.html">جداگانه</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item fullwidth">
+                  <a class="nav-link" href="#"> <span class="menu-label">عناصر</span>
+                  </a>
+                  <ul class="grid-12">
+                    <li class="container">
+                      <div class="row">
+                        <div class="col-lg-4 col-md-12">
+                          <ul class="nav flex-column">
+                            <li> <a href="shortcode-accordions.html">آکاردئون</a>
+                            </li>
+                            <li> <a href="shortcode-button.html">دکمه ها</a>
+                            </li>
+                            <li> <a href="shortcode-clients.html">مشتریان</a>
+                            </li>
+                            <li> <a href="shortcode-counter.html">بازدیدها</a>
+                            </li>
+                            <li> <a href="shortcode-call-to-action.html">فراخوانی اقدام</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- /.col-md-4  -->
+                        <div class="col-lg-4 col-md-12">
+                          <ul class="nav flex-column">
+                            <li> <a href="shortcode-featured-box.html">جعبه ویژه</a>
+                            </li>
+                            <li> <a href="shortcode-tab.html">زبانه ها</a>
+                            </li>
+                            <li> <a href="shortcode-blog-post.html">استایل پست</a>
+                            </li>
+                            <li> <a href="shortcode-pricing.html">جداول قیمت گذاری</a>
+                            </li>
+                            <li> <a href="shortcode-progress-bar.html">نوار پیشرفت</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- /.col-md-4  -->
+                        <div class="col-lg-4 col-md-12">
+                          <ul class="nav flex-column">
+                            <li> <a href="shortcode-social-icon.html">آیکون اجتماعی</a>
+                            </li>
+                            <li> <a href="shortcode-testimonials.html">مشتریان</a>
+                            </li>
+                            <li> <a href="shortcode-team.html">تیم</a>
+                            </li>
+                            <li> <a href="shortcode-heading.html">سبک سرصفحه</a>
+                            </li>
+                            <li> <a href="shortcode-typography.html">تایپوگرافی</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <!--  /.container  -->
+                  </ul>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="#"><span class="menu-label">بلاگ</span></a>
+                  <ul>
+                    <li> <a href="#">کلاسیک</a>
+                      <ul>
+                        <li><a href="blog-left-sidebar.html">سایدبار چپ</a>
+                        </li>
+                        <li><a href="blog-right-sidebar.html">سایدبار راست</a>
+                        </li>
+                        <li><a href="blog-fullwidth.html">تمام عرض</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li> <a href="#">شبکه</a>
+                      <ul>
+                        <li><a href="blog-grid-2.html">شبکه 2</a>
+                        </li>
+                        <li><a href="blog-grid-3.html">شبکه 3</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li> <a href="#">ماسونری</a>
+                      <ul>
+                        <li><a href="blog-masonry-grid-2.html">ماسونری 2</a>
+                        </li>
+                        <li><a href="blog-masonry-grid-3.html">ماسونری 3</a>
+                        </li>
+                        <li><a href="blog-masonry-fullwidth.html">تمام عرض</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li> <a href="#">جداگانه</a>
+                      <ul>
+                        <li><a href="blog-details-left-sidebar.html">سایدبار چپ</a>
+                        </li>
+                        <li><a href="blog-details-right-sidebar.html">سایدبار راست</a>
+                        </li>
+                        <li><a href="blog-details-fullwidth.html">تمام عرض</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"> <span class="menu-label">راه حل ها</span>
+                  </a>
+                  <ul>
+                    <li><a href="chemical-research.html">تحقیقات شیمیایی</a>
+                    </li>
+                    <li><a href="energy-&-power-engineering.html">انرژی و قدرت</a>
+                    </li>
+                    <li><a href="petroleum-and-gas.html">نفت و گاز</a>
+                    </li>
+                    <li><a href="agriculture-engineering.html">مهندسی کشاورزی</a>
+                    </li>
+                    <li><a href="mechanical-engineering.html">مهندسی مکانیک</a>
+                    </li>
+                    <li><a href="civil-engineering.html">مهندسی عمران</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="#"><span class="menu-label">تماس با ما</span></a>
+                  <ul>
+                    <li><a href="contact-1.html">تماس با ما 1</a>
+                    </li>
+                    <li><a href="contact-2.html">تماس با ما 2</a>
+                    </li>
+                    <li><a href="contact-3.html">تماس با ما 3</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul> 
+
+
+
+
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>

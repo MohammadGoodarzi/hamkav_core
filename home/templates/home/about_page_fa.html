@@ -1,0 +1,99 @@
+{% extends "home/home_base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailuserbar %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+{% comment %}
+Delete the line below if you're just getting started and want to remove the welcome screen!
+{% endcomment %}
+<!-- <link rel="stylesheet" href="{% static 'css/welcome_page.css' %}"> -->
+{% endblock extra_css %}
+
+{% block content %}
+
+
+{% comment %}
+Delete the line below if you're just getting started and want to remove the welcome screen!
+{% endcomment %}
+<!-- {% include 'home/welcome_page.html' %} -->
+
+    
+<!-- page wrapper start -->
+
+<div class="page-wrapper">
+      <!-- page title start -->
+      <section class="page-title o-hidden text-center parallaxie" data-overlay="7" data-bg-img="{% static 'images/bg/02.jpg'%}">
+
+  
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-12 ml-auto mr-auto">
+              <h1 class="title mb-0">درباره <span>ما</span></h1>
+            </div>
+          </div>
+          <nav aria-label="breadcrumb" class="page-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i></a>
+              </li>
+              <li class="breadcrumb-item"><a href="#">صفحات</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">درباره ما</li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+      <!--page title end-->
+<!--about start-->
+
+<section>
+
+
+
+
+
+
+  <div class="container">
+<!-- about section-->
+{% include 'home/partials/about_section.html' %}
+<!-- end about section -->
+<!-- missions section-->
+{% include 'home/partials/missions_section.html' %}
+<!-- end missions section -->
+
+  </div>
+
+
+</section>
+
+<!--about end-->
+
+      
+
+
+<!--brands start-->
+
+{% include 'home/partials/brands.html' %}
+
+<!--brands end-->
+
+
+
+
+<!--contact_ways_footer start-->
+
+{% include 'home/partials/contact_ways_footer.html' %}
+
+<!--contact_ways_footer end-->
+
+
+
+
+
+
+</div>
+
+{% endblock %}

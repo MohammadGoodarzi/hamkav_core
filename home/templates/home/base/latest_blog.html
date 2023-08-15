@@ -1,0 +1,126 @@
+
+{% load wagtailcore_tags %}
+{% load wagtailuserbar %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+
+<section>
+	<div class="container">
+		<!-- Title -->
+		<div class="row mb-4">
+			<div class="d-md-flex justify-content-md-between align-items-center">
+				<h2 class="mb-2 mb-md-0 fs-3">آخرین وبلاگ</h2>
+				<div>
+					<span class="me-2">همه مقالات</span>
+					<a href="#" class="btn btn-sm btn-primary-soft mb-0">مشاهده <i class="fas fa-angle-left ms-2"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row g-4">
+			<div class="col-md-6 col-lg-4">
+				<!-- Card item START -->
+				<div class="card bg-transparent">
+					<div class="overflow-hidden rounded-3">
+						<img src="{% static 'assets/images/event/02.jpg' %}" class="card-img" alt="Card image">
+						<!-- Overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+						<div class="card-img-overlay d-flex align-items-start flex-column p-3">
+							<!-- badge -->
+							<a href="#" class="badge text-bg-danger">برنامه نویسی</a>
+						</div>
+					</div>
+					<!-- Card body -->
+					<div class="card-body px-3">
+						<!-- Title -->
+						<h5 class="card-title"><a href="#">12 مهارت لازم برای توسعه دهندگان در سال 2021</a></h5>
+						<p class="text-truncate-2">با NET. می‌توانید هر چیزی را بسازید. این یکی از دلایل اصلی است که میلیون‌ها توسعه دهنده، دات نت را به عنوان پلتفرمی برای شغل...</p>
+						<!-- Info -->
+						<div class="d-flex justify-content-between">
+							<h6 class="mb-0"><a href="#">حمید نوروزی</a></h6>
+							<span class="small">30 دقیقه پیش</span>
+						</div>
+					</div>
+				</div>
+				<!-- Card item END -->
+			</div>
+
+			<div class="col-md-6 col-lg-8">
+				<div class="row g-4">
+					<div class="col-lg-7">
+						<!-- Card item START -->
+						<div class="card bg-light p-3 mb-4">
+							<div class="card-body">
+								<!-- Badge -->
+								<a href="#" class="badge text-bg-success mb-2">طراحی وب</a>
+								<!-- Title -->
+								<h5 class="card-title"><a href="#">10 نکته برای موفقیت در یادگیری برنامه نویسی</a></h5>
+								<p>در سال‌های گذشته اگر می‌خواستید حرفه ای را به عنوان مهندس نرم افزار یا هر چیز دیگری در رابطه با کدنویسی شروع کنید، تقریبا مجبور بودید که مدرک لیسانس خود را در علوم کامپیوتر یا مهندسی </p>
+								<!-- Info -->
+								<div class="d-flex justify-content-between">
+									<h6 class="mb-0"><a href="#">نیلوفر خسروجردی</a></h6>
+									<span class="small">12 دقیقه پیش</span>
+								</div>
+							</div>
+						</div>
+						<!-- Card item END -->
+
+						<!-- Card item START -->
+						<div class="card bg-transparent">
+							<div class="overflow-hidden rounded-3">
+								<img src=" {% static 'assets/images/event/01.jpg' %}" class="card-imgp" alt="Card image">
+								<!-- Overlay -->
+								<div class="bg-overlay bg-dark opacity-4"></div>
+								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
+									<!-- badge -->
+									<a href="#" class="badge text-bg-info">تولید محتوا</a>
+								</div>
+							</div>
+							<!-- Card body -->
+							<div class="card-body px-3">
+								<!-- Title -->
+								<h5 class="card-title"><a href="#">5 ویژگی فوق العاده که باید در استخدام متخصص سئو</a></h5>
+								<p class="text-truncate-2">صنعت IT به لطف افزایش اعتماد به فناوری در زندگی روزمره در خانه‌ها و </p>
+
+								<!-- Info -->
+								<div class="d-flex justify-content-between">
+									<h6 class="mb-0"><a href="#">سعید ناصری</a></h6>
+									<span class="small">3 دقیقه پیش</span>
+								</div>
+							</div>
+						</div>
+						<!-- Card item END -->
+					</div>
+
+					<div class="col-lg-5">
+						<!-- Card item START -->
+						<div class="card bg-transparent">
+							<div class="overflow-hidden rounded-3">
+								<img src=" {% static 'assets/images/event/03.jpg' %}" class="card-img-top" alt="course image">
+								<!-- Overlay -->
+								<div class="bg-overlay bg-dark opacity-2 rounded-2"></div>
+								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
+									<!-- badge -->
+									<a href="#" class="badge text-bg-purple">Covid-19</a>
+								</div>
+							</div>
+							<!-- Card body -->
+							<div class="card-body px-3">
+								<!-- Title -->
+								<h5 class="card-title"><a href="#">مراحل تبدیل شدن به متخصص شبکه</a></h5>
+								<p>وقتی در حال ساخت وب سایت برای شرکت خود هستید، اصطلاحات فنی زیادی وجود دارد که باید آن‌ها را بلد باشید مثل</p>
+								<!-- Info -->
+								<div class="d-flex justify-content-between">
+									<h6 class="mb-0"><a href="#">حامد سبحانی</a></h6>
+									<span class="small">21 تیر، 1400</span>
+								</div>
+							</div>
+						</div>
+						<!-- Card item END -->
+					</div>
+				</div><!-- Row END -->
+			</div>
+		</div><!-- Row END -->
+	</div>
+</section>
