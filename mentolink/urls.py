@@ -18,6 +18,7 @@ urlpatterns = [
     path('accounts/', include('HamkavAuth.urls',namespace='HamkavAuth')),
     path('blog/', include('HamkavBlog.urls',namespace='HamkavBlog')),
     path('edu/', include('HamkavEduShop.urls',namespace='HamkavEduShop')),
+    path('db/', include('HamkavDbManagement.urls',namespace='db')),
 
    
     

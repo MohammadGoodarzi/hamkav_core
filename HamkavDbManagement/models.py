@@ -27,7 +27,6 @@ class DataBaseConnectionModel(models.Model):
     port =models.PositiveIntegerField(null=False, blank=False)
     username = models.CharField(max_length=300, null= False, blank=False)
     password = models.CharField(max_length=300, null= False, blank=False)
-    type = models.CharField(max_length=300, null= False, blank=False)
     connection_string = models.CharField(max_length=1000, null= False, blank=False)
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
