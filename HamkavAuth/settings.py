@@ -12,6 +12,10 @@ from datetime import timedelta
 INSTALLED_APPS = [
 
     'rest_framework_simplejwt',  
+    'django-ninja',
+    'ninja_jwt',
+    'ninja_extra',
+    
 ]
 
 # jwt
@@ -22,8 +26,12 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
     ],
 }
+
+
+# CSRF_COOKIE_SECURE = False
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),

@@ -10,6 +10,8 @@ SECRET_KEY = "django-insecure-qdg4$^=t9$)5m*6)44-*kzj^sqtgg^zv1r(in&(#&2%1j58qdm
 ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_ALLOW_ALL = True
 
+
+
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
