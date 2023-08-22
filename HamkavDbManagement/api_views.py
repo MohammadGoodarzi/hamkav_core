@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from .models import DataBaseConnectionModel, DataBaseType, DataSourceModel
 from HamkavAuth.models import User
+from . execSqlQuery import execPgQuery
 
 
 from ninja_jwt.authentication import JWTAuth # jwt
@@ -56,6 +57,19 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         # res = DataBaseConnectionModel.objects.all()
         res = DataSourceModel.objects.select_related("database_connection")
         return  list(res)
+    
+    def RunQuery(self):
+        db_params = {
+            "host": "localhost",
+            "database": "mentolink",
+            "user": "postgres",
+            "password": "1234",
+            'port': '5432',
+        }
+        query = "select * from sample_tbl limit 10;"
+        
+        a = execPgQuery(db_params=db_params, query=query)
+        return a
     
     
     

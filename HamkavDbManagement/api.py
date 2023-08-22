@@ -85,6 +85,14 @@ def list(request):
     a = DB(request)
     res = a.DatasourceList()
     return  res
+
+    
+@router.get("/runquery")
+def list(request):
+    a = DB(request)
+    res = a.RunQuery()
+    return  {"res":res}
+
     
     # res = DataBaseConnectionModel.objects.select_related("database_type")
     # res = DataBaseConnectionModel.objects.filter(is_active = True)
