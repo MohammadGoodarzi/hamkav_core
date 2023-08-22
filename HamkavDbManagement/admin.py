@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import DataBaseType, DataBaseConnectionModel
+from .models import DataBaseType, DataBaseConnectionModel, DataSourceModel
 
 
 
 admin.site.register(DataBaseType)
 admin.site.register(DataBaseConnectionModel)
+admin.site.register(DataSourceModel)
 
 # @admin.register(DataBaseType)
 # class PostAdmin(admin.ModelAdmin,):

@@ -23,19 +23,7 @@ class dbCconnectionItems(Schema):
     connection_string: str  = None
     description: str  = None
     
-class datasourceItems(Schema):
-    database_connection_uuid: UUID4
-    title: str 
-    name: str
-    query_string: str  = None
-    description: str  = None
-    
-class datasourceItems_out(Schema):
-    database_connection_uuid: UUID4
-    title: str 
-    name: str
-    query_string: str  = None
-    description: str  = None
+
     
 class DataBaseType_out(Schema):
     uuid: UUID4
@@ -54,6 +42,20 @@ class dbCconnectionItems_out(Schema):
     connection_string: str  = None
     description: str  = None
 
+class datasourceItems(Schema):
+    database_connection_uuid: UUID4
+    title: str 
+    name: str = None
+    query_string: str  = None
+    description: str  = None
+    
+class datasourceItems_out(Schema):
+    # database_connection_uuid: dbCconnectionItems_out = None
+    id: int
+    title: str 
+    name: str = None
+    query_string: str  = None
+    description: str  = None
 
     
     

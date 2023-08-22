@@ -46,15 +46,15 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         return res
     
     def ConnectionList(self):
-        # res = DataBaseConnectionModel.objects.filter(is_active = True)
+        res = DataBaseConnectionModel.objects.filter(is_active = True)
         # res = DataBaseConnectionModel.objects.all()
-        res = DataBaseConnectionModel.objects.select_related("database_type")
+        # res = DataBaseConnectionModel.objects.select_related("database_type")
         return  list(res)
         
     def  DatasourceList(self):
         # res = DataBaseConnectionModel.objects.filter(is_active = True)
         # res = DataBaseConnectionModel.objects.all()
-        res = DataSourceModel.objects.filter(is_active = True)
+        res = DataSourceModel.objects.select_related("database_connection")
         return  list(res)
     
     
