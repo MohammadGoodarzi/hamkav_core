@@ -23,8 +23,6 @@ class dbCconnectionItems(Schema):
     connection_string: str  = None
     description: str  = None
     
-
-    
 class DataBaseType_out(Schema):
     uuid: UUID4
     title: str
@@ -57,7 +55,11 @@ class datasourceItems_out(Schema):
     query_string: str  = None
     description: str  = None
 
-    
+class sqlQueryText(Schema):
+     query_string : str   
+     database_connection_uuid : UUID4
+     
+     
     
 @router.post("/AddNewConnection", auth=JWTAuth())
 def create(request,dbCconnectionItems: dbCconnectionItems = Form(...)):
@@ -87,10 +89,10 @@ def list(request):
     return  res
 
     
-@router.get("/runquery")
-def list(request):
+@router.post("/runquery", auth=JWTAuth())
+def list(request, sqlQueryText:sqlQueryText = Form(...)):
     a = DB(request)
-    res = a.RunQuery()
+    res = a.RunQuery(sqlQueryText)
     return  {"res":res}
 
     

@@ -17,7 +17,7 @@ def execPgQuery(db_params, query):
     # Execute a query
     cursor.execute(query)
     
-    print(cursor.description)
+    # print(cursor.description)
     column_names = [desc[0] for desc in cursor.description]
    
 
@@ -25,9 +25,9 @@ def execPgQuery(db_params, query):
     results = cursor.fetchall()
     # results = [dict(row) for row in cursor.fetchall()]
 
-    # Print the results
-    for row in results:
-        print(row)
+    # # Print the results
+    # for row in results:
+    #     print(row)
 
     # Close the cursor and connection
     cursor.close()

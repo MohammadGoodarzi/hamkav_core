@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404
 from .models import DataBaseConnectionModel, DataBaseType, DataSourceModel
 from HamkavAuth.models import User
 from . execSqlQuery import execPgQuery
+from django.shortcuts import get_object_or_404 
 
 
 from ninja_jwt.authentication import JWTAuth # jwt
@@ -58,17 +59,28 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         res = DataSourceModel.objects.select_related("database_connection")
         return  list(res)
     
-    def RunQuery(self):
-        db_params = {
-            "host": "localhost",
-            "database": "mentolink",
-            "user": "postgres",
-            "password": "1234",
-            'port': '5432',
-        }
-        query = "select * from sample_tbl limit 10;"
+    def RunQuery(self,sqlQueryText):
+        # db_params = {
+        #     "host": "localhost",
+        #     "database": "mentolink",
+        #     "user": "postgres",
+        #     "password": "1234",
+        #     'port': '5432',
+        # }
         
-        a = execPgQuery(db_params=db_params, query=query)
+        db_params = {}
+             
+        # query = "   select * from sample_tbl limit 100;   "
+        params = get_object_or_404(DataBaseConnectionModel, uuid = sqlQueryText.database_connection_uuid)
+        
+        db_params["host"] =  params.url
+        db_params["database"] =  params.name
+        db_params["user"] =  params.username
+        db_params["password"] =  params.password
+        db_params["port"] =  params.port
+        
+        print("database_connection_uuid",sqlQueryText.database_connection_uuid)
+        a = execPgQuery(db_params=db_params, query=sqlQueryText.query_string)
         return a
     
     
