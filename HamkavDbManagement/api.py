@@ -44,12 +44,12 @@ class datasourceItems(Schema):
     database_connection_uuid: UUID4
     title: str 
     name: str = None
-    query_string: str  = None
+    query_string: str 
     description: str  = None
     
 class datasourceItems_out(Schema):
     # database_connection_uuid: dbCconnectionItems_out = None
-    id: int
+    uuid: UUID4
     title: str 
     name: str = None
     query_string: str  = None
@@ -95,6 +95,11 @@ def list(request, sqlQueryText:sqlQueryText = Form(...)):
     res = a.RunQuery(sqlQueryText)
     return  {"res":res}
 
+@router.get("/datasourceresult")
+def list(request, datasource_uuid : UUID4):
+    a = DB(request)
+    res = a.GetDataSourceResult(datasource_uuid)
+    return  {"res":res}
     
     # res = DataBaseConnectionModel.objects.select_related("database_type")
     # res = DataBaseConnectionModel.objects.filter(is_active = True)

@@ -12,7 +12,7 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         # print(self.request.user)
         # self.dbCconnectionItems = dbCconnectionItems
         self.request = request
-        pass
+        
         
     def addNewConnection(self, dbConnectionItems):
         
@@ -73,17 +73,41 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         # query = "   select * from sample_tbl limit 100;   "
         params = get_object_or_404(DataBaseConnectionModel, uuid = sqlQueryText.database_connection_uuid)
         
+        # db_params["host"] =  params.url
+        # db_params["database"] =  params.name
+        # db_params["user"] =  params.username
+        # db_params["password"] =  params.password
+        # db_params["port"] =  params.port
+        
+        # print("database_connection_uuid",sqlQueryText.database_connection_uuid)
+        # a = execPgQuery(db_params=db_params, query=sqlQueryText.query_string)
+        a = run_sql(params,sqlQueryText.query_string)
+        return a
+    
+    def GetDataSourceResult(self, datasource_uuid):
+        # print("datasource_uuid",datasource_uuid)
+        # params= DataSourceModel.objects.get(uuid = datasource_uuid)
+        # params2 = params.database_connection
+        # print("params2",params2)
+        m1 = get_object_or_404(DataSourceModel, uuid = datasource_uuid) 
+        query_string = m1.query_string
+        params = m1.database_connection
+        return run_sql(params,query_string)  
+
+         
+    
+def run_sql(params,query_string):
+        db_params = {}
+        
         db_params["host"] =  params.url
         db_params["database"] =  params.name
         db_params["user"] =  params.username
         db_params["password"] =  params.password
         db_params["port"] =  params.port
         
-        print("database_connection_uuid",sqlQueryText.database_connection_uuid)
-        a = execPgQuery(db_params=db_params, query=sqlQueryText.query_string)
-        return a
-    
-    
+        # print("database_connection_uuid",sqlQueryText.database_connection_uuid)
+        a = execPgQuery(db_params=db_params, query=query_string)
+        return a    
     
     
     

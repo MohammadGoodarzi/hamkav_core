@@ -17,7 +17,15 @@ class DataBaseType(models.Model):
     name = models.CharField(max_length=300, null= False, blank=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    created_shamsi = models.CharField(max_length=50, null=True, editable=False)
+    updated_shamsi = models.CharField(max_length=50, null=True, editable=False)
     is_active = models.BooleanField(default=True)
+    
+    def save(self,  *args, **kwargs):
+        self.created_shamsi = jdatetime.datetime.now().strftime("%a, %d %b %Y %H:%M:%S")
+		# self.created_shamsi = jdatetime.datetime.now().strftime("%a, %d %b %Y %H:%M:%S")
+        super(DataBaseType, self).save( *args, **kwargs)
+        
     
     def __str__(self):
 	    return f'{self.id} - {self.title} - {self.name}'
@@ -84,3 +92,20 @@ class DataSourceModel(models.Model):
 	    return f'{self.uuid} - {self.title} - {self.created}'
 	    # return f'{self.database_type}-{self.id} - {self.title} - {self.name}'
     
+class APIManageModel(models.Model):
+    uuid =  models.UUIDField(primary_key=False, default=uuid.uuid4, editable=True,unique=False)
+    user_creator = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=300, null= False, blank=False)
+    url = models.CharField(max_length=300, null= False, blank=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
+    created_shamsi = models.CharField(max_length=50, null=True, editable=False)
+    updated_shamsi = models.CharField(max_length=50, null=True, editable=False)
+    
+    def save(self,  *args, **kwargs):
+        self.created_shamsi = jdatetime.datetime.now().strftime("%a, %d %b %Y %H:%M:%S")
+		# self.created_shamsi = jdatetime.datetime.now().strftime("%a, %d %b %Y %H:%M:%S")
+        super(APIManageModel, self).save( *args, **kwargs)
+    def __str__(self):
+	    return f'{self.id} - {self.title} - {self.url}'

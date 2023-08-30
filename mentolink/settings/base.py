@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "HamkavBlog",
     "HamkavEduShop",
     "HamkavDbManagement",
+    "HamkavDashboard",
     "home",
     "search",
     "wagtail.contrib.forms",
