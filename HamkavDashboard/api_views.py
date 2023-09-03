@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
-from .models import LayoutModel, ChartModel
+from .models import LayoutModel, ChartModel, ChartTypeModel
+from django.conf import settings
 from HamkavDashboard.models import DataSourceModel
 from HamkavAuth.models import User
 # from . execSqlQuery import execPgQuery
@@ -33,18 +34,51 @@ class Chart:
         
     def addNewChart(self,ChartModelItems):
         datasource = get_object_or_404(DataSourceModel,uuid = ChartModelItems.datasource_uuid )
+        chart_type = get_object_or_404(ChartTypeModel,uuid = ChartModelItems.chart_type_uuid )
         
         res = ChartModel.objects.create(
             user_creator = self.request.user,
             datasource = datasource,
+            chart_type = chart_type,
             title = ChartModelItems.title,
             description = ChartModelItems.description,
-            chart_type_id= ChartModelItems.chart_type_id,
-            chart_type_title= ChartModelItems.chart_type_title,
-            chart_access = ChartModelItems.chart_access,
+            access = ChartModelItems.access,
         )
-        print(res)
+        # print(res)
         return res
     
-    def getChartList(self, ChartModelItems):
-        pass    
+    def GetChartsList(self):
+        # res = DataSourceModel.objects.select_related("database_connection")
+        res = ChartModel.objects.filter(is_active = True)
+        print(res)
+        return  list(res)
+      
+    def GetChartTypeList(self):
+        res = ChartTypeModel.objects.filter(is_active = True)
+        # host = self.request.META['HTTP_HOST']
+        # for r in res:
+        #     r.thumbnail = 'ddddddd'
+        #     print(r.thumbnail.url)
+        #     print( r.thumbnail.path )
+        # #     if r.thumbnail.url:
+        # #         r.thumbnail = self.request.build_absolute_uri(r.thumbnail.url)#'wwwww' + r.thumbnail.url
+        # #     # print( r.thumbnail )
+        # #     # print( r.thumbnail.url )
+        # #     # print("*******************")
+        # # #     # print( r.get_absolute_url() )
+        
+        
+        #     if r.thumbnail:
+        #         r.thumbnail = self.request.build_absolute_uri(r.thumbnail.url)#'wwwww' + r.thumbnail.url
+        #         # print(r.thumbnail.url.r.thumbnail.replace(settings.MEDIA_URL, '', 1))
+        #         # print(r.thumbnail)
+            
+        #     # Remove the '/media/' prefix from the URL
+        #         print(r.thumbnail.url.replace(settings.MEDIA_URL, '', 1))
+        #         r.thumbnail =  r.thumbnail.url.replace(settings.MEDIA_URL, '', 1)
+            
+        
+        return  list(res)
+
+
+
