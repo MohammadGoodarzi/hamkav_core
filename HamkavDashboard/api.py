@@ -21,7 +21,14 @@ class ChartModelItems(Schema):
     description:str
     extra_config:str = None
     
-    
+class LayoutModelItems(Schema):
+    title:str
+    access: str = None
+    description:str = None
+    type:str = None
+    layout_config: Json = None
+    # Layout_config: Json = None
+       
 class ChartTypeModelItems_out(Schema):
     uuid: UUID4
     title: str 
@@ -41,10 +48,9 @@ class ChartModelItems_out(Schema):
     access: str
     title: str 
 
-    
+# Chart    
 @router.post("/add_chart", auth=JWTAuth())
 def create(request,ChartModelItems: ChartModelItems = Form(...)):
-
     a = Chart(request)
     b = a.addNewChart(ChartModelItems)
     return {"res":ChartModelItems}
@@ -64,9 +70,17 @@ def list(request, chart_uuid : UUID4):
     res = a.GetChartDetail(chart_uuid)
     return  res
 
+# Chart Type
 @router.get("/charts_type_list" , auth=JWTAuth(), response=List[ChartTypeModelItems_out])
 def list(request):
     a = Chart(request)
     res = a.GetChartTypeList()
     host = request.META['HTTP_HOST']
     return  res
+
+# Layout
+@router.post("/add_layout", auth=JWTAuth())
+def create(request,LayoutModelItems: LayoutModelItems = Form(...)):
+    a = Chart(request)
+    b = a.addNewLayout(LayoutModelItems)
+    return {"res":LayoutModelItems}

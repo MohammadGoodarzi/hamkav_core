@@ -47,6 +47,18 @@ class Chart:
         # print(res)
         return res
     
+    def addNewLayout(self,LayoutModelItems):
+        res = LayoutModel.objects.create(
+            user_creator = self.request.user,
+            title = LayoutModelItems.title,
+            description = LayoutModelItems.description,
+            type = LayoutModelItems.type,
+            layout_config = LayoutModelItems.layout_config,
+            access = LayoutModelItems.access,
+        )
+        # print(res)
+        return res
+    
     def GetChartList(self):
         # res = DataSourceModel.objects.select_related("database_connection")
         res = ChartModel.objects.filter(is_active = True)

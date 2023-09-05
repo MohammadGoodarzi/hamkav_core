@@ -2,6 +2,7 @@ from django.db import models
 from HamkavAuth.models import User
 from django.contrib.auth.models import Group
 from HamkavDbManagement.models import DataSourceModel
+from django.contrib.postgres.fields import ArrayField
 import jdatetime
 
 
@@ -17,7 +18,11 @@ class LayoutModel(models.Model):
     
     name = models.CharField(max_length=300, null= True, blank=True)
     type = models.CharField(max_length=100, null=True, blank=True)
+    # layout_config = ArrayField(null=True)
     layout_config = models.JSONField(null=True, blank=True, max_length=2000)
+    # layout_config = models.TextField(null=True)
+    access = models.CharField(max_length=300, null= True, blank=True)
+    
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
