@@ -47,14 +47,23 @@ class Chart:
         # print(res)
         return res
     
-    def GetChartsList(self):
+    def GetChartList(self):
         # res = DataSourceModel.objects.select_related("database_connection")
         res = ChartModel.objects.filter(is_active = True)
-        print(res)
+        # print(res)
         return  list(res)
+    
+    def GetChartDetail(self, chart_uuid):
+        # res = DataSourceModel.objects.select_related("database_connection")
+        # res = ChartModel.objects.filter(is_active = True, uuid = chart_uuid)
+        res = get_object_or_404(ChartModel, is_active = True, uuid = chart_uuid)
+        # print(res)
+        return  res
       
     def GetChartTypeList(self):
         res = ChartTypeModel.objects.filter(is_active = True)
+        
+        
         # host = self.request.META['HTTP_HOST']
         # for r in res:
         #     r.thumbnail = 'ddddddd'

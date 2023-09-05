@@ -43,6 +43,7 @@ class ChartTypeModel(models.Model):
     access = models.CharField(max_length=300, null= True, blank=True)
     base_config = models.JSONField(null=True, blank=True, max_length=2000)
     thumbnail = models.ImageField(upload_to='attach/%Y/%m/%d' ,null=True, blank=True)
+    meta_info = models.CharField(max_length=300, null= True, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

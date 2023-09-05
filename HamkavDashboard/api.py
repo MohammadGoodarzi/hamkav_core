@@ -7,9 +7,11 @@ from pydantic import UUID4, Json
 
 from .models import LayoutModel
 from . api_views import Layout, Chart
+from HamkavDbManagement.api import datasourceItems_out
 
 
 router = Router()
+a = "testss"
 
 class ChartModelItems(Schema):
     datasource_uuid : UUID4
@@ -19,20 +21,26 @@ class ChartModelItems(Schema):
     description:str
     extra_config:str = None
     
-class ChartModelItems_out(Schema):
-    datasource_uuid : UUID4
-    chart_type_uuid : UUID4
-    uuid: UUID4
-    access: str
-    title: str 
-
+    
 class ChartTypeModelItems_out(Schema):
     uuid: UUID4
     title: str 
     name: str 
     thumbnail: str = None
+    meta_info: str = None
     # base_config: str 
     # access: str 
+    
+class ChartModelItems_out(Schema):
+    uuid: UUID4
+    # datasource_id: int
+    datasource: datasourceItems_out
+    chart_type: ChartTypeModelItems_out #if a=="test" else None
+    # datasource: List [datasourceItems_out]
+    # chart_type_uuid 
+    access: str
+    title: str 
+
     
 @router.post("/add_chart", auth=JWTAuth())
 def create(request,ChartModelItems: ChartModelItems = Form(...)):
@@ -42,10 +50,18 @@ def create(request,ChartModelItems: ChartModelItems = Form(...)):
     return {"res":ChartModelItems}
 
 
-@router.get("/charts_list" , auth=JWTAuth(), response=List[ChartModelItems_out])
+@router.get("/chart_list" , auth=JWTAuth(), response=List[ChartModelItems_out])
 def list(request):
+    # delattr(ChartModelItems_out, "title") 
+    # ChartModelItems_out.ddd = ChartModelItems_out.create_field("ddd", str, None)
     a = Chart(request)
-    res = a.GetChartsList()
+    res = a.GetChartList()
+    return  res
+
+@router.get("/chart_detail" , auth=JWTAuth(), response=ChartModelItems_out)
+def list(request, chart_uuid : UUID4):
+    a = Chart(request)
+    res = a.GetChartDetail(chart_uuid)
     return  res
 
 @router.get("/charts_type_list" , auth=JWTAuth(), response=List[ChartTypeModelItems_out])
@@ -53,5 +69,4 @@ def list(request):
     a = Chart(request)
     res = a.GetChartTypeList()
     host = request.META['HTTP_HOST']
-    # return  res
     return  res
