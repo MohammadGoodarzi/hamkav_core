@@ -4,14 +4,25 @@ from django.contrib.auth.models import Group
 from HamkavDbManagement.models import DataSourceModel
 from django.contrib.postgres.fields import ArrayField
 import jdatetime
+from treebeard.mp_tree import MP_Node
 
 
 import uuid
 
 
+class Category(MP_Node):
+    name = models.CharField(max_length=100)
+
+    node_order_by = ['name']
+
+    def __str__(self):
+        return self.name
 
 class LayoutModel(models.Model):
     uuid =  models.UUIDField(primary_key=False, default=uuid.uuid4, editable=True,unique=False)
+    
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, related_name="layout_category")
+    
     user_creator = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=300, null= False, blank=False)
     description = models.CharField(max_length=1000, null= True, blank=True)
@@ -36,7 +47,7 @@ class LayoutModel(models.Model):
         super(LayoutModel, self).save( *args, **kwargs)
     
     def __str__(self):
-	    return f'{self.id} - {self.title} - {self.name}'
+	    return f'{self.title}'
  
  
 class ChartTypeModel(models.Model):
@@ -69,7 +80,7 @@ class ChartModel(models.Model):
     uuid =  models.UUIDField(primary_key=False, default=uuid.uuid4, editable=True,unique=False)
     user_creator = models.ForeignKey(User, on_delete=models.CASCADE)
     chart_type = models.ForeignKey(ChartTypeModel, on_delete=models.CASCADE, null=True)
-    datasource = models.ForeignKey(DataSourceModel, on_delete=models.CASCADE, null=True)
+    datasource = models.ManyToManyField(DataSourceModel)
 
     title = models.CharField(max_length=300, null= False, blank=False)
     # chart_type_title = models.CharField(max_length=300, null= True, blank=True)

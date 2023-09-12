@@ -14,7 +14,7 @@ router = Router()
 a = "testss"
 
 class ChartModelItems(Schema):
-    datasource_uuid : UUID4
+    datasource_uuid : List[int]
     chart_type_uuid : UUID4
     title:str
     access: str
@@ -22,12 +22,33 @@ class ChartModelItems(Schema):
     extra_config:str = None
     
 class LayoutModelItems(Schema):
+    uuid: UUID4 = None
     title:str
     access: str = None
     description:str = None
     type:str = None
     layout_config: Json = None
     # Layout_config: Json = None
+    
+class LayoutModelItemsList_out(Schema):
+    uuid: UUID4
+    title:str
+    access: str = None
+    description:str = None
+    type:str = None
+    # layout_config: Json = None
+    # Layout_config: Json = None
+    
+class LayoutModelItems_out(Schema):
+    uuid: UUID4
+    title:str
+    access: str = None
+    description:str = None
+    type:str = None
+    layout_config: Json = None
+    
+class LayoutCategoricalModelItems_out(Schema):
+    layout_config: Json = None
        
 class ChartTypeModelItems_out(Schema):
     uuid: UUID4
@@ -49,12 +70,12 @@ class ChartModelItems_out(Schema):
     title: str 
 
 # Chart    
-@router.post("/add_chart", auth=JWTAuth())
+@router.post("/add_chart")
 def create(request,ChartModelItems: ChartModelItems = Form(...)):
+    print(ChartModelItems)
     a = Chart(request)
     b = a.addNewChart(ChartModelItems)
     return {"res":ChartModelItems}
-
 
 @router.get("/chart_list" , auth=JWTAuth(), response=List[ChartModelItems_out])
 def list(request):
@@ -84,3 +105,22 @@ def create(request,LayoutModelItems: LayoutModelItems = Form(...)):
     a = Chart(request)
     b = a.addNewLayout(LayoutModelItems)
     return {"res":LayoutModelItems}
+
+@router.get("/layouts_list" , auth=JWTAuth(), response=List[LayoutModelItemsList_out])
+def list(request):
+    a = Chart(request)
+    res = a.GetLayoutsList()
+    return  res
+
+@router.get("/categorised_layouts_list")
+def GetCategorisedLayoutsList(request):
+    a = Chart(request)
+    res = a.GetCategorisedLayoutsList()
+    # print(res)
+    return  res
+
+@router.get("/layout_detail" , auth=JWTAuth(), response=LayoutModelItems_out)
+def list(request, layout_uuid : UUID4):
+    a = Chart(request)
+    res = a.getLayoutDetail(layout_uuid)
+    return  res

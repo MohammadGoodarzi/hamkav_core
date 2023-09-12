@@ -21,6 +21,13 @@ class BasicAuth(HttpBasicAuth):
 api = NinjaExtraAPI() # jwt
 api.register_controllers(NinjaJWTDefaultController) # jwt
 
+# from ninja_jwt.exceptions import TokenError
+# from rest_framework.exceptions import AuthenticationFailed
+# @api.exception_handler(TokenError)
+# def handle_token_error(request, exc):
+# return api.create_response(request, {"detail": "Token has expired"}, status=401)
+
+
 api.add_router("/auth",HamkavAuth_router, tags=["auth"])
 # api.add_router("/db_management",HamkavDbManagement_router, auth=JWTAuth() ,tags=["db_management"])
 api.add_router("/db_management",HamkavDbManagement_router,tags=["db_management"])
