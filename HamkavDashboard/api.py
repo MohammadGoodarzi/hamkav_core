@@ -2,7 +2,7 @@ from ninja import Router
 from ninja_jwt.authentication import JWTAuth  # jwt
 from ninja import NinjaAPI,Form,Schema
 from typing import List
-from pydantic import UUID4, Json
+from pydantic import UUID4, Json, BaseModel
 
 
 from .models import LayoutModel
@@ -13,13 +13,34 @@ from HamkavDbManagement.api import datasourceItems_out
 router = Router()
 a = "testss"
 
+class ChartTypeModelItems_out(Schema):
+    uuid: UUID4
+    title: str 
+    name: str 
+    thumbnail: str = None
+    meta_info: str = None
+    # base_config: str 
+    # access: str 
+    
+
 class ChartModelItems(Schema):
-    datasource_uuid : List[int]
+    # id : List[int]
+    datasource_uuid : List[UUID4]
     chart_type_uuid : UUID4
     title:str
     access: str
     description:str
     extra_config:str = None
+    
+class ChartModelItems_out(Schema):
+    uuid: UUID4
+    # datasource_id: int
+    datasource: List[datasourceItems_out]
+    chart_type: ChartTypeModelItems_out #if a=="test" else None
+    # datasource: List [datasourceItems_out]
+    # chart_type_uuid 
+    access: str
+    title: str 
     
 class LayoutModelItems(Schema):
     uuid: UUID4 = None
@@ -50,29 +71,12 @@ class LayoutModelItems_out(Schema):
 class LayoutCategoricalModelItems_out(Schema):
     layout_config: Json = None
        
-class ChartTypeModelItems_out(Schema):
-    uuid: UUID4
-    title: str 
-    name: str 
-    thumbnail: str = None
-    meta_info: str = None
-    # base_config: str 
-    # access: str 
-    
-class ChartModelItems_out(Schema):
-    uuid: UUID4
-    # datasource_id: int
-    datasource: datasourceItems_out
-    chart_type: ChartTypeModelItems_out #if a=="test" else None
-    # datasource: List [datasourceItems_out]
-    # chart_type_uuid 
-    access: str
-    title: str 
+
 
 # Chart    
-@router.post("/add_chart")
+@router.post("/add_chart",  auth=JWTAuth())
 def create(request,ChartModelItems: ChartModelItems = Form(...)):
-    print(ChartModelItems)
+    # print(ChartModelItems)
     a = Chart(request)
     b = a.addNewChart(ChartModelItems)
     return {"res":ChartModelItems}

@@ -33,20 +33,22 @@ class Chart:
         self.request = request
         
     def addNewChart(self,ChartModelItems):
-        print(ChartModelItems)
-        datasource = get_object_or_404(DataSourceModel,uuid = ChartModelItems.datasource_uuid )
+
+
         chart_type = get_object_or_404(ChartTypeModel,uuid = ChartModelItems.chart_type_uuid )
         
         res = ChartModel.objects.create(
             user_creator = self.request.user,
-            datasource = datasource,
+            # datasource = datasource,
             chart_type = chart_type,
             title = ChartModelItems.title,
             description = ChartModelItems.description,
             access = ChartModelItems.access,
         )
-        print(res)
-        # res = None
+        for i in ChartModelItems.datasource_uuid:
+            dataset = get_object_or_404(DataSourceModel, uuid = i)
+            res.datasource.add(dataset)
+
         return res
     
     def addNewLayout(self,LayoutModelItems):

@@ -49,7 +49,6 @@ class LayoutModel(models.Model):
     def __str__(self):
 	    return f'{self.title}'
  
- 
 class ChartTypeModel(models.Model):
     uuid =  models.UUIDField(primary_key=False, default=uuid.uuid4, editable=True,unique=False)
     user_creator = models.ForeignKey(User, on_delete=models.CASCADE)
