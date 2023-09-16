@@ -3,6 +3,8 @@ from .models import LayoutModel, ChartModel, ChartTypeModel, Category
 from django.conf import settings
 from HamkavDashboard.models import DataSourceModel
 from HamkavAuth.models import User
+import json
+
 # from . execSqlQuery import execPgQuery
 from django.shortcuts import get_object_or_404 
 
@@ -34,11 +36,12 @@ class Chart:
         
     def addNewChart(self,ChartModelItems):
 
-
+        # print(ChartModelItems.extra_config)
         chart_type = get_object_or_404(ChartTypeModel,uuid = ChartModelItems.chart_type_uuid )
         
         res = ChartModel.objects.create(
             user_creator = self.request.user,
+            extra_config = ChartModelItems.extra_config[0], # for one more [] that recived!
             # datasource = datasource,
             chart_type = chart_type,
             title = ChartModelItems.title,
@@ -77,6 +80,11 @@ class Chart:
     def GetChartList(self):
         # res = DataSourceModel.objects.select_related("database_connection")
         res = ChartModel.objects.filter(is_active = True)
+        
+        for i in res:
+            i.extra_config = json.dumps(i.extra_config)
+            # print(i.extra_config)
+            # print(type(i.extra_config))
         # print(res)
         return  list(res)
     
@@ -84,6 +92,7 @@ class Chart:
         # res = DataSourceModel.objects.select_related("database_connection")
         # res = ChartModel.objects.filter(is_active = True, uuid = chart_uuid)
         res = get_object_or_404(ChartModel, is_active = True, uuid = chart_uuid)
+        res.extra_config = json.dumps(res.extra_config)
         # print(res)
         return  res
       
