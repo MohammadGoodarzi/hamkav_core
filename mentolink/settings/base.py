@@ -152,7 +152,7 @@ WSGI_APPLICATION = "mentolink.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mentolink',
+        'NAME': 'hamkav_dash_db',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -410,7 +410,7 @@ SIMPLE_JWT = {
 # from .dev import SECRET_KEY
 NINJA_JWT = {
     
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1000),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': False,
@@ -435,7 +435,7 @@ NINJA_JWT = {
     'JTI_CLAIM': 'jti',
 
     'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=60),
+    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=1000),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 
     # For Controller Schemas

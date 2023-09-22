@@ -1,4 +1,5 @@
 from django.db import connection
+import cx_Oracle
 import psycopg2
 import psycopg2.extras
 

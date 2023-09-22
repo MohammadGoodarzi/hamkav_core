@@ -1,0 +1,19 @@
+select 
+id,proc_inst_id_,act_name_, act_type_,act_id_, assignee_,"BUSINESS_KEY_",
+COALESCE(duration_,0) duration_ ,
+Round(COALESCE(duration_,0)/ 3.154e+10) as duration_in_year,
+Round(COALESCE(duration_,0)/ 2.628e+9) as duration_in_month,
+Round(COALESCE(duration_,0)/ 6.048e+8) as duration_in_week,
+Round(COALESCE(duration_,0)/ 8.64e+7) as duration_in_day,
+Round(COALESCE(duration_,0)/ 3.6e+6) as duration_in_hour,
+rp.shamsi_start_date::int as shamsi_start_date,
+substring(rp.shamsi_start_date, 1,4) as start_year,
+substring(rp.shamsi_start_date, 5,2) as start_month,
+substring(rp.shamsi_start_date, 7,9) as start_day,
+case rp.shamsi_end_date when '' then null else rp.shamsi_end_date::int end  as shamsi_end_date,
+case rp.shamsi_end_date when '' then null else substring(rp.shamsi_end_date, 1,4) ::int end as end_year,
+case rp.shamsi_end_date when '' then null else substring(rp.shamsi_end_date, 5,2) ::int end as end_month,
+case rp.shamsi_end_date when '' then null else substring(rp.shamsi_end_date, 7,9) ::int end as end_day,
+(rp.start_time_) as start_time_, 
+(rp.end_time_) as end_time_
+from  public.ranirprocess rp
