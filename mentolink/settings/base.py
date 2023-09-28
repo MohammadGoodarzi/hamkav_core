@@ -3,6 +3,7 @@
 import os
 
 from  HamkavAuth.settings import *
+
 # from HamkavAuth import settings as HamkavAuth_settings
 
 SECRET_KEY = "django-insecure-qdg4$^=t9$)5m*6)44-*kzj^sqtgg^zv1r(in&(#&2%1j58qdm"
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
     "HamkavEduShop",
     "HamkavDbManagement",
     "HamkavDashboard",
+    "HamkavConfigurator",
     "home",
     "search",
     "wagtail.contrib.forms",

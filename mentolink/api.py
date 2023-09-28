@@ -4,6 +4,7 @@ from ninja.security import HttpBasicAuth
 from HamkavAuth.api import router as HamkavAuth_router
 from HamkavDbManagement.api import router as HamkavDbManagement_router
 from HamkavDashboard.api import router as HamkavDashboard_router
+from HamkavConfigurator.api import router as HamkavConfigurator_router
 
 from ninja_jwt.controller import NinjaJWTDefaultController    # jwt
 from ninja_extra import NinjaExtraAPI  # jwt
@@ -32,6 +33,7 @@ api.add_router("/auth",HamkavAuth_router, tags=["auth"])
 # api.add_router("/db_management",HamkavDbManagement_router, auth=JWTAuth() ,tags=["db_management"])
 api.add_router("/db_management",HamkavDbManagement_router,tags=["db_management"])
 api.add_router("/dashboard",HamkavDashboard_router,tags=["dashboard"])
+api.add_router("/configurator",HamkavConfigurator_router,tags=["configurator"])
 
 # @api.get("/add")
 # def add(request, a: int, b: int):

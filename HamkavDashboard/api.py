@@ -52,7 +52,8 @@ class LayoutModelItems(Schema):
     description:str = None
     type:str = None
     layout_config: Json = None
-    # Layout_config: Json = None
+    category: str 
+
     
 class LayoutModelItemsList_out(Schema):
     uuid: UUID4

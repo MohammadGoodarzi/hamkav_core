@@ -5,22 +5,24 @@ from HamkavDbManagement.models import DataSourceModel
 from django.contrib.postgres.fields import ArrayField
 import jdatetime
 from treebeard.mp_tree import MP_Node
+from HamkavConfigurator.models import Category 
 
 
 import uuid
 
 
-class Category(MP_Node):
-    name = models.CharField(max_length=100)
+# class Category(MP_Node):
+#     name = models.CharField(max_length=100)
 
-    node_order_by = ['name']
+#     node_order_by = ['name']
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 class LayoutModel(models.Model):
     uuid =  models.UUIDField(primary_key=False, default=uuid.uuid4, editable=True,unique=False)
     
+    # category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, related_name="layout_category")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, related_name="layout_category")
     
     user_creator = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -53,6 +55,7 @@ class ChartTypeModel(models.Model):
     uuid =  models.UUIDField(primary_key=False, default=uuid.uuid4, editable=True,unique=False)
     user_creator = models.ForeignKey(User, on_delete=models.CASCADE)
     
+    
     title = models.CharField(max_length=300, null= True, blank=True)
     name = models.CharField(max_length=300, null= True, blank=True)
     access = models.CharField(max_length=300, null= True, blank=True)
@@ -80,6 +83,8 @@ class ChartModel(models.Model):
     user_creator = models.ForeignKey(User, on_delete=models.CASCADE)
     chart_type = models.ForeignKey(ChartTypeModel, on_delete=models.CASCADE, null=True)
     datasource = models.ManyToManyField(DataSourceModel)
+
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, related_name="chart_category")
 
     title = models.CharField(max_length=300, null= False, blank=False)
     # chart_type_title = models.CharField(max_length=300, null= True, blank=True)

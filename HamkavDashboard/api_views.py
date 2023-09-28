@@ -1,8 +1,12 @@
 from django.shortcuts import get_object_or_404
-from .models import LayoutModel, ChartModel, ChartTypeModel, Category
+from .models import LayoutModel, ChartModel, ChartTypeModel
+
+from HamkavConfigurator.models import Category
+
 from django.conf import settings
 from HamkavDashboard.models import DataSourceModel
 from HamkavAuth.models import User
+# from HamkavConfigurator.utils import get_category_one_hierarchy 
 import json
 
 # from . execSqlQuery import execPgQuery
@@ -55,6 +59,7 @@ class Chart:
         return res
     
     def addNewLayout(self,LayoutModelItems):
+        # print(LayoutModelItems.category)
         if LayoutModelItems.uuid :
            res = LayoutModel.objects.filter(uuid = LayoutModelItems.uuid ).update(
                 # user_creator = self.request.user,
@@ -66,8 +71,16 @@ class Chart:
            )
            return res
         else:
+
+            print("ddddddddddddddd")
+            print("ddddddddddddddd")
+            print("ddddddddddddddd")
+            print("LayoutModelItems.category",LayoutModelItems.category)
+            cat = get_object_or_404(Category,id =LayoutModelItems.category) 
+            print(cat, cat.name)
             res = LayoutModel.objects.create(
                 user_creator = self.request.user,
+                category = cat,
                 title = LayoutModelItems.title,
                 description = LayoutModelItems.description,
                 type = LayoutModelItems.type,
@@ -101,24 +114,25 @@ class Chart:
 
         return  list(res)
 
-    
     def GetLayoutsList(self):
         # res = DataSourceModel.objects.select_related("database_connection")
         res = LayoutModel.objects.filter(is_active = True)
         return  list(res)
    
-   
     def GetCategorisedLayoutsList(self):
    
         root_categories = Category.get_root_nodes()
+        print(root_categories)
         # Convert root categories to the desired JSON format
         category_hierarchy_json = [get_category_hierarchy(category, 'pi pi-folder', 'pi pi-th-large') for category in root_categories]
-        
         # category_hierarchy_in_model_json = [get_category_hierarchy_in_model(category,LayoutModel,"layout_category") for category in root_categories]
         # print(category_hierarchy_in_model_json)
-        
-        
         return  category_hierarchy_json
+    
+    # def GetCategorisedCharsList(self):
+    #     root_categories = Category.get_root_nodes()
+    #     category_hierarchy_json = [get_category_hierarchy_in_charts(category, 'pi pi-folder', 'pi pi-th-large') for category in root_categories]
+    #     return  category_hierarchy_json
      
     def getLayoutDetail(self, layout_uuid):
         import json
@@ -128,6 +142,7 @@ class Chart:
         
 #============================================================
 #============================================================
+
 def get_category_hierarchy(category, category_icon, item_icon):
    
     
