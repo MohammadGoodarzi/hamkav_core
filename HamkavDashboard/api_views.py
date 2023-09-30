@@ -42,6 +42,8 @@ class Chart:
 
         # print(ChartModelItems.extra_config)
         chart_type = get_object_or_404(ChartTypeModel,uuid = ChartModelItems.chart_type_uuid )
+        cat = get_object_or_404(Category,id =ChartModelItems.category) 
+        
         
         res = ChartModel.objects.create(
             user_creator = self.request.user,
@@ -51,6 +53,8 @@ class Chart:
             title = ChartModelItems.title,
             description = ChartModelItems.description,
             access = ChartModelItems.access,
+            category = cat,
+            
         )
         for i in ChartModelItems.datasource_uuid:
             dataset = get_object_or_404(DataSourceModel, uuid = i)
@@ -72,10 +76,8 @@ class Chart:
            return res
         else:
 
-            print("ddddddddddddddd")
-            print("ddddddddddddddd")
-            print("ddddddddddddddd")
-            print("LayoutModelItems.category",LayoutModelItems.category)
+
+            # print("LayoutModelItems.category",LayoutModelItems.category)
             cat = get_object_or_404(Category,id =LayoutModelItems.category) 
             print(cat, cat.name)
             res = LayoutModel.objects.create(
@@ -96,7 +98,12 @@ class Chart:
         
         for i in res:
             i.extra_config = json.dumps(i.extra_config)
-            # print(i.extra_config)
+            
+            # if i.category:
+            #     i.category = i.category.__str__()
+            # else:
+            #     i.category = None
+                
             # print(type(i.extra_config))
         # print(res)
         return  list(res)

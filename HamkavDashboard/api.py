@@ -31,6 +31,11 @@ class ChartModelItems(Schema):
     access: str
     description:str
     extra_config: List[Json]
+    category: int
+    
+class category_out(Schema):
+    id: int
+    name: str
     
 class ChartModelItems_out(Schema):
     uuid: UUID4
@@ -39,6 +44,7 @@ class ChartModelItems_out(Schema):
     chart_type: ChartTypeModelItems_out #if a=="test" else None
     extra_config: Json = None
     description: str = None
+    category: category_out = None
     
     # datasource: List [datasourceItems_out]
     # chart_type_uuid 
