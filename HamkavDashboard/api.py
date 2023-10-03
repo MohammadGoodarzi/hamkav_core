@@ -6,7 +6,7 @@ from pydantic import UUID4, Json, BaseModel
 
 
 from .models import LayoutModel
-from . api_views import Layout, Chart
+from . api_views import  Chart
 from HamkavDbManagement.api import datasourceItems_out
 
 

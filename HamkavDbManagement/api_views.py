@@ -4,6 +4,11 @@ from HamkavAuth.models import User
 from . execSqlQuery import execPgQuery
 from django.shortcuts import get_object_or_404 
 
+from HamkavConfigurator.models import Category_type2
+from HamkavConfigurator.api_views import get_category_hierarchy_in_model_relation
+
+
+
 
 from ninja_jwt.authentication import JWTAuth # jwt
 
@@ -93,6 +98,13 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         query_string = m1.query_string
         params = m1.database_connection
         return run_sql(params,query_string)  
+    
+    def GetCategorisedDataSourceList(self):
+   
+        root_categories = Category_type2.get_root_nodes()
+        # print(root_categories)
+        category_hierarchy_json = [get_category_hierarchy_in_model_relation(category, 'datasource_category', 'pi pi-folder', 'pi pi-th-large') for category in root_categories]
+        return  category_hierarchy_json
 
          
     

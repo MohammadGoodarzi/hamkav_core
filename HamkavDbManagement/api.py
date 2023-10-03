@@ -12,6 +12,9 @@ from . api_views import DB
 
 router = Router()
 
+class category_out(Schema):
+    id: int
+    name: str
 
 class dbCconnectionItems(Schema):
     database_type_uuid: str
@@ -55,6 +58,8 @@ class datasourceItems_out(Schema):
     name: str = None
     query_string: str  = None
     description: str  = None
+    category: category_out = None
+    
 
 class sqlQueryText(Schema):
      query_string : str   
@@ -87,6 +92,13 @@ def list(request):
 def list(request):
     a = DB(request)
     res = a.DatasourceList()
+    return  res
+
+@router.get("/categorised_datasource_list")
+def GetCategorisedDataSourceList(request):
+    a = DB(request)
+    res = a.GetCategorisedDataSourceList()
+    # print(res)
     return  res
 
     

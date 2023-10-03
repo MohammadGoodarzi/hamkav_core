@@ -1,6 +1,8 @@
 from django.db import models
 from HamkavAuth.models import User
 import jdatetime
+from HamkavConfigurator.models import Category_type2 as Category
+
 
 
 import uuid
@@ -34,6 +36,7 @@ class DataBaseType(models.Model):
 class DataBaseConnectionModel(models.Model):
     uuid =  models.UUIDField(primary_key=False, default=uuid.uuid4, editable=True,unique=False)
     database_type =  models.ForeignKey(DataBaseType, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, related_name="database_category")
     user_creator = models.ForeignKey(User, on_delete=models.CASCADE)
     url = models.CharField(max_length=1000, null=True, blank=True)
     title = models.CharField(max_length=300, null= False, blank=False)
@@ -72,6 +75,7 @@ class DataBaseConnectionModel(models.Model):
 class DataSourceModel(models.Model):
     uuid =  models.UUIDField(primary_key=False, default=uuid.uuid4, editable=True,unique=False)
     database_connection =  models.ForeignKey(DataBaseConnectionModel, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, related_name="datasource_category")
     user_creator = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=300, null= False, blank=False)
     name = models.CharField(max_length=300, null= False, blank=False)
