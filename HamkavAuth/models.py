@@ -4,6 +4,8 @@ from django.db import models
 from django.contrib.auth.models import  AbstractUser,AbstractBaseUser, PermissionsMixin
 from .managers import UserManager
 import uuid
+
+from django.contrib.auth.models import Group
 # class User(AbstractUser):
 # class User(AbstractBaseUser):
 class User(AbstractBaseUser, PermissionsMixin):
@@ -63,3 +65,10 @@ class Relation(models.Model):
 
 	def __str__(self):
 		return f'{self.from_user} following {self.to_user}'
+
+class ACL(models.Model):
+    module = models.CharField(null=False, blank=False, max_length=500)
+    access = models.CharField(null=False, blank=False, max_length=500)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='acl_user')
+    group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name='acl_group')
+    
