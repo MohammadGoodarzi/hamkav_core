@@ -17,6 +17,7 @@ click-plugins==1.1.1
 click-repl==0.3.0
 contextlib2==21.6.0
 cryptography==41.0.3
+cx-Oracle==8.3.0
 Django==4.1.9
 django-cogwheels==0.3
 django-cors-headers==4.2.0
@@ -24,7 +25,7 @@ django-db-logger==0.1.12
 django-debug-toolbar==4.1.0
 django-environ==0.10.0
 django-filter==22.1
-django-hamkavAuth @ file:///media/mg/ssd-archive/projects/django_hamkav/core/packages/django_hamkavAuth-1.0-py3-none-any.whl#sha256=97390a0647a75eb55793a011da127f9c35df2330191b20d95c426abb6a2fcb6b
+# django-hamkavAuth @ file:///media/mg/ssd-archive/projects/django_hamkav/core/packages/django_hamkavAuth-1.0-py3-none-any.whl#sha256=97390a0647a75eb55793a011da127f9c35df2330191b20d95c426abb6a2fcb6b
 django-jalali-date==1.0.2
 django-markdownx==4.0.2
 django-minify-html==1.6.0
