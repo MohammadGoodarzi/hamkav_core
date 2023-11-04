@@ -39,29 +39,78 @@ class Chart:
     def __init__(self, request):
         self.request = request
         
-    def addNewChart(self,ChartModelItems):
+    # def addNewChart(self,ChartModelItems):
+
+    #     # print(ChartModelItems.extra_config)
+    #     chart_type = get_object_or_404(ChartTypeModel,uuid = ChartModelItems.chart_type_uuid )
+    #     cat = get_object_or_404(Category,id =ChartModelItems.category) 
+        
+        
+    #     res = ChartModel.objects.create(
+    #         user_creator = self.request.user,
+    #         extra_config = ChartModelItems.extra_config[0], # for one more [] that recived!
+    #         # datasource = datasource,
+    #         chart_type = chart_type,
+    #         title = ChartModelItems.title,
+    #         description = ChartModelItems.description,
+    #         access = ChartModelItems.access,
+    #         category = cat,
+            
+    #     )
+    #     for i in ChartModelItems.datasource_uuid:
+    #         dataset = get_object_or_404(DataSourceModel, uuid = i)
+    #         res.datasource.add(dataset)
+
+    #     return res
+    
+    
+    def AddUpdateChart(self,ChartModelItems):
 
         # print(ChartModelItems.extra_config)
         chart_type = get_object_or_404(ChartTypeModel,uuid = ChartModelItems.chart_type_uuid )
         cat = get_object_or_404(Category,id =ChartModelItems.category) 
         
         
-        res = ChartModel.objects.create(
-            user_creator = self.request.user,
-            extra_config = ChartModelItems.extra_config[0], # for one more [] that recived!
-            # datasource = datasource,
-            chart_type = chart_type,
-            title = ChartModelItems.title,
-            description = ChartModelItems.description,
-            access = ChartModelItems.access,
-            category = cat,
-            
-        )
+        # res = ChartModel.objects.create(
+        #         user_creator = self.request.user,
+        #         extra_config = ChartModelItems.extra_config[0], # for one more [] that recived!
+        #         chart_type = chart_type,
+        #         title = ChartModelItems.title,
+        #         description = ChartModelItems.description,
+        #         access = ChartModelItems.access,
+        #         category = cat,
+        #     )
+                    
+        # print(ChartModelItems.uuid)
+        if not ChartModelItems.uuid :
+            res = ChartModel.objects.create(
+                user_creator = self.request.user,
+                extra_config = ChartModelItems.extra_config[0], # for one more [] that recived!
+                chart_type = chart_type,
+                title = ChartModelItems.title,
+                description = ChartModelItems.description,
+                access = ChartModelItems.access,
+                category = cat,
+            )
+        else:
+            res = ChartModel.objects.filter(uuid = ChartModelItems.uuid).update(
+                user_creator = self.request.user,
+                extra_config = ChartModelItems.extra_config[0], # for one more [] that recived!
+                chart_type = chart_type,
+                title = ChartModelItems.title,
+                description = ChartModelItems.description,
+                access = ChartModelItems.access,
+                category = cat,
+            )
+            res = ChartModel.objects.filter(uuid = ChartModelItems.uuid)[0]
+            res.datasource.clear()
+   
         for i in ChartModelItems.datasource_uuid:
             dataset = get_object_or_404(DataSourceModel, uuid = i)
             res.datasource.add(dataset)
 
         return res
+    
     
     def addNewLayout(self,LayoutModelItems):
         # print(LayoutModelItems.category)

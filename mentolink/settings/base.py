@@ -159,7 +159,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hamkav_dash_db',
         'USER': 'postgres',
-        'PASSWORD': 'INcaYqhfvUvnXcXnRYymBveW',
+        'PASSWORD': '1234',
+        # 'PASSWORD': 'INcaYqhfvUvnXcXnRYymBveW',
         'HOST': 'localhost',
         'PORT': '5432',
     }

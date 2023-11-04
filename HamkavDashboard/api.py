@@ -28,6 +28,7 @@ class ChartTypeModelItems_out(Schema):
 
 class ChartModelItems(Schema):
     # id : List[int]
+    uuid : UUID4 = None
     datasource_uuid : List[UUID4]
     chart_type_uuid : UUID4
     title:str
@@ -41,7 +42,7 @@ class category_out(Schema):
     name: str
     
 class ChartModelItems_out(Schema):
-    uuid: UUID4
+    uuid: UUID4 = None
     # datasource_id: int
     datasource: List[datasourceItems_out]
     chart_type: ChartTypeModelItems_out #if a=="test" else None
@@ -91,8 +92,16 @@ class LayoutCategoricalModelItems_out(Schema):
 def create(request,ChartModelItems: ChartModelItems = Form(...)):
     # print(ChartModelItems)
     a = Chart(request)
-    b = a.addNewChart(ChartModelItems)
+    b = a.AddUpdateChart(ChartModelItems)
     return {"res":ChartModelItems}
+
+# @router.post("/edit_chart",  auth=JWTAuth())
+# def create(request,ChartModelItems: ChartModelItems = Form(...)):
+#     # print(ChartModelItems)
+#     a = Chart(request)
+#     b = a.editChart(ChartModelItems)
+#     return {"res":ChartModelItems}
+
 
 @router.get("/chart_list" , auth=JWTAuth(), response=List[ChartModelItems_out])
 def list(request):
