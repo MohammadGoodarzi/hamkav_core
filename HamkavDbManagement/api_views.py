@@ -10,6 +10,8 @@ from HamkavConfigurator.api_views import get_category_hierarchy_in_model_relatio
 
 
 
+
+
 from ninja_jwt.authentication import JWTAuth # jwt
 
 class DB:  # کلاس عملیات با کانکشنهای دیتابیس
@@ -42,13 +44,16 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
     def addNewDatasource(self, datasourceItems):
         
         databaseConnection = get_object_or_404( DataBaseConnectionModel,uuid = datasourceItems.database_connection_uuid )
+        cat = get_object_or_404(Category_type2,id =datasourceItems.category) 
+        
 
         res = DataSourceModel.objects.create(
             user_creator = self.request.user,
             database_connection=databaseConnection,
             title = datasourceItems.title,
             query_string = datasourceItems.query_string,
-            description = datasourceItems.description
+            description = datasourceItems.description,
+            category = cat
         )
         return res
     

@@ -17,3 +17,12 @@ def GetCategory_type_one_list(request):
     return  res
 
 
+@router.get("/type_two_cat_list")
+def GetCategory_type_one_list(request):
+    root_categories = Category_type2.get_root_nodes()
+    category_hierarchy_json = [get_category_hierarchy(Category_type2, 'pi pi-folder', 'pi pi-th-large') for Category_type2 in root_categories]
+    res = category_hierarchy_json
+    # print(res)
+    return  res
+
+

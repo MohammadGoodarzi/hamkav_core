@@ -50,6 +50,7 @@ class datasourceItems(Schema):
     name: str = None
     query_string: str 
     description: str  = None
+    category: int 
     
 class datasourceItems_out(Schema):
     # database_connection_uuid: dbCconnectionItems_out = None
