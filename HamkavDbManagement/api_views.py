@@ -8,10 +8,6 @@ from HamkavConfigurator.models import Category_type2
 from HamkavConfigurator.api_views import get_category_hierarchy_in_model_relation
 
 
-
-
-
-
 from ninja_jwt.authentication import JWTAuth # jwt
 
 class DB:  # کلاس عملیات با کانکشنهای دیتابیس
@@ -47,14 +43,46 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         cat = get_object_or_404(Category_type2,id =datasourceItems.category) 
         
 
-        res = DataSourceModel.objects.create(
-            user_creator = self.request.user,
-            database_connection=databaseConnection,
-            title = datasourceItems.title,
-            query_string = datasourceItems.query_string,
-            description = datasourceItems.description,
-            category = cat
-        )
+
+        if datasourceItems.uuid:
+            # obj = get_object_or_404(DataSourceModel, uuid = datasourceItems.uuid)
+            obj = DataSourceModel.objects.filter(uuid = datasourceItems.uuid) 
+            res = obj.update(
+                user_creator = self.request.user,
+                database_connection=databaseConnection,
+                title = datasourceItems.title,
+                query_string = datasourceItems.query_string,
+                description = datasourceItems.description,
+                category = cat
+            )
+        else:
+            res = DataSourceModel.objects.create(
+                user_creator = self.request.user,
+                database_connection=databaseConnection,
+                title = datasourceItems.title,
+                query_string = datasourceItems.query_string,
+                description = datasourceItems.description,
+                category = cat
+             )
+        
+      
+                
+        # obj, created = DataSourceModel.objects.get_or_create(
+                    # uuid = datasourceItems.uuid ,
+                    #         defaults={
+                    #                 'user_creator': self.request.user,
+                    #                 'database_connection':databaseConnection,
+                    #                 'title': datasourceItems.title,
+                    #                 'query_string': datasourceItems.query_string,
+                    #                 'description': datasourceItems.description,
+                    #                 'category': cat
+                    #         }
+                            
+                            
+                            # )
+        
+        
+        
         return res
     
     def ConnectionList(self):
@@ -110,6 +138,11 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         # print(root_categories)
         category_hierarchy_json = [get_category_hierarchy_in_model_relation(category, 'datasource_category', 'pi pi-folder', 'pi pi-th-large') for category in root_categories]
         return  category_hierarchy_json
+    
+    def GetDataSourceDetails(self, datasource_uuid):
+        res = get_object_or_404(DataSourceModel, uuid = datasource_uuid)
+        
+        return res
 
          
     

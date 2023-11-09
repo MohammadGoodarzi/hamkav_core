@@ -43,8 +43,20 @@ class dbCconnectionItems_out(Schema):
     password: str 
     connection_string: str  = None
     description: str  = None
+class dbCconnectionItems_out_2(Schema):
+    database_type: DataBaseType_out = None
+    uuid: UUID4
+    # url: str 
+    title: str 
+    # name: str
+    # port: int 
+    # username: str 
+    # password: str 
+    # connection_string: str  = None
+    # description: str  = None
 
 class datasourceItems(Schema):
+    uuid: UUID4 = None # using for update method
     database_connection_uuid: UUID4
     title: str 
     name: str = None
@@ -60,6 +72,7 @@ class datasourceItems_out(Schema):
     query_string: str  = None
     description: str  = None
     category: category_out = None
+    database_connection : dbCconnectionItems_out_2 = None
     
 
 class sqlQueryText(Schema):
@@ -88,6 +101,11 @@ def list(request):
     res = a.ConnectionList()
     return  res
     
+@router.get("/datasource_detail", auth=JWTAuth(), response=datasourceItems_out)
+def getDetail(request,uuid : UUID4):
+    # print(uuid)
+    a = DB(request)
+    return a.GetDataSourceDetails(datasource_uuid = uuid)
     
 @router.get("/datasources_list" , auth=JWTAuth(), response=List[datasourceItems_out])
 def list(request):
