@@ -29,7 +29,7 @@ class ChartTypeModelItems_out(Schema):
 class ChartModelItems(Schema):
     # id : List[int]
     uuid : UUID4 = None
-    datasource_uuid : List[UUID4]
+    datasource_uuid : List[UUID4] = None
     chart_type_uuid : UUID4
     title:str
     access: str
@@ -90,7 +90,7 @@ class LayoutCategoricalModelItems_out(Schema):
 # Chart    
 @router.post("/add_chart",  auth=JWTAuth())
 def create(request,ChartModelItems: ChartModelItems = Form(...)):
-    # print(ChartModelItems)
+    print(ChartModelItems)
     a = Chart(request)
     b = a.AddUpdateChart(ChartModelItems)
     return {"res":ChartModelItems}

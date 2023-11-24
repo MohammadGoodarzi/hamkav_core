@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from .models import DataBaseConnectionModel, DataBaseType, DataSourceModel
+from .models import DataBaseConnectionModel, DataBaseType, DataSourceModel, DataSourceType
 from HamkavAuth.models import User
 from . execSqlQuery import execPgQuery
 from django.shortcuts import get_object_or_404 
@@ -86,15 +86,27 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         return res
     
     def ConnectionList(self):
-        res = DataBaseConnectionModel.objects.filter(is_active = True)
+        res = DataBaseConnectionModel.objects.filter( is_active = True )
         # res = DataBaseConnectionModel.objects.all()
         # res = DataBaseConnectionModel.objects.select_related("database_type")
         return  list(res)
         
-    def  DatasourceList(self):
-        # res = DataBaseConnectionModel.objects.filter(is_active = True)
-        # res = DataBaseConnectionModel.objects.all()
-        res = DataSourceModel.objects.select_related("database_connection")
+    def  DatasourceList(self, datasource_type):
+        # res = DataSourceModel.objects.filter(is_active = True)
+        
+        if not datasource_type:
+            # datasource_type = 'database'
+            # res = DataSourceModel.objects.filter(is_active= True, datasource_type__name = datasource_type)
+            res = DataSourceModel.objects.filter(is_active= True, datasource_type = None)
+        else:
+            
+        # a = DataSourceType.objects.filter(name = 'image')
+        # print(a)
+            res = DataSourceModel.objects.filter(is_active= True, datasource_type__name = datasource_type)
+        # print(res)
+        # datasource_type__title = 'media',
+        # print(datasource_type)
+        # res = DataSourceModel.objects.select_related("database_connection")
         return  list(res)
     
     def RunQuery(self,sqlQueryText):
@@ -123,14 +135,27 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         return a
     
     def GetDataSourceResult(self, datasource_uuid):
-        # print("datasource_uuid",datasource_uuid)
-        # params= DataSourceModel.objects.get(uuid = datasource_uuid)
-        # params2 = params.database_connection
-        # print("params2",params2)
-        m1 = get_object_or_404(DataSourceModel, uuid = datasource_uuid) 
-        query_string = m1.query_string
-        params = m1.database_connection
-        return run_sql(params,query_string)  
+
+
+        m1 = get_object_or_404(DataSourceModel, uuid = datasource_uuid)             
+        # query_string = m1.query_string
+        # params = m1.database_connection
+        # return run_sql(params,query_string)  
+        print(m1)
+
+        # اگر دیتاسورس نوعی غیر از دیتابیس دارد آدرس آن برگرداندده شود
+        # به جای اجرای query آن
+        print("m1.datasource_type",m1.datasource_type)
+        if m1.datasource_type:
+            if  m1.datasource_type.name == 'image' :
+                print("yeeeees")
+                return {"query_result": str(m1.media_source.media_url)}
+            
+        else: 
+            query_string = m1.query_string
+            params = m1.database_connection
+            return run_sql(params,query_string)  
+            
     
     def GetCategorisedDataSourceList(self):
    

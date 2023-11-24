@@ -108,9 +108,9 @@ def getDetail(request,uuid : UUID4):
     return a.GetDataSourceDetails(datasource_uuid = uuid)
     
 @router.get("/datasources_list" , auth=JWTAuth(), response=List[datasourceItems_out])
-def list(request):
+def list(request,datasource_type:str=None):
     a = DB(request)
-    res = a.DatasourceList()
+    res = a.DatasourceList(datasource_type)
     return  res
 
 @router.get("/categorised_datasource_list")
