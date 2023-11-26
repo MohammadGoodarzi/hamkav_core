@@ -12,6 +12,9 @@ from . api_views import DB
 
 router = Router()
 
+class DataSourceType_out(Schema):
+    title:str
+    name:str
 class category_out(Schema):
     id: int
     name: str
@@ -73,6 +76,7 @@ class datasourceItems_out(Schema):
     description: str  = None
     category: category_out = None
     database_connection : dbCconnectionItems_out_2 = None
+    datasource_type : DataSourceType_out = None
     
 
 class sqlQueryText(Schema):
@@ -89,10 +93,10 @@ def create(request,dbCconnectionItems: dbCconnectionItems = Form(...)):
     return {"res":dbCconnectionItems,"ddd":"eeeeee"}
 
 @router.post("/newdatasource", auth=JWTAuth())
-def create(request,datasourceItems: datasourceItems = Form(...)):
+def create(request,datasource_type:str,datasourceItems: datasourceItems = Form(...)):
 
     a = DB(request)
-    b = a.addNewDatasource(datasourceItems)
+    b = a.addNewDatasource(datasourceItems, datasource_type)
     return {"res":datasourceItems,"ddd":"eeeeee"}
 
 @router.get("/connections_list" , auth=JWTAuth(), response=List[dbCconnectionItems_out])

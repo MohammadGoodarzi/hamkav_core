@@ -37,10 +37,13 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         )
         return res
     
-    def addNewDatasource(self, datasourceItems):
+    def addNewDatasource(self, datasourceItems, datasource_type):
         
+
         databaseConnection = get_object_or_404( DataBaseConnectionModel,uuid = datasourceItems.database_connection_uuid )
         cat = get_object_or_404(Category_type2,id =datasourceItems.category) 
+        da_type = get_object_or_404(DataSourceType, name = datasource_type)
+        
         
 
 
@@ -49,6 +52,7 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
             obj = DataSourceModel.objects.filter(uuid = datasourceItems.uuid) 
             res = obj.update(
                 user_creator = self.request.user,
+                datasource_type = da_type,
                 database_connection=databaseConnection,
                 title = datasourceItems.title,
                 query_string = datasourceItems.query_string,
@@ -59,6 +63,7 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
             res = DataSourceModel.objects.create(
                 user_creator = self.request.user,
                 database_connection=databaseConnection,
+                datasource_type = da_type,
                 title = datasourceItems.title,
                 query_string = datasourceItems.query_string,
                 description = datasourceItems.description,
