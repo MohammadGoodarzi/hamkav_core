@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 
 from HamkavConfigurator.models import Category_type2
 from HamkavConfigurator.api_views import get_category_hierarchy_in_model_relation
+from django.db.models import Q
 
 
 from ninja_jwt.authentication import JWTAuth # jwt
@@ -102,7 +103,12 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         if not datasource_type:
             # datasource_type = 'database'
             # res = DataSourceModel.objects.filter(is_active= True, datasource_type__name = datasource_type)
-            res = DataSourceModel.objects.filter(is_active= True, datasource_type = None)
+            res = DataSourceModel.objects.filter(Q(is_active= True, datasource_type=None)
+                |Q(is_active= True, datasource_type__name = 'database'))
+            
+            
+
+
         else:
             
         # a = DataSourceType.objects.filter(name = 'image')
@@ -147,18 +153,32 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         # params = m1.database_connection
         # return run_sql(params,query_string)  
         print(m1)
+        print("m1.datasource_type:",m1.datasource_type)
+        print("m1.datasource_type.name:",m1.datasource_type.name)
+        print("m1.datasource_type.title:",m1.datasource_type.title)
 
         # اگر دیتاسورس نوعی غیر از دیتابیس دارد آدرس آن برگرداندده شود
-        # به جای اجرای query آن
-        print("m1.datasource_type",m1.datasource_type)
+        
         if m1.datasource_type:
             if  m1.datasource_type.name == 'image' :
                 print("yeeeees")
                 return {"query_result": str(m1.media_source.media_url)}
+            elif  m1.datasource_type.name == 'database' :
+                query_string = m1.query_string
+                params = m1.database_connection
+                print(10*'*')
+                print("params::",params)
+                print("query_string::::",query_string)
+                print(10*'*')
+                return run_sql(params,query_string)  
             
         else: 
             query_string = m1.query_string
             params = m1.database_connection
+            print(10*'*')
+            print("params::",params)
+            print("query_string::::",query_string)
+            print(10*'*')
             return run_sql(params,query_string)  
             
     
