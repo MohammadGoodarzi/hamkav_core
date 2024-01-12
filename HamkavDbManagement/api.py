@@ -31,24 +31,24 @@ class dbCconnectionItems(Schema):
     description: str  = None
     
 class DataBaseType_out(Schema):
-    uuid: UUID4
-    title: str
-    name: str
+    uuid: UUID4 = None
+    title: str = None
+    name: str = None
     
 class dbCconnectionItems_out(Schema):
     database_type: DataBaseType_out = None
-    uuid: UUID4
-    url: str 
-    title: str 
-    name: str
-    port: int 
-    username: str 
-    password: str 
+    uuid: UUID4= None
+    url: str = None
+    title: str = None
+    name: str= None
+    port: int = None
+    username: str = None
+    password: str = None
     connection_string: str  = None
     description: str  = None
 class dbCconnectionItems_out_2(Schema):
     database_type: DataBaseType_out = None
-    uuid: UUID4
+    uuid: UUID4 = None
     # url: str 
     title: str 
     # name: str
@@ -132,9 +132,9 @@ def list(request, sqlQueryText:sqlQueryText = Form(...)):
     return  {"res":res}
 
 @router.get("/datasourceresult")
-def list(request, datasource_uuid : UUID4):
+def list(request, datasource_uuid : UUID4 = None, datasource_name: str = None):
     a = DB(request)
-    res = a.GetDataSourceResult(datasource_uuid)
+    res = a.GetDataSourceResult(datasource_uuid, datasource_name)
     return  {"res":res}
     
     # res = DataBaseConnectionModel.objects.select_related("database_type")

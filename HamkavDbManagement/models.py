@@ -3,7 +3,7 @@ from HamkavAuth.models import User
 import jdatetime
 from HamkavConfigurator.models import Category_type2 as Category
 from HamkavMedia.models import MediaModel
-
+from django.utils.text import slugify
 
 
 import uuid
@@ -101,7 +101,7 @@ class DataSourceModel(models.Model):
     user_creator = models.ForeignKey(User, on_delete=models.CASCADE)
     media_source = models.ForeignKey(MediaModel, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=300, null= False, blank=False)
-    name = models.CharField(max_length=300, null= True, blank=True)
+    name = models.CharField(max_length=300, null= True, blank=False, unique=True)
     query_string = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -110,8 +110,11 @@ class DataSourceModel(models.Model):
     updated_shamsi = models.CharField(max_length=50, null=True, editable=False)
     is_active = models.BooleanField(default=True)
     
+    
     def save(self,  *args, **kwargs):
         self.created_shamsi = jdatetime.datetime.now().strftime("%a, %d %b %Y %H:%M:%S")
+        self.name = slugify(self.name,allow_unicode=True)
+        
 		# self.created_shamsi = jdatetime.datetime.now().strftime("%a, %d %b %Y %H:%M:%S")
         super(DataSourceModel, self).save( *args, **kwargs)
     
@@ -136,3 +139,6 @@ class APIManageModel(models.Model):
         super(APIManageModel, self).save( *args, **kwargs)
     def __str__(self):
 	    return f'{self.id} - {self.title} - {self.url}'
+ 
+ 
+ 

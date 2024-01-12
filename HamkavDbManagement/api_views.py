@@ -105,6 +105,7 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
             # res = DataSourceModel.objects.filter(is_active= True, datasource_type__name = datasource_type)
             res = DataSourceModel.objects.filter(Q(is_active= True, datasource_type=None)
                 |Q(is_active= True, datasource_type__name = 'database'))
+            # print(res.query)
             
             
 
@@ -145,40 +146,45 @@ class DB:  # کلاس عملیات با کانکشنهای دیتابیس
         a = run_sql(params,sqlQueryText.query_string)
         return a
     
-    def GetDataSourceResult(self, datasource_uuid):
+    def GetDataSourceResult(self, datasource_uuid, datasource_name):
 
-
-        m1 = get_object_or_404(DataSourceModel, uuid = datasource_uuid)             
+        m1= None
+        
+        if datasource_name:
+            m1 = get_object_or_404(DataSourceModel, name = datasource_name)    
+        elif datasource_uuid:
+            m1 = get_object_or_404(DataSourceModel, uuid = datasource_uuid)    
+            
         # query_string = m1.query_string
         # params = m1.database_connection
         # return run_sql(params,query_string)  
-        print(m1)
-        print("m1.datasource_type:",m1.datasource_type)
-        print("m1.datasource_type.name:",m1.datasource_type.name)
-        print("m1.datasource_type.title:",m1.datasource_type.title)
+        # print(m1)
+        # print("m1.datasource_type:",m1.datasource_type)
+        # print("m1.datasource_type.name:",m1.datasource_type.name)
+        # print("m1.datasource_type.title:",m1.datasource_type.title)
 
         # اگر دیتاسورس نوعی غیر از دیتابیس دارد آدرس آن برگرداندده شود
         
         if m1.datasource_type:
             if  m1.datasource_type.name == 'image' :
-                print("yeeeees")
+                # print("yeeeees")
                 return {"query_result": str(m1.media_source.media_url)}
             elif  m1.datasource_type.name == 'database' :
                 query_string = m1.query_string
                 params = m1.database_connection
-                print(10*'*')
-                print("params::",params)
-                print("query_string::::",query_string)
-                print(10*'*')
+                # print(10*'*')
+                # print("params::",params)
+                # print("query_string::::",query_string)
+                # print(10*'*')
                 return run_sql(params,query_string)  
             
         else: 
             query_string = m1.query_string
             params = m1.database_connection
-            print(10*'*')
-            print("params::",params)
-            print("query_string::::",query_string)
-            print(10*'*')
+            # print(10*'*')
+            # print("params::",params)
+            # print("query_string::::",query_string)
+            # print(10*'*')
             return run_sql(params,query_string)  
             
     
